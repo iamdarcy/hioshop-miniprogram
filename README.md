@@ -6,7 +6,9 @@
 
 本项目需要配合服务端使用，GitHub: https://github.com/iamdarcy/hioshop-server
 
-云服务器ECS-云主机优惠-2折上云
+阿里云主机：低至3折
+<a target="_blank" href="https://www.aliyun.com/acts/hotsale?userCode=zm04niet">立即去看看</a>
+
 
 ### 项目截图
 + 首页
