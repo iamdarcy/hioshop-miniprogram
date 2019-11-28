@@ -13,7 +13,7 @@
 ### 项目截图
 + 首页
 
-<img width="400" height="712" src="http://lucky-other.meiweiyuxian.com/github/1.png"/>
+<img width="400" height="712" src="http://lucky-other.meiweiyuxian.com/github/01.png"/>
 
 + 分类
 
@@ -25,7 +25,7 @@
 
 + 我的页面
 
-<img width="400" height="712" src="http://lucky-other.meiweiyuxian.com/github/6.png"/>
+<img width="400" height="712" src="http://lucky-other.meiweiyuxian.com/github/06.png"/>
 
 + 商品详情页
 
