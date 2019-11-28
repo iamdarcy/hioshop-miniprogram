@@ -1,0 +1,13 @@
+<view class="container">
+    <view class='logo'>
+        <image class='logo-img' src='http://lucky-icon.meiweiyuxian.com/hio/logo.png'></image>
+    </view>
+    <view class='logo-name'>海鸥商城</view>
+    <view class='intro'>开源微信小程序商城</view>
+    <view class='login'>请完成微信授权以继续使用</view>
+    <button class='btn-login' open-type="getUserInfo" bindgetuserinfo='getUserInfo'>
+        <view class='img-w'></view>
+        <view class='text'>微信快捷登录</view>
+    </button>
+    <view class="cancel" bindtap="goBack">取消</view>
+</view>

@@ -1,0 +1,60 @@
+<view class="container">
+    <view class='wrap'>
+        <view class="address-box">
+            <view class='top-line'></view>
+            <view class="receive-title">收件人</view>
+            <view class='add-address' bindtap="toSelectAddress" wx:if="{{checkedAddress.id > 0}}">
+                <view class="show-address">
+                    <view class="name-tel">
+                        <view wx:if="{{checkedAddress.is_default}}" class='default-address'>默认</view>
+                        {{checkedAddress.name}} {{checkedAddress.mobile}}
+                    </view>
+                    <view class="addr-text">{{checkedAddress.full_region + checkedAddress.address}}</view>
+                </view>
+            </view>
+            <view wx:else class="add-address" hidden="" bindtap='toSelectAddress'>
+                <view class="addr-title">请选择收货地址</view>
+            </view>
+        </view>
+        <view class="goods-list" bindtap='toGoodsList'>
+            <view class="list-title">商品信息</view>
+            <view class="a-goods">
+                <view class="img-box">
+                    <view class='image-wrap' wx:for="{{checkedGoodsList}}" wx:if="{{index<5}}" wx:key="{{item.id}}">
+                        <image src="{{item.list_pic_url}}" class="goods-image"></image>
+                    </view>
+                </view>
+                <view class='goods-sum'>共{{goodsCount}}件</view>
+            </view>
+        </view>
+        <view class="price-check-wrap">
+            <view class="row-box">
+                <view class="row-label">商品总价</view>
+                <view class="right-text">￥{{goodsTotalPrice}}</view>
+            </view>
+            <view class="row-box">
+                <view class="row-label">快递</view>
+                <view class="right-text">¥{{freightPrice}}</view>
+            </view>
+            <view class="memo-box">
+                <view class="row-label">备注：</view>
+                <view class="right-text memo-input">
+                    <input type="text" class="memo" bindinput="bindinputMemo" value="{{orderInfo.postscript}}" placeholder="亲爱的买家，这里输入备注" cursor-spacing="100" />
+                </view>
+            </view>
+            <view class="bottom-box">
+                <view class="row-label">合计：</view>
+                <view class="right-text price-to-pay">
+                    ¥{{orderTotalPrice}}
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="settle-box">
+        <view class="left-price">
+            <view class="total">实付：</view>
+            <view class="pay-money">¥ {{actualPrice}}</view>
+        </view>
+        <button class="to-pay-btn" bindtap='submitOrder'>提交订单</button>
+    </view>
+</view>

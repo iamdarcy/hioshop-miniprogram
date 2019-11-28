@@ -1,0 +1,21 @@
+<view class="container">
+    <view class='express-corp-wrap'>
+        <view class='express-info-wrap'>
+            <view class='express-corp-name'>快递公司：{{expressList.shipper_name}}</view>
+            <view class='express-info-id'>运单号：{{expressList.logistic_code}}</view>
+        </view>
+    </view>
+    <view wx:if="{{hasExpress == 0}}" class="no-info" hidden="">暂无物流信息</view>
+    <view wx:else class='express-details'>
+        <view class='title'>运输状态</view>
+        <view class="wrap {{index==0?'active':''}}" wx:for="{{expressList.traces}}" wx:key="id" data-index="{{index}}">
+            <view class='dot-wrap'>
+                <view class='dot'></view>
+            </view>
+            <view class='info-wrap'>
+                <view class='express-info'>{{item.status}}</view>
+                <view class='express-time'>{{item.time}}</view>
+            </view>
+        </view>
+    </view>
+</view>

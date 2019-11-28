@@ -1,0 +1,84 @@
+<scroll-view class="container" style="height: 100%;">
+    <view class="search-header">
+        <view class="input-box">
+            <image class="icon-search"></image>
+            <input name="input" class="keywrod" focus="true" value="{{keyword}}" confirm-type="search" bindinput="inputChange" bindfocus="inputFocus" bindconfirm="onKeywordConfirm" confirm-type="search" placeholder="{{defaultKeyword.keyword}}" />
+            <image class="del" wx:if="{{keyword}}" bindtap="clearKeyword"></image>
+        </view>
+        <view class="right" bindtap="closeSearch">取消</view>
+    </view>
+    <view class="no-search" wx:if="{{ !searchStatus}}">
+        <view class="serach-keywords search-history" wx:if="{{!keyword  && historyKeyword.length}}">
+            <view class="h">
+                <text class="title">历史记录</text>
+                <image class="icon" bindtap="clearHistory"></image>
+            </view>
+            <view class="b">
+                <view class="item" bindtap="onKeywordTap" data-keyword="{{item}}" wx:for="{{historyKeyword}}" hover-class="navigator-hover" wx:key="{{item.id}}">{{item}}</view>
+            </view>
+        </view>
+        <view class="serach-keywords search-hot" wx:if="{{!keyword}}">
+            <view class="h">
+                <text class="title">热门搜索</text>
+            </view>
+            <view class="b">
+                <view class="item {{item.is_hot === 1 ? 'active' : ''}}" hover-class="navigator-hover" bindtap="onKeywordTap" data-keyword="{{item.keyword}}" wx:for="{{hotKeyword}}" wx:key="{{item.id}}">{{item.keyword}}</view>
+            </view>
+        </view>
+        <view class="shelper-list" wx:if="{{keyword}}">
+            <view class="item" hover-class="navigator-hover" wx:for="{{helpKeyword}}" bindtap="onKeywordTap" data-keyword="{{item}}" wx:key="{{item.id}}">{{item}}</view>
+        </view>
+    </view>
+
+    <view class="search-result" wx:if="{{ searchStatus && goodsList.length}}">
+        <view class="sort">
+            <view class="sort-box">
+                <view class="item {{currentSortType == 'default' ? 'active' : ''}}" bindtap="openSortFilter" id="defaultSort">
+                    <text class="txt">综合</text>
+                </view>
+                <view class="item by-price {{currentSortType == 'price' ? 'active' : ''}} {{currentSortOrder == 'asc'  ? 'asc' : 'desc'}}" bindtap="openSortFilter" id="priceSort">
+                    <text class="txt">价格</text>
+                </view>
+                <view class="item by-sales {{currentSortType == 'sales' ? 'active' : ''}} {{salesSortOrder == 'asc'  ? 'asc' : 'desc'}}" bindtap="openSortFilter" id="salesSort">
+                    <text class="txt">销量</text>
+                </view>
+            </view>
+        </view>
+        <view class="cate-item">
+            <view class="b">
+                <view class='list-wrap clearfix'>
+                    <view class="goods-box {{(iindex+1)%2 == 0?'no-margin':''}}" wx:for="{{goodsList}}" wx:for-index="iindex" wx:for-item="iitem" wx:key="{{iitem.id}}">
+                        <navigator hover-class='none' class='navi-url' url="/pages/goods/goods?id={{iitem.id}}">
+                            <view class="box">
+                                <image src="{{iitem.list_pic_url}}" class="image">
+                                    <view wx:if="{{iitem.is_new == 1}}" class='new-tag'>新品</view>
+                                </image>
+                                <block wx:if="{{iitem.goods_number == 0}}">
+                                    <!-- <view class='no-goods-mask'></view> -->
+                                    <view class='sold-img'>
+                                        <image class='soldout' src='http://lucky-icon.meiweiyuxian.com/hio/sold-out.png'></image>
+                                    </view>
+                                </block>
+                            </view>
+                            <view class="goods-info {{iitem.goods_number == 0?'fast-out-status':''}}">
+                                <view class="goods-title">{{iitem.name}}</view>
+                                <view class="goods-intro">{{iitem.goods_brief}}</view>
+                                <view class='price-container'>
+                                    <view class='l'>
+                                        <view class='h'>￥{{iitem.min_retail_price}}</view>
+                                    </view>
+                                </view>
+                            </view>
+                        </navigator>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class='no-more'>没有更多商品了</view>
+    </view>
+
+    <view class="search-result-empty" wx:if="{{!goodsList.length && searchStatus}}">
+        <image class="icon"></image>
+        <text class="text">没找到，换个关键字试试</text>
+    </view>
+</scroll-view>

@@ -1,0 +1,245 @@
+page {
+    min-height: 100%;
+    background-color: #f8f8f8;
+}
+
+.container {
+    min-height: 100%;
+    /* align-items: stretch; */
+    background: #f8f8f8;
+    overflow-x: hidden;
+    padding: 30rpx;
+}
+
+.edit-container {
+    background: #fff;
+    width: 100%;
+    margin-bottom: 30rpx;
+    border-radius: 10rpx;
+    box-shadow: 2rpx 8rpx 18rpx #f1f1f1;
+}
+
+.a-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 30rpx;
+}
+
+.a-item .icon {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-right: 20rpx;
+}
+
+.a-item .icon .img {
+    width: 36rpx;
+    height: 36rpx;
+}
+
+.a-item .input-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 30rpx 30rpx 30rpx 0;
+    border-bottom: 1rpx solid #f1f1f1;
+}
+
+.a-item:last-child .input-wrap {
+    border-bottom: none;
+}
+
+.a-item .input-wrap .a-input {
+    font-size: 28rpx;
+    width: 100%;
+}
+
+.a-item .input-wrap .arrow {
+    width: 10rpx;
+    height: 10rpx;
+    border-top: 4rpx solid #aaa;
+    border-right: 4rpx solid #aaa;
+    transform: rotate(45deg);
+}
+
+.a-input {
+    font-size: 28rpx;
+    width: 100%;
+}
+
+.confirm-box {
+    width: 100%;
+    height: 100rpx;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    /* border-top:1px solid #eee;  */
+    background: linear-gradient(to right, #ff116a, #fe5b46);
+    text-align: center;
+    line-height: 100rpx;
+    color: #fff;
+    font-size: 32rpx;
+}
+
+.default-input {
+    font-size: 28rpx;
+    color: #233445;
+    line-height: 60rpx;
+    margin: 0 auto;
+    width: 300rpx;
+}
+
+.region-select {
+    width: 100%;
+    height: 600rpx;
+    background: #fff;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    bottom: 0;
+}
+
+.region-select .hd {
+    height: 108rpx;
+    width: 100%;
+    border-bottom: 1px solid #f4f4f4;
+    padding: 46rpx 30rpx 0 30rpx;
+    box-sizing: border-box;
+}
+
+.region-select .region-selected {
+    float: left;
+    height: 60rpx;
+    display: flex;
+}
+
+.region-select .region-selected .item {
+    max-width: 140rpx;
+    margin-right: 30rpx;
+    text-align: left;
+    line-height: 60rpx;
+    height: 100%;
+    color: #333;
+    font-size: 28rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.region-select .region-selected .item.disabled {
+    color: #999;
+}
+
+.region-select .region-selected .item.selected {
+    color: #ff3456;
+}
+
+.region-select .done {
+    float: right;
+    height: 60rpx;
+    width: 60rpx;
+    border: none;
+    background: #fff;
+    line-height: 60rpx;
+    text-align: center;
+    color: #ff3456;
+    font-size: 28rpx;
+}
+
+.region-select .done.disabled {
+    color: #999;
+}
+
+.region-select .bd {
+    height: 492rpx;
+    width: 100%;
+    padding: 0 30rpx;
+}
+
+.region-select .region-list {
+    height: 492rpx;
+}
+
+.region-select .region-list .item {
+    width: 100%;
+    height: 104rpx;
+    line-height: 104rpx;
+    text-align: left;
+    color: #333;
+    font-size: 28rpx;
+}
+
+.region-select .region-list .item.selected {
+    color: #ff3456;
+}
+
+.bg-mask {
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 8;
+}
+
+.default-wrap{
+    background: #fff;
+    width: 100%;
+    margin-bottom: 30rpx;
+    border-radius: 10rpx;
+    box-shadow: 2rpx 8rpx 18rpx #f1f1f1;
+    padding: 30rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.default-wrap .text{
+    font-size: 28rpx;
+}
+
+.btn-wrap {
+    width: 100%;
+    padding: 24rpx 0;
+    /* position: fixed;
+    bottom: 0;
+    left: 0; */
+    box-sizing: border-box;
+}
+
+.btn-wrap .btn {
+    font-size: 28rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    text-align: center;
+    border-radius: 10rpx;
+    width: 100%;
+    color: #fff;
+    background: #bbb;
+    box-shadow: 0rpx 10rpx 20rpx #ccc;
+}
+
+.btn-wrap .btn.active {
+    background: linear-gradient(to right, #ff3456, #ff347d);
+    box-shadow: 0rpx 10rpx 20rpx #f1f1f1;
+    color: #fff;
+}
+
+.delete-wrap {
+    width: 100%;
+    padding: 24rpx;
+    /* position: fixed;
+    bottom: 0;
+    left: 0; */
+    box-sizing: border-box;
+}
+
+.delete-wrap .btn {
+    font-size: 28rpx;
+    color: #5d6777;
+    text-align: center;
+}
