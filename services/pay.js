@@ -10,6 +10,7 @@ function payOrder(orderId) {
         }).then((res) => {
             if (res.errno === 0) {
                 const payParam = res.data;
+                console.log(res.data);
                 wx.requestPayment({
                     'timeStamp': payParam.timeStamp,
                     'nonceStr': payParam.nonceStr,

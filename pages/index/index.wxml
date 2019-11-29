@@ -98,6 +98,6 @@
     <view class="no-more-goods ">没有更多商品啦</view>
 </view>
 <view class="loading" style="height:{{sysHeight}}px" wx:else>
-    <image class="img" src="http://lucky-icon.meiweiyuxian.com/hio/loading.gif"></image>
+    <image class="img" src="http://lucky-icon.meiweiyuxian.com/hio/loading2.gif"></image>
     <view class="text">努力加载中</view>
 </view>

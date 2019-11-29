@@ -72,6 +72,9 @@ Page({
                     cartTotal: res.data.cartTotal,
                     hasCartGoods: hasCartGoods
                 });
+                if (res.data.cartTotal.numberChange == 1) {
+                    util.showErrorToast('部分商品库存有变动');
+                }
             }
             that.setData({
                 checkedAllStatus: that.isCheckedAll()
@@ -140,11 +143,10 @@ Page({
         }
 
     },
-    updateCart: function(productId, goodsId, number, id) {
+    updateCart: function (itemIndex,productId, number, id) {
         let that = this;
         util.request(api.CartUpdate, {
             productId: productId,
-            goodsId: goodsId,
             number: number,
             id: id
         }, 'POST').then(function(res) {
@@ -153,9 +155,13 @@ Page({
                     cartGoods: res.data.cartList,
                     cartTotal: res.data.cartTotal
                 });
+                let cartItem = that.data.cartGoods[itemIndex];
+                cartItem.number = number;
                 that.getCartNum();
             }
-
+            else{
+                util.showErrorToast('库存不足了')
+            }
             that.setData({
                 checkedAllStatus: that.isCheckedAll()
             });
@@ -163,32 +169,30 @@ Page({
 
     },
     cutNumber: function(event) {
-
         let itemIndex = event.target.dataset.itemIndex;
         let cartItem = this.data.cartGoods[itemIndex];
         if (cartItem.number - 1 == 0) {
-            util.showErrorToast('再减没啦，要删除左滑试试')
+            util.showErrorToast('删除左滑试试')
         }
         let number = (cartItem.number - 1 > 1) ? cartItem.number - 1 : 1;
 
-        cartItem.number = number;
+        // cartItem.number = number;
         this.setData({
             cartGoods: this.data.cartGoods,
         });
-        this.updateCart(cartItem.product_id, cartItem.goods_id, number, cartItem.id);
+        this.updateCart(itemIndex,cartItem.product_id, number, cartItem.id);
     },
     clicknone: function() {
-
     },
     addNumber: function(event) {
         let itemIndex = event.target.dataset.itemIndex;
         let cartItem = this.data.cartGoods[itemIndex];
         let number = Number(cartItem.number) + 1;
-        cartItem.number = number;
+        // cartItem.number = number;
         this.setData({
             cartGoods: this.data.cartGoods,
         });
-        this.updateCart(cartItem.product_id, cartItem.goods_id, number, cartItem.id);
+        this.updateCart(itemIndex,cartItem.product_id, number, cartItem.id);
     },
     getCartNum: function() {
         util.request(api.CartGoodsCount).then(function(res) {

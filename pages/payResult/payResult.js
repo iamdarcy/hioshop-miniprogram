@@ -34,7 +34,7 @@ Page({
                 status: true
             });
         }).catch(res => {
-            util.showErrorToast('支付失败');
+            util.showErrorToast(res.errmsg);
         });
     }
 })

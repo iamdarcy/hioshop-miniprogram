@@ -49,7 +49,7 @@
             </block>
             <block wx:else>
                 <view class="loading-wrap">
-                    <image class="img" src="http://lucky-icon.meiweiyuxian.com/hio/loading.gif"></image>
+                    <image class="img" src="http://lucky-icon.meiweiyuxian.com/hio/loading2.gif"></image>
                     <view class="text">正在加载...</view>
                 </view>
             </block>

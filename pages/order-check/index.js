@@ -14,11 +14,11 @@ Page({
         addressId: 0,
         goodsCount: 0,
         postscript: '',
+        outStock: 0
     },
     toGoodsList: function (e) {
-        let orderId = this.data.orderId;
         wx.navigateTo({
-            url: '/pages/ucenter/goods-list/index?type=1',
+            url: '/pages/ucenter/goods-list/index?id=0',
         });
     },
     toSelectAddress: function () {
@@ -119,6 +119,9 @@ Page({
                 if (res.data.outStock == 1) {
                     util.showErrorToast('有部分商品缺货或已下架');
                 }
+                else if (res.data.numberChange == 1){
+                    util.showErrorToast('部分商品库存有变动');
+                }
             }
         });
     },
@@ -141,7 +144,7 @@ Page({
             formId: formId,
             actualPrice: actualPrice,
         }, 'POST').then(res => {
-            const orderId = res.data.orderInfo.id;
+            console.log(res);
             if (res.errno === 0) {
                 wx.removeStorageSync('orderId');
                 wx.setStorageSync('addressId', 0);
@@ -156,7 +159,7 @@ Page({
                     });
                 });
             } else {
-                util.showErrorToast('下单失败');
+                util.showErrorToast(res.errmsg);
             }
         });
     }

@@ -38,7 +38,8 @@ Page({
             that.getOrderList();
             that.getOrderInfo();
         }).catch(res => {
-            util.showErrorToast('支付失败');
+            console.log(res);
+            util.showErrorToast(res.errmsg);
         });
     },
     getOrderInfo: function(e) {
@@ -61,16 +62,6 @@ Page({
         }).then(function(res) {
             if (res.errno === 0) {
                 let count = res.data.count;
-                // var orderList = res.data.data;
-                // that.setData({
-                //     orderList: orderList
-                // });
-                // if (orderList.length == 0) {
-                //     that.setData({
-                //         hasOrder: 1
-                //     });
-                // }
-
                 that.setData({
                     allCount: count,
                     allOrderList: that.data.allOrderList.concat(res.data.data),
@@ -78,14 +69,11 @@ Page({
                     orderList: that.data.allOrderList.concat(res.data.data)
                 });
                 let hasOrderData = that.data.allOrderList.concat(res.data.data);
-
                 if (count == 0) {
                     that.setData({
                         hasOrder: 1
                     });
                 }
-
-
             }
         });
     },
@@ -94,9 +82,7 @@ Page({
             url: '/pages/index/index'
         });
     },
-    onLoad: function() {
-
-    },
+    onLoad: function() {},
     onShow: function() {
         let showType = wx.getStorageSync('showType');
         let nowShowType = this.data.showType;
@@ -113,13 +99,6 @@ Page({
         }
         this.getOrderInfo();
     },
-    // onPullDownRefresh: function () {
-    //     wx.showNavigationBarLoading()
-    //     this.getOrderList();
-    //     this.getOrderInfo();
-    //     wx.hideNavigationBarLoading() //完成停止加载
-    //     wx.stopPullDownRefresh() //停止下拉刷新
-    // },
     switchTab: function(event) {
         let showType = event.currentTarget.dataset.index;
         wx.setStorageSync('showType', showType);
@@ -166,10 +145,8 @@ Page({
             }
         });
     },
-
     onReachBottom: function() {
         let that = this;
-
         if (that.data.allCount / that.data.size < that.data.allPage) {
             that.setData({
                 showTips: 1
@@ -181,5 +158,4 @@ Page({
         });
         that.getOrderList();
     }
-
 })

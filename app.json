@@ -12,6 +12,7 @@
         "pages/ucenter/index/index",
         "pages/ucenter/settings/index",
         "pages/ucenter/order-list/index",
+        "pages/ucenter/goods-list/index",
         "pages/ucenter/order-details/index",
         "pages/ucenter/express-info/index",
         "pages/ucenter/footprint/index",

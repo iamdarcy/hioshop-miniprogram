@@ -225,9 +225,8 @@ Page({
                 });
                 // console.error('规格所对应货品不存在');
                 wx.showToast({
-                    image: 'http://lucky-icon.meiweiyuxian.com/hio/icon_error.png',
+                    image: '/images/icon/icon_error.png',
                     title: '规格所对应货品不存在',
-                    mask: true
                 });
                 return;
             }
@@ -241,9 +240,8 @@ Page({
                     soldout: true
                 });
                 wx.showToast({
-                    image: 'http://lucky-icon.meiweiyuxian.com/hio/icon_error.png',
+                    image: '/images/icon/icon_error.png',
                     title: '库存不足',
-                    // mask: true
                 });
                 return false;
             }
@@ -368,9 +366,8 @@ Page({
             //提示选择完整规格
             if (!this.isCheckedAllSpec()) {
                 wx.showToast({
-                    image: 'http://lucky-icon.meiweiyuxian.com/hio/icon_error.png',
+                    image: '/images/icon/icon_error.png',
                     title: '请选择规格',
-                    mask: true
                 });
                 return false;
             }
@@ -380,9 +377,8 @@ Page({
             if (!checkedProductArray || checkedProductArray.length <= 0) {
                 //找不到对应的product信息，提示没有库存
                 wx.showToast({
-                    image: 'http://lucky-icon.meiweiyuxian.com/hio/icon_error.png',
+                    image: '/images/icon/icon_error.png',
                     title: '库存不足',
-                    mask: true
                 });
                 return false;
             }
@@ -391,9 +387,8 @@ Page({
             if (checkedProduct.goods_number < this.data.number) {
                 //要买的数量比库存多
                 wx.showToast({
-                    image: 'http://lucky-icon.meiweiyuxian.com/hio/icon_error.png',
+                    image: '/images/icon/icon_error.png',
                     title: '库存不足',
-                    mask: true
                 });
                 return false;
             }
@@ -414,7 +409,6 @@ Page({
                         } else {
                             wx.showToast({
                                 title: '添加成功',
-                                // mask: true
                             });
                             if (productLength != 1 || that.data.openAttr == true) {
                                 that.setData({
@@ -430,9 +424,8 @@ Page({
                         }
                     } else {
                         wx.showToast({
-                            image: 'http://lucky-icon.meiweiyuxian.com/hio/icon_error.png',
+                            image: '/images/icon/icon_error.png',
                             title: _res.errmsg,
-                            mask: true
                         });
                     }
 
@@ -459,9 +452,8 @@ Page({
             //提示选择完整规格
             if (!this.isCheckedAllSpec()) {
                 wx.showToast({
-                    image: 'http://lucky-icon.meiweiyuxian.com/hio/icon_error.png',
+                    image: '/images/icon/icon_error.png',
                     title: '请选择规格',
-                    mask: true
                 });
                 return false;
             }
@@ -470,9 +462,8 @@ Page({
             if (!checkedProductArray || checkedProductArray.length <= 0) {
                 //找不到对应的product信息，提示没有库存
                 wx.showToast({
-                    image: 'http://lucky-icon.meiweiyuxian.com/hio/icon_error.png',
+                    image: '/images/icon/icon_error.png',
                     title: '库存不足',
-                    mask: true
                 });
                 return false;
             }
@@ -481,9 +472,8 @@ Page({
             if (checkedProduct.goods_number < this.data.number) {
                 //要买的数量比库存多
                 wx.showToast({
-                    image: 'http://lucky-icon.meiweiyuxian.com/hio/icon_error.png',
+                    image: '/images/icon/icon_error.png',
                     title: '库存不足',
-                    mask: true
                 });
                 return false;
             }
@@ -504,9 +494,8 @@ Page({
                         });
                     } else {
                         wx.showToast({
-                            image: 'http://lucky-icon.meiweiyuxian.com/hio/icon_error.png',
+                            image: '/images/icon/icon_error.png',
                             title: _res.errmsg,
-                            mask: true
                         });
                     }
                 });

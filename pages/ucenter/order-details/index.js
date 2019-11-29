@@ -60,12 +60,9 @@ Page({
     payOrder: function(e) {
         let that = this;
         pay.payOrder(parseInt(that.data.orderId)).then(res => {
-            // this.setData({
-            //     status: true
-            // });
             that.getOrderDetail();
         }).catch(res => {
-            util.showErrorToast('支付失败');
+            util.showErrorToast(res.errmsg);
         });
     },
     toSelectAddress: function() {
@@ -155,15 +152,6 @@ Page({
                     onPosting: 1,
                     express: express
                 });
-                // var traces = res.data.traces;
-                // that.setData({
-                //     expressList: expressList
-                // });
-                // if (traces.length == 0) {
-                //     that.setData({
-                //         hasExpress: 0
-                //     });
-                // }
             }
         });
     },

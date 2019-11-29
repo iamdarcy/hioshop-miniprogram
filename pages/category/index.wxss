@@ -117,6 +117,7 @@ page {
 }
 .catalog .cate .loading-wrap .text{
     font-size: 26rpx;
+    color: #999;
 }
 
 .catalog .cate .banner-container {

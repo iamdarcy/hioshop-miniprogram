@@ -37,7 +37,7 @@
         </view>
     </view>
     <view class="onPosting" wx:if="{{orderInfo.shipping_status && onPosting == 0}}">
-        <image class='loading' src='http://lucky-icon.meiweiyuxian.com/hio/loading.gif'></image>
+        <image class='loading' src='http://lucky-icon.meiweiyuxian.com/hio/loading2.gif'></image>
         <view class='t'>快递信息查询中。。。</view>
     </view>
     <view wx:elif="{{orderInfo.shipping_status && onPosting == 1}}" class="express">
