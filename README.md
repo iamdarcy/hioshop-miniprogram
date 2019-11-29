@@ -1,10 +1,12 @@
-### 海鸥开源商城（微信小程序端）
+### 海风小店，开源商城（微信小程序端）
 
 + 基于开源项目NideShop重建，精简了一些功能的同时完善了一些功能，并重新设计了UI
 + 测试数据来自上述开源项目
 + 服务端api基于Ｎode.js+ThinkJS+MySQL
 
-本项目需要配合服务端使用，GitHub: https://github.com/iamdarcy/hioshop-server
+本项目需要配合  
+服务端： https://github.com/iamdarcy/hioshop-server
+管理后台：https://github.com/iamdarcy/hioshop-admin
 
 阿里云主机：低至3折
 <a target="_blank" href="https://www.aliyun.com/acts/hotsale?userCode=zm04niet">立即去看看</a>
@@ -13,7 +15,7 @@
 ### 项目截图
 + 首页
 
-<img width="400" height="712" src="http://lucky-other.meiweiyuxian.com/github/1.png"/>
+<img width="400" height="712" src="http://lucky-other.meiweiyuxian.com/github/01.png"/>
 
 + 分类
 
@@ -25,7 +27,7 @@
 
 + 我的页面
 
-<img width="400" height="712" src="http://lucky-other.meiweiyuxian.com/github/6.png"/>
+<img width="400" height="712" src="http://lucky-other.meiweiyuxian.com/github/06.png"/>
 
 + 商品详情页
 
