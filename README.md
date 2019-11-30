@@ -4,7 +4,7 @@
 + 测试数据来自上述开源项目
 + 服务端api基于Ｎode.js+ThinkJS+MySQL
 
-本项目需要配合  
+#### 本项目需要配合  
 服务端： https://github.com/iamdarcy/hioshop-server  
 管理后台：https://github.com/iamdarcy/hioshop-admin  
 
@@ -17,33 +17,8 @@
 
 
 ### 项目截图
-+ 首页
 
-<img width="400" height="712" src="http://lucky-other.meiweiyuxian.com/github/01.png"/>
-
-+ 分类
-
-<img width="400" height="712" src="http://lucky-other.meiweiyuxian.com/github/2.png"/>
-
-+ 购物车
-
-<img width="400" height="712" src="http://lucky-other.meiweiyuxian.com/github/5.png"/>
-
-+ 我的页面
-
-<img width="400" height="712" src="http://lucky-other.meiweiyuxian.com/github/06.png"/>
-
-+ 商品详情页
-
-<img width="400" height="712" src="http://lucky-other.meiweiyuxian.com/github/3.png"/>
-
-+ 我的订单
-
-<img width="400" height="712" src="http://lucky-other.meiweiyuxian.com/github/9.png"/>
-
-+ 订单详情页
-
-<img width="400" height="712" src="http://lucky-other.meiweiyuxian.com/github/10.png"/>
+<img width="1400" src="http://lucky-other.meiweiyuxian.com/github/all.jpg"/>
 
 ### 功能列表
 + 首页：搜索、Banner、公告、分类Icons、分类商品列表
