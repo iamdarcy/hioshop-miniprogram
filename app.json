@@ -7,6 +7,7 @@
         "pages/search/search",
         "pages/order-check/index",
         "pages/goods/goods",
+        "pages/ucenter/about/index",
         "pages/ucenter/address/index",
         "pages/ucenter/address-detail/index",
         "pages/ucenter/index/index",

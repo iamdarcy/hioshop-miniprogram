@@ -14,7 +14,7 @@ Page({
         avatar: 'http://lucky-icon.meiweiyuxian.com/hio/default_avatar_big.png',
         status: {},
     },
-    toSettings: function(e) {
+    goProfile: function (e) {
         let res = util.loginNow();
         if (res == true) {
             wx.navigateTo({
@@ -39,6 +39,11 @@ Page({
                 url: '/pages/ucenter/address/index?type=0',
             });
         }
+    },
+    toAbout: function () {
+        wx.navigateTo({
+            url: '/pages/ucenter/about/index',
+        });
     },
     toFootprint: function(e) {
         let res = util.loginNow();

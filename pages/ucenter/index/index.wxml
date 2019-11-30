@@ -1,19 +1,26 @@
 <view class="container">
     <view class="userinfo">
-        <view class='head-wrap' wx:if="{{hasUserInfo == 0}}">
-            <view class='l'>
-                <image class='avatar' src="{{avatar}}"></image>
-            </view>
-            <view class='btn-login' bindtap='goAuth'>点我登录</view>
-        </view>
-        <view class='head-wrap' wx:else>
-            <view class='l' bindtap='goProfile'>
-                <image class='avatar' src="{{userInfo.avatar}}"></image>
-            </view>
-            <view class='r'>
-                <view class='t'>
-                    <view class='name'>{{userInfo.nickname}}</view>
+        <view class='head-wrap' wx:if="{{hasUserInfo == 0}}" bindtap='goAuth'>
+            <view class="no-login-avatar">
+                <view class='no-avatar'>
+                    <image class='avatar' src="{{avatar}}"></image>
                 </view>
+                <view class='btn-login'>点我登录</view>
+            </view>
+        </view>
+        <view class='head-wrap' wx:else bindtap='goProfile'>
+            <view class="head-l">
+                <view class='l'>
+                    <image class='avatar' src="{{userInfo.avatar}}"></image>
+                </view>
+                <view class='r'>
+                    <view class='t'>
+                        <view class='name'>{{userInfo.nickname}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="head-r">
+                <view class="arrow"></view>
             </view>
         </view>
     </view>
@@ -82,12 +89,12 @@
             </view>
             <view class="arrow"></view>
         </button>
-        <view class="list" bindtap="toSettings">
+        <view class="list" bindtap="toAbout">
             <view class="list-l">
                 <view class="icon">
-                    <image class="img" src="http://lucky-icon.meiweiyuxian.com/hio/settings.png"></image>
+                    <image class="img" src="http://lucky-icon.meiweiyuxian.com/hio/icon-about-r.png"></image>
                 </view>
-                <view class="text">设置</view>
+                <view class="text">关于我们</view>
             </view>
             <view class="arrow"></view>
         </view>

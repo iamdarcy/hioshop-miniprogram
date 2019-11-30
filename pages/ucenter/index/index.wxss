@@ -59,31 +59,57 @@ page {
 
 .head-wrap {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     margin: 0 30rpx;
     padding: 30rpx 0;
+    border-bottom: 1rpx solid #f1f1f1;
 }
 
-.head-wrap .l {
+.head-wrap .no-login-avatar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.head-wrap .no-login-avatar .no-avatar {
     width: 128rpx;
     height: 128rpx;
     position: relative;
     margin-right: 20rpx;
 }
 
-.head-wrap .l .avatar-wrap {
-    width: 128rpx;
-    height: 128rpx;
-}
-
-.head-wrap .l .avatar {
+.head-wrap .no-login-avatar .no-avatar .avatar {
     width: 128rpx;
     height: 128rpx;
     border-radius: 90rpx;
 }
 
-.head-wrap .l .crown {
+.head-wrap .head-l {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.head-wrap .head-l .l {
+    width: 110rpx;
+    height: 110rpx;
+    position: relative;
+    margin-right: 20rpx;
+}
+
+.head-wrap .head-l .l .avatar-wrap {
+    width: 110rpx;
+    height: 110rpx;
+}
+
+.head-wrap .head-l .l .avatar {
+    width: 110rpx;
+    height: 110rpx;
+    border-radius: 90rpx;
+}
+
+.head-wrap .head-l .l .crown {
     position: absolute;
     right: -10rpx;
     top: -10rpx;
@@ -92,37 +118,30 @@ page {
     transform: rotate(45deg);
 }
 
-.head-wrap .l .crown .icon {
+.head-wrap .head-l .l .crown .icon {
     width: 30rpx;
     height: 30rpx;
 }
 
-.head-wrap .r {
-    display: flex;
-    flex-direction: column;
-}
-
-.head-wrap .r .t {
+.head-wrap .head-l .r {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin-bottom: 8rpx;
 }
 
-.head-wrap .r .t .name {
+.head-wrap .head-l .r .name {
     font-size: 34rpx;
     color: #192841;
     font-weight: 500;
     margin-right: 10rpx;
 }
 
-.head-wrap .r .t .tag {
-    font-size: 20rpx;
-    color: #ff3456;
-    border-radius: 100rpx;
-    border: 1rpx solid #ff3456;
-    padding: 4rpx 16rpx;
-    background: #fff;
+.head-wrap .head-r .arrow {
+    width: 10rpx;
+    height: 10rpx;
+    border-top: 4rpx solid #ccc;
+    border-right: 4rpx solid #ccc;
+    transform: rotate(45deg);
 }
 
 .order-container {
@@ -135,7 +154,7 @@ page {
 .order-container .header {
     width: 100%;
     background: url(http://lucky-icon.meiweiyuxian.com/hio/arrow-right.png) no-repeat 690rpx center;
-    background-size: 16rpx auto, 750rpx auto;
+    background-size: 14rpx auto, 750rpx auto;
     height: 90rpx;
     margin: 0 0 0 24rpx;
     font-size: 30rpx;
@@ -256,7 +275,7 @@ page {
 }
 
 .li-wrap .list .list-l .text {
-    font-size: 30rpx;
+    font-size: 28rpx;
     color: #333;
 }
 
