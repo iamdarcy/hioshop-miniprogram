@@ -60,8 +60,12 @@
 ├─services
 └─utils
 ```
-- 项目地址：https://github.com/iamdarcy/hioshop-miniprogram
-- 喜欢别忘了 Star，有问题可通过微信、QQ群联系我，谢谢您的关注。
-<img width="750" height="400" src="http://lucky-other.meiweiyuxian.com/github/contact.jpg"/>
+- 项目地址  
+微信小程序：https://github.com/iamdarcy/hioshop-miniprogram  
+后台管理：https://github.com/iamdarcy/hioshop-admin  
+服务端： https://github.com/iamdarcy/hioshop-server  
+
+- 本项目会持续更新和维护，喜欢别忘了 Star，有问题可通过微信、QQ群联系我，谢谢您的关注。
+<img width="1200" src="http://lucky-other.meiweiyuxian.com/github/contact.jpg"/>
 
 
