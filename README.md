@@ -5,8 +5,12 @@
 + 服务端api基于Ｎode.js+ThinkJS+MySQL
 
 本项目需要配合  
-服务端： https://github.com/iamdarcy/hioshop-server
-管理后台：https://github.com/iamdarcy/hioshop-admin
+服务端： https://github.com/iamdarcy/hioshop-server  
+管理后台：https://github.com/iamdarcy/hioshop-admin  
+
+线上demo：http://www.hiolabs.com/demo  
+用户名：hiolabs  
+密码：hiolabs
 
 阿里云主机：低至3折
 <a target="_blank" href="https://www.aliyun.com/acts/hotsale?userCode=zm04niet">立即去看看</a>
