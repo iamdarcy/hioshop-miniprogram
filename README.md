@@ -59,6 +59,11 @@
 ├─services
 └─utils
 ```
+### 本地开发
+
+请在https://mp.weixin.qq.com/ 注册你的小程序，得到appid和secret，微信开发者工具中设置appid。  
+在hiolabs-server的config.js中设置好appid和secret。  
+
 - 项目地址  
 微信小程序：https://github.com/iamdarcy/hioshop-miniprogram  
 后台管理：https://github.com/iamdarcy/hioshop-admin  
