@@ -835,6 +835,13 @@
     color: #ff3456;
 }
 
+.spec-con .value.out-stock {
+    border: 1px solid #a3a3a3;
+    color: #696969;
+    background: #dbdbdb;
+}
+
+
 .number-item .selnum {
     width: 280rpx;
     height: 62rpx;

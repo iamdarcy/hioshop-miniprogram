@@ -199,7 +199,7 @@
 
 .catalog-wrap .icon-navi {
     width: 100rpx;
-    height: 160rpx;
+    /* height: 160rpx; */
     display: flex;
     flex-direction: column;
     align-items: center;

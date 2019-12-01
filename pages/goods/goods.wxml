@@ -91,11 +91,8 @@
             <view class="spec-con">
                 <view class='spec-item'>
                     <view class='name'>{{specificationList.name}}</view>
-                    <view wx:if="{{goods.goods_type == 2}}" class="values">
-                        <view class="value {{item.checked ? 'selected' : ''}}" wx:for="{{specificationList.valueList}}" wx:key="{{item.id}}" data-value-id="{{item.id}}" data-name-id="{{item.specification_id}}">{{item.value}}</view>
-                    </view>
-                    <view wx:else class="values">
-                        <view class="value {{item.checked ? 'selected' : ''}}" bindtap="clickSkuValue" wx:for="{{specificationList.valueList}}" wx:key="{{item.id}}" data-value-id="{{item.id}}" data-index="{{index}}" data-name-id="{{item.specification_id}}">{{item.value}}</view>
+                    <view class="values">
+                        <view class="value {{item.checked ? 'selected' : ''}} {{item.goods_number <=0?'out-stock':''}}" bindtap="{{item.goods_number <=0?'':'clickSkuValue'}}" wx:for="{{specificationList.valueList}}" wx:key="{{item.id}}" data-value-id="{{item.id}}" data-index="{{index}}" data-name-id="{{item.specification_id}}">{{item.value}}</view>
                     </view>
                 </view>
                 <view class="number-item">

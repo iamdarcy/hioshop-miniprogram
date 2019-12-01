@@ -76,8 +76,7 @@ Page({
             imageUrl: image
         }
     },
-    onUnload: function() {
-    },
+    onUnload: function() {},
     handleTap: function(event) { //阻止冒泡 
     },
     getGoodsInfo: function() {
@@ -89,7 +88,6 @@ Page({
             id: that.data.id
         }).then(function(res) {
             if (res.errno === 0) {
-                let goods_type = res.data.info.goods_type;
                 let _specificationList = res.data.specificationList;
                 // 如果仅仅存在一种货品，那么商品页面初始化时默认checked
                 if (_specificationList.valueList.length == 1) {
@@ -392,7 +390,6 @@ Page({
                 });
                 return false;
             }
-            let type = that.data.goods.goods_type;
             util.request(api.CartAdd, {
                     addType: 0,
                     goodsId: this.data.id,
@@ -402,25 +399,18 @@ Page({
                 .then(function(res) {
                     let _res = res;
                     if (_res.errno == 0) {
-                        if (type == 2) {
-                            wx.switchTab({
-                                url: '/pages/cart/cart',
+                        wx.showToast({
+                            title: '添加成功',
+                        });
+                        if (productLength != 1 || that.data.openAttr == true) {
+                            that.setData({
+                                openAttr: !that.data.openAttr,
+                                cartGoodsCount: _res.data.cartTotal.goodsCount
                             });
                         } else {
-                            wx.showToast({
-                                title: '添加成功',
+                            that.setData({
+                                cartGoodsCount: _res.data.cartTotal.goodsCount
                             });
-                            if (productLength != 1 || that.data.openAttr == true) {
-                                that.setData({
-                                    openAttr: !that.data.openAttr,
-                                    cartGoodsCount: _res.data.cartTotal.goodsCount
-                                });
-                            } else {
-                                that.setData({
-                                    cartGoodsCount: _res.data.cartTotal.goodsCount
-                                });
-                            }
-
                         }
                     } else {
                         wx.showToast({
@@ -477,7 +467,6 @@ Page({
                 });
                 return false;
             }
-            let type = that.data.goods.goods_type;
             //添加到购物车
             util.request(api.CartAdd, {
                     addType: 1, // 0：正常加入购物车，1:立即购买，2:再来一单
