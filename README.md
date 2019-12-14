@@ -17,7 +17,7 @@
 
 ### 项目截图
 
-<img width="1400" src="http://lucky-other.meiweiyuxian.com/github/all.jpg"/>
+<img width="1400" src="http://lucky-other.meiweiyuxian.com/github/all1.jpg"/>
 
 ### 功能列表
 + 首页：搜索、Banner、公告、分类Icons、分类商品列表
@@ -25,6 +25,10 @@
 + 搜索页：排序
 + 分类页：分页加载商品
 + 我的页面：订单（待付款，待发货，待收货），足迹，收货地址
+
+### 最近更新 
+- 新增生成分享图的功能
+<img width="1000" src="http://lucky-other.meiweiyuxian.com/github/save-local.jpg"/>
 
 #### 完整的购物流程，商品加入购物车 --> 收货地址的选择 --> 下单支付 --> 确认收货
 
