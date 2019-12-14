@@ -113,7 +113,6 @@ Page({
                     goodsCount: res.data.goodsCount,
                     outStock: res.data.outStock
                 });
-
                 let goods = res.data.checkedGoodsList;
                 wx.setStorageSync('addressId', addressId);
                 if (res.data.outStock == 1) {

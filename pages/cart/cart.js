@@ -19,15 +19,11 @@ Page({
         startX: 0, //开始坐标
         startY: 0,
         hasCartGoods: 0
-
     },
     onLoad: function() {
-
     },
-
     onReady: function() {
         // 页面渲染完成
-
     },
     onShow: function() {
         // 页面显示
@@ -43,19 +39,14 @@ Page({
     },
     onHide: function() {
         // 页面隐藏
-
     },
     onUnload: function() {
         // 页面关闭
-
     },
     toIndexPage: function() {
         wx.switchTab({
             url: '/pages/index/index',
         });
-        // wx.redirectTo({
-        //     url: '/pages/payResult/payResult?status=1&orderId=192'
-        // });
     },
     getCartList: function() {
         let that = this;
@@ -80,7 +71,6 @@ Page({
                 checkedAllStatus: that.isCheckedAll()
             });
         });
-
     },
     isCheckedAll: function() {
         //判断购物车商品已全选
@@ -143,7 +133,7 @@ Page({
         }
 
     },
-    updateCart: function (itemIndex,productId, number, id) {
+    updateCart: function(itemIndex, productId, number, id) {
         let that = this;
         util.request(api.CartUpdate, {
             productId: productId,
@@ -158,8 +148,7 @@ Page({
                 let cartItem = that.data.cartGoods[itemIndex];
                 cartItem.number = number;
                 that.getCartNum();
-            }
-            else{
+            } else {
                 util.showErrorToast('库存不足了')
             }
             that.setData({
@@ -175,24 +164,19 @@ Page({
             util.showErrorToast('删除左滑试试')
         }
         let number = (cartItem.number - 1 > 1) ? cartItem.number - 1 : 1;
-
-        // cartItem.number = number;
         this.setData({
             cartGoods: this.data.cartGoods,
         });
-        this.updateCart(itemIndex,cartItem.product_id, number, cartItem.id);
-    },
-    clicknone: function() {
+        this.updateCart(itemIndex, cartItem.product_id, number, cartItem.id);
     },
     addNumber: function(event) {
         let itemIndex = event.target.dataset.itemIndex;
         let cartItem = this.data.cartGoods[itemIndex];
         let number = Number(cartItem.number) + 1;
-        // cartItem.number = number;
         this.setData({
             cartGoods: this.data.cartGoods,
         });
-        this.updateCart(itemIndex,cartItem.product_id, number, cartItem.id);
+        this.updateCart(itemIndex, cartItem.product_id, number, cartItem.id);
     },
     getCartNum: function() {
         util.request(api.CartGoodsCount).then(function(res) {

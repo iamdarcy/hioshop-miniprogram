@@ -1,4 +1,5 @@
-const ApiRootUrl = 'http://localhost:8360/api/';
+const ApiRootUrl = 'http://localhost:8300/api/';
+// const ApiRootUrl = 'http://192.168.0.103:8300/api/';
 // const ApiRootUrl = 'https://www.hiolabs.com/api/';
 
 module.exports = {
@@ -22,6 +23,7 @@ module.exports = {
     GoodsCount: ApiRootUrl + 'goods/count', //统计商品总数
     GoodsDetail: ApiRootUrl + 'goods/detail', //获得商品的详情
     GoodsList: ApiRootUrl + 'goods/list', //获得商品列表
+    GoodsShare: ApiRootUrl + 'goods/goodsShare', //获得商品的详情
     SaveUserId: ApiRootUrl + 'goods/saveUserId',
     // 收货地址
     AddressDetail: ApiRootUrl + 'address/addressDetail', //收货地址详情
@@ -50,4 +52,6 @@ module.exports = {
     ShowSettings: ApiRootUrl + 'settings/showSettings',
     SaveSettings: ApiRootUrl + 'settings/save',
     SettingsDetail: ApiRootUrl + 'settings/userDetail',
+    GetBase64: ApiRootUrl + 'qrcode/getBase64', //获取商品详情二维码
+
 };

@@ -63,7 +63,7 @@ page {
     align-items: center;
     margin: 0 30rpx;
     padding: 30rpx 0;
-    border-bottom: 1rpx solid #f1f1f1;
+    /* border-bottom: 1rpx solid #f1f1f1; */
 }
 
 .head-wrap .no-login-avatar {

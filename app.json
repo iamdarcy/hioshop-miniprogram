@@ -4,6 +4,7 @@
         "pages/app-auth/index",
         "pages/category/index",
         "pages/cart/cart",
+        "pages/share/index",
         "pages/search/search",
         "pages/order-check/index",
         "pages/goods/goods",

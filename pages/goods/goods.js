@@ -9,6 +9,7 @@ Page({
         id: 0,
         goods: {},
         gallery: [],
+        galleryImages:[],
         specificationList: [],
         productList: [],
         cartGoodsCount: 0,
@@ -27,6 +28,39 @@ Page({
         goodsNumber: 0,
         loading: 0,
         current: 0,
+        showShareDialog:0,
+    },
+    hideDialog: function (e) {
+        let that = this;
+        that.setData({
+            showShareDialog: false,
+        });
+    },
+    shareTo:function(){
+        let userInfo = wx.getStorageSync('userInfo');
+        if (userInfo == '') {
+            util.loginNow();
+            return false;
+        } else {
+            this.setData({
+                showShareDialog: !this.data.showShareDialog,
+            });
+        }
+    },
+    
+    createShareImage: function () {
+        let id = this.data.id;
+        wx.navigateTo({
+            url: '/pages/share/index?goodsid=' + id
+        })
+    },
+    previewImage: function (e) {
+        let current = e.currentTarget.dataset.src;
+        let that = this;
+        wx.previewImage({
+            current: current, // 当前显示图片的http链接  
+            urls: that.data.galleryImages // 需要预览的图片http链接列表  
+        })
     },
     saveUserId: function(e) {
         let formId = e.detail.formId;
@@ -68,7 +102,7 @@ Page({
     onShareAppMessage: function(res) {
         let id = this.data.id;
         let name = this.data.goods.name;
-        let image = this.data.goods.primary_pic_url;
+        let image = this.data.goods.list_pic_url;
         let userId = this.data.userId;
         return {
             title: name,
@@ -101,6 +135,10 @@ Page({
                         checkedSpecText: '请选择规格和数量'
                     });
                 }
+                let galleryImages = [];
+                for (const item of res.data.gallery) {
+                    galleryImages.push(item.img_url);
+                }
                 that.setData({
                     goods: res.data.info,
                     goodsNumber: res.data.info.goods_number,
@@ -108,8 +146,9 @@ Page({
                     specificationList: res.data.specificationList,
                     productList: res.data.productList,
                     checkedSpecPrice: res.data.info.retail_price,
+                    galleryImages: galleryImages,
                 });
-                var checkedSpecPrice = res.data.info.retail_price;
+                wx.setStorageSync('goodsImage', res.data.info.https_pic_url);
             }
             wx.hideLoading();
         });
@@ -229,7 +268,6 @@ Page({
                 return;
             }
             let checkedProduct = checkedProductArray[0];
-
             if (checkedProduct.goods_number < this.data.number) {
                 //找不到对应的product信息，提示没有库存
                 this.setData({
@@ -276,11 +314,17 @@ Page({
         });
     },
     onLoad: function(options) {
+        let id = 0;
+        var scene = decodeURIComponent(options.scene);
+        if (scene != 'undefined') {
+            id = scene;
+        } else {
+            id = options.id;
+        }
         this.setData({
-            id: parseInt(options.id), // 这个是商品id
-            valueId: parseInt(options.id),
+            id: id, // 这个是商品id
+            valueId: id,
         });
-
     },
     onShow: function() {
         let userInfo = wx.getStorageSync('userInfo');

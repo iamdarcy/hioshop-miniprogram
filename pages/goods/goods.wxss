@@ -524,9 +524,6 @@
     width: 30%;
     line-height: 100rpx;
     color: #192841;
-    background: -webkit-linear-gradient(left, #fdbb43, #ff347d); /* Safari 5.1 - 6.0 */
-    background: -o-linear-gradient(right, #fdbb43, #ff347d); /* Opera 11.1 - 12.0 */
-    background: -moz-linear-gradient(right, #fdbb43, #ff347d); /* Firefox 3.6 - 15 *//* background: linear-gradient(to right, #131313, #000); 标准的语法（必须放在最后） */
     background: linear-gradient(to right, #f8cd4e, #fae277); /* 标准的语法（必须放在最后） */
     font-size: 28rpx;
     text-align: center;
@@ -884,4 +881,140 @@
 button::after {
     border-radius: 0;
     border: none;
+}
+
+.dialog_show .dialog-mask2 {
+    display: block;
+}
+
+.dialog-share .share-wrap {
+    background: #fafafa;
+    display: flex;
+    flex-direction: column;
+    padding: 30rpx;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+.dialog-fixed {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    transform: translateY(150%);
+    transition: all 0.4s ease;
+    z-index: 33;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dialog_show .dialog-share {
+    transform: translateY(0);
+    background: #e0e0e0;
+}
+
+.dialog_show .dialog-mask {
+    display: block;
+}
+
+.dialog_show .dialog-mask2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+.dialog_show .dialog-mask2 {
+    display: block;
+}
+
+.dialog-share .share-wrap {
+    background: #fafafa;
+    display: flex;
+    flex-direction: column;
+    padding: 30rpx;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.dialog-share .cancel {
+    padding: 30rpx;
+    color: #333;
+    text-align: center;
+    font-size: 30rpx;
+    background: #fafafa;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 12rpx;
+}
+
+.share-wrap .top {
+    border-bottom: 1rpx solid #f1f1f1;
+    font-size: 28rpx;
+    color: #111;
+    text-align: center;
+    padding-bottom: 30rpx;
+}
+
+.share-wrap .top .img {
+    width: 50rpx;
+    height: 50rpx;
+}
+
+.share-wrap .content {
+    display: flex;
+    flex-direction: column;
+}
+
+.share-wrap .content .tip {
+    font-size: 26rpx;
+    color: #666;
+    text-align: center;
+    padding: 30rpx 0;
+}
+
+.share-wrap .content .share-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 4rpx;
+}
+
+.share-wrap .content .share-block .block {
+    /* border: 1rpx solid #f0f0f0; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32rpx;
+    margin: 0 20rpx 0 0;
+    background: #fff;
+    border-radius: 20rpx;
+    box-shadow: 2rpx 2rpx 5rpx #f1f1f1;
+}
+
+.share-wrap .content .share-block .block.share-btn::after {
+    border: 1rpx solid #f0f0f0;
+}
+
+.share-wrap .content .share-block .block:last-child {
+    margin-right: 0;
+}
+
+.share-wrap .content .share-block .block .img {
+    width: 50rpx;
+    height: 50rpx;
+    margin-bottom: 20rpx;
+}
+
+.share-wrap .content .share-block .block .text {
+    text-align: center;
+    color: #555;
+    font-size: 26rpx;
+    height: 40rpx;
+    line-height: 40rpx;
 }

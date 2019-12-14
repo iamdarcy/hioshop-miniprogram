@@ -10,7 +10,7 @@
         <text class="txt">搜索, 共{{goodsCount}}款好物</text>
     </view>
     <view class='banner-wrap' wx:if="{{show_banner && banner.length > 0}}">
-        <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
+        <swiper class="banner" indicator-dots="true" autoplay="{{false}}" interval="3000" duration="1000">
             <swiper-item wx:for="{{banner}}" wx:key="{{item.id}}">
                 <navigator wx:if="{{item.link_type == 0}}" url="/pages/goods/goods?id={{item.goods_id}}">
                     <image src="{{item.image_url}}" background-size="cover"></image>
