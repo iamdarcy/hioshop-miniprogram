@@ -22,8 +22,9 @@ Page({
     },
     getQrcodeJpg(code) {
         let that = this;
+        let num = Math.floor(Math.random() * 50);
         let promise = new Promise((resolve, reject) => {
-            const filePath = `${wx.env.USER_DATA_PATH}/temp_image.jpeg`;
+            const filePath = wx.env.USER_DATA_PATH + '/temp_image' + num + '.jpeg';
             const buffer = wx.base64ToArrayBuffer(code);
             wx.getFileSystemManager().writeFile({
                 filePath,
@@ -59,7 +60,7 @@ Page({
             id: id
         }).then(function(res) {
             if (res.errno === 0) {
-                console.log(res.data);
+                // console.log(res.data);
                 that.setData({
                     goods: res.data,
                 });
@@ -187,7 +188,7 @@ Page({
             tempFilePath,
             errMsg
         } = event.detail
-        console.log(errMsg);
+        // console.log(errMsg);
         if (errMsg === 'canvasdrawer:ok') {
             this.setData({
                 shareImage: tempFilePath
