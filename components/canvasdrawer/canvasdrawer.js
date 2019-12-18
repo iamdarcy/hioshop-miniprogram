@@ -1,5 +1,4 @@
 /* global Component wx */
-
 Component({
     properties: {
         painting: {
@@ -38,7 +37,7 @@ Component({
     ctx: null,
     cache: {},
     ready() {
-        console.log('ready');
+        // console.log('ready');
         wx.removeStorageSync('canvasdrawer_pic_cache')
         this.cache = wx.getStorageSync('canvasdrawer_pic_cache') || {}
         this.ctx = wx.createCanvasContext('canvasdrawer', this)
@@ -92,14 +91,14 @@ Component({
             })
         },
         startPainting() {
-            console.log('startPainting');
+            // console.log('startPainting');
             const {
                 tempFileList,
                 painting: {
                     views
                 }
             } = this.data
-            console.log(tempFileList)
+            // console.log(tempFileList)
             for (let i = 0, imageIndex = 0; i < views.length; i++) {
                 // console.log(views[i]);
                 // console.log(views[i].type);
@@ -126,9 +125,9 @@ Component({
                     this.drawRect(views[i])
                 }
             }
-            console.log('????????为什么');
+            // console.log('????????为什么');
             this.ctx.draw(false, () => {
-                console.log(this.cache);
+                // console.log(this.cache);
                 wx.setStorageSync('canvasdrawer_pic_cache', this.cache)
                 const system = wx.getSystemInfoSync().system
                 if (/ios/i.test(system)) {
@@ -142,7 +141,7 @@ Component({
             })
         },
         drawImage(params) {
-            console.log('drawImage');
+            // console.log('drawImage');
             this.ctx.save()
             const {
                 url,
@@ -170,7 +169,7 @@ Component({
             this.ctx.restore()
         },
         drawText(params) {
-            console.log('drawText');
+            // console.log('drawText');
             this.ctx.save()
             // console.log('drawText');            
             const {
