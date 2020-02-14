@@ -1,5 +1,4 @@
 // const ApiRootUrl = 'http://localhost:8360/api/';
-// const ApiRootUrl = 'http://192.168.0.103:8360/api/';
 const ApiRootUrl = 'https://www.hiolabs.com/api/';
 
 module.exports = {
