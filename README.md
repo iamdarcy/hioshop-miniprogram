@@ -4,6 +4,10 @@
 + 测试数据来自上述开源项目
 + 服务端api基于Ｎode.js+ThinkJS+MySQL
 
+### 服务器和后台管理本地部署教程
+服务器：https://www.bilibili.com/video/av89567916
+后台管理：https://www.bilibili.com/video/av89568075
+
 #### 本项目需要配合  
 服务端： https://github.com/iamdarcy/hioshop-server  
 管理后台：https://github.com/iamdarcy/hioshop-admin  
