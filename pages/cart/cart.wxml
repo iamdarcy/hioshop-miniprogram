@@ -1,6 +1,6 @@
 <view class='container'>
     <view class="goodsList" wx:if="{{cartGoods.length > 0}}">
-        <view class="a-goods {{item.isTouchMove ? 'touch-move-active' : ''}}" wx:for="{{cartGoods}}" wx:key="{{item.id}}" bindtouchstart="touchstart" bindtouchmove="touchmove" data-index="{{index}}">
+        <view class="a-goods {{item.isTouchMove ? 'touch-move-active' : ''}}" wx:for="{{cartGoods}}" wx:key="id" bindtouchstart="touchstart" bindtouchmove="touchmove" data-index="{{index}}">
             <view class='content'>
                 <view wx:if="{{item.number >0 && item.is_on_sale == 1}}" class="checkbox {{item.checked ? 'checked' : ''}}" bindtap="checkedItem" data-item-index="{{index}}"></view>
                 <view wx:else class="checkbox"></view>

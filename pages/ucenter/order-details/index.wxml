@@ -69,7 +69,7 @@
         </view>
         <view class="a-goods">
             <view class="img-box">
-                <view class='image-wrap' wx:for="{{orderGoods}}" wx:key="{{item.id}}" wx:if="{{index<4}}">
+                <view class='image-wrap' wx:for="{{orderGoods}}" wx:key="id" wx:if="{{index<4}}">
                     <image src="{{item.list_pic_url}}" class="goods-image" />
                 </view>
             </view>

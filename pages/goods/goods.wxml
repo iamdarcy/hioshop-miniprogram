@@ -14,7 +14,7 @@
         </view>
         <block wx:if="{{gallery.length > 0}}">
             <swiper bindchange="bindchange" class="banner banner-style1" indicator-dots="{{false}}" autoplay="{{false}}" current="{{current}}" circular="{{true}}" interval="4000" duration="1000" display-multiple-items="1">
-                <swiper-item class="item" wx:for="{{gallery}}" wx:key="{{item.id}}">
+                <swiper-item class="item" wx:for="{{gallery}}" wx:key="id">
                     <image bindtap="previewImage" data-src="{{item.img_url}}" src="{{item.img_url}}" class="slide-image" mode="aspectFill" />
                 </swiper-item>
             </swiper>
@@ -92,7 +92,7 @@
                 <view class='spec-item'>
                     <view class='name'>{{specificationList.name}}</view>
                     <view class="values">
-                        <view class="value {{item.checked ? 'selected' : ''}} {{item.goods_number <=0?'out-stock':''}}" bindtap="clickSkuValue" wx:for="{{specificationList.valueList}}" wx:key="{{item.id}}" data-value-id="{{item.id}}" data-index="{{index}}" data-name-id="{{item.specification_id}}">{{item.value}}</view>
+                        <view class="value {{item.checked ? 'selected' : ''}} {{item.goods_number <=0?'out-stock':''}}" bindtap="clickSkuValue" wx:for="{{specificationList.valueList}}" wx:key="id" data-value-id="{{item.id}}" data-index="{{index}}" data-name-id="{{item.specification_id}}">{{item.value}}</view>
                     </view>
                 </view>
                 <view class="number-item">

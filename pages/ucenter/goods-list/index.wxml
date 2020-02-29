@@ -1,6 +1,6 @@
 <view class="container">
     <view class='goods-list-container'>
-        <view class='goods-list-wrap' hover-class='none' wx:for="{{goodsList}}" wx:key="item.id" wx:for-item="item">
+        <view class='goods-list-wrap' hover-class='none' wx:for="{{goodsList}}" wx:key="id" wx:for-item="item">
             <navigator hover-class='none' class='goods-nav' url='/pages/goods/goods?id={{item.goods_id}}'>
                 <view class='image-wrap'>
                     <image class='goods-image' src='{{item.list_pic_url}}'></image>

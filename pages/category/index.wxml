@@ -8,7 +8,7 @@
     <view class="catalog">
         <scroll-view class="nav" scroll-y="true">
             <view class="item {{ nowId == 0 ?'active' : ''}}" bindtap="switchCate" data-id="0">全部</view>
-            <view class="item {{ nowId == item.id?'active' : ''}}" wx:for="{{navList}}" wx:key="{{item.id}}" data-id="{{item.id}}" bindtap="switchCate">{{item.name}}</view>
+            <view class="item {{ nowId == item.id?'active' : ''}}" wx:for="{{navList}}" wx:key="id" data-id="{{item.id}}" bindtap="switchCate">{{item.name}}</view>
         </scroll-view>
         <scroll-view class="cate" scroll-y="true" bindscrolltolower="onBottom">
             <block wx:if="{{loading == 0}}">
@@ -19,7 +19,7 @@
                     <view class="text" style="height:{{currentCategory.p_height}}rpx;line-height:{{currentCategory.p_height}}rpx;">{{currentCategory.name}}</view>
                 </view>
                 <view class='list-wrap clearfix'>
-                    <view class="goods-box {{(index+1)%2 == 0?'no-margin':''}}" wx:for="{{list}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
+                    <view class="goods-box {{(index+1)%2 == 0?'no-margin':''}}" wx:for="{{list}}" wx:for-index="index" wx:for-item="item" wx:key="id">
                         <navigator hover-class='none' class='navi-url' url="/pages/goods/goods?id={{item.id}}">
                             <view class="box">
                                 <image src="{{item.list_pic_url}}" class="image">

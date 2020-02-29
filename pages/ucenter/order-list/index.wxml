@@ -33,7 +33,7 @@
             <view class="goods-list">
                 <view class="a-goods">
                     <view class="img-box">
-                        <view class='image-wrap' wx:for="{{item.goodsList}}" wx:key="{{id}}" wx:for-item="gitem" wx:if="{{index<4}}">
+                        <view class='image-wrap' wx:for="{{item.goodsList}}" wx:key="id" wx:for-item="gitem" wx:if="{{index<4}}">
                             <image src="{{gitem.list_pic_url}}" class="goods-image" />
                         </view>
                     </view>

@@ -218,97 +218,6 @@
     margin-top: 10rpx;
 }
 
-.m-menu {
-    display: flex;
-    height: 150rpx;
-    width: 750rpx;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #fff;
-}
-
-.m-menu .item {
-    flex: 1;
-    display: block;
-    padding: 20rpx 0;
-}
-
-.m-menu image {
-    display: block;
-    width: 58rpx;
-    height: 58rpx;
-    margin: 0 auto;
-    margin-bottom: 12rpx;
-}
-
-.m-menu text {
-    display: block;
-    font-size: 24rpx;
-    text-align: center;
-    margin: 0 auto;
-    line-height: 1;
-    color: #333;
-}
-
-.hot-goods-wrap {
-    width: 100%;
-    padding: 0 24rpx;
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    margin: 30rpx 0 0 0;
-}
-
-.hot-goods-wrap .best {
-    width: 702rpx;
-    height: 208rpx;
-    margin-bottom: 20rpx;
-    margin-top: 20rpx;
-}
-
-.hot-goods-wrap .best image {
-    width: 702rpx;
-    height: 208rpx;
-}
-
-.hot-goods-wrap .good-wrap {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-}
-
-.hot-goods-wrap .good-wrap image {
-    width: 340rpx;
-    height: 250rpx;
-}
-
-/* banner end  */
-
-.fast-box .navi-url {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.fast-box .box {
-    height: 100%;
-    width: 220rpx;
-    float: left;
-    margin-right: 24rpx;
-    position: relative;
-}
-
-.fast-box .box .image {
-    width: 220rpx;
-    height: 220rpx;
-    background: #fafafa;
-    position: relative;
-    border-radius: 4rpx;
-    border: 1rpx solid #eee;
-}
-
 .no-goods-mask {
     position: absolute;
     left: 0;
@@ -319,161 +228,7 @@
     opacity: 0.3;
 }
 
-.fast-box .see-more {
-    height: 90rpx;
-    text-align: center;
-    line-height: 90rpx;
-    color: #666;
-    font-size: 26rpx;
-}
-
-.fast-box .info-container {
-    width: 460rpx;
-    height: auto;
-    position: relative;
-}
-
-.fast-box .fast-out-status {
-    opacity: 0.5;
-}
-
-.info-container .goods-title {
-    font-size: 26rpx;
-    color: #333;
-    /* font-weight: bold; */
-    margin-bottom: 14rpx;
-}
-
-.info-container .tag {
-    display: flex;
-    justify-content: flex-start;
-    margin-bottom: 14rpx;
-}
-
-.info-container  .tag .l {
-    height: 34rpx;
-    min-width: 100rpx;
-    padding: 0 14rpx;
-    background: #f3ebea;
-    color: #d14848;
-    font-size: 20rpx;
-    line-height: 34rpx;
-    text-align: center;
-    border: 1rpx solid #f3ebea;
-}
-
-.info-container  .tag .m {
-    height: 34rpx;
-    min-width: 100rpx;
-    padding: 0 20rpx;
-    border: 1rpx solid #f3ebea;
-    color: #d14848;
-    font-size: 20rpx;
-    line-height: 34rpx;
-    text-align: center;
-}
-
-/* .info-container .fast-price{
-    display: flex;
-    justify-content: flex-start;
-    align-items: baseline;
-    margin-bottom: 14rpx;
-} */
-
-.info-container .fast-price {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 14rpx;
-}
-
-.fast-price .no-level {
-    font-size: 26rpx;
-    color: #e00000;
-}
-
-.fast-price .l {
-    font-size: 24rpx;
-    color: #cc2b1d;
-}
-
-.fast-price .r {
-    font-size: 32rpx;
-    color: #cc2b1d;
-}
-
-.fast-price .h {
-    font-size: 28rpx;
-}
-
-.fast-price .b {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.fast-price .b .price-t {
-    font-size: 30rpx;
-    color: #e00000;
-    margin-right: 6rpx;
-}
-
-.fast-price .b .price-tag {
-    border: 1rpx solid #e00000;
-    color: #e00000;
-    background: #ffeaea;
-    border-radius: 100rpx;
-    padding: 0 6rpx;
-    font-size: 14rpx;
-    text-align: center;
-    line-height: 22rpx;
-    height: 22rpx;
-}
-
-.info-container .tips {
-    font-size: 20rpx;
-    color: #888;
-}
-
-.info-container .fast-go {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    border: 1rpx solid #ca2a1d;
-    color: #ca2a1d;
-    font-size: 20rpx;
-    border-radius: 100rpx;
-    height: 44rpx;
-    width: 110rpx;
-    line-height: 44rpx;
-    text-align: center;
-    padding: 0 10rpx;
-}
-
-.info-container .fast-go-out {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    border: 1rpx solid #ccc;
-    background: #ccc;
-    color: #555;
-    font-size: 20rpx;
-    border-radius: 100rpx;
-    height: 44rpx;
-    width: 110rpx;
-    line-height: 44rpx;
-    text-align: center;
-    padding: 0 10rpx;
-}
-
 /* 信息容器 */
-
-.new-buy .list-wrap, .goods-container .list-wrap {
-    display: block;
-    width: 100%;
-    padding: 26rpx 30rpx 10rpx 30rpx;
-    height: auto;
-    box-sizing: border-box;
-}
 
 .more-category {
     width: 100%;
@@ -507,6 +262,15 @@
     width: 120rpx;
 }
 
+.new-buy .list-wrap,
+.goods-container .list-wrap {
+    display: block;
+    width: 100%;
+    padding: 26rpx 30rpx 10rpx 30rpx;
+    height: auto;
+    box-sizing: border-box;
+}
+
 .list-wrap .no-margin {
     margin-right: 0;
 }
@@ -530,7 +294,8 @@
     position: relative;
     margin-bottom: 10rpx;
     border-radius: 4rpx;
-    /* border: 1rpx solid #eee; *//* box-sizing: border-box; */
+    /* border: 1rpx solid #eee; */
+    /* box-sizing: border-box; */
 }
 
 .new-box .navi-url .box .new-tag {
@@ -545,10 +310,6 @@
     font-size: 18rpx;
     color: #fff;
     border-radius: 0 40rpx 40rpx 0;
-}
-
-.new-box .navi-url .goods-info {
-    /* width: 220rpx; */
 }
 
 .new-box .navi-url .goods-info .goods-title {
@@ -608,36 +369,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-}
-
-.new-box .navi-url .goods-info .price-container .l .no-level {
-    font-size: 26rpx;
-    color: #e00000;
-}
-
-.new-box .navi-url .goods-info .price-container .l .b .price-w {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-}
-
-.new-box .navi-url .goods-info .price-container .l .b .price-t {
-    font-size: 26rpx;
-    color: #e00000;
-    margin-right: 6rpx;
-}
-
-.new-box .navi-url .goods-info .price-container .l .b .price-tag {
-    border: 1rpx solid #e00000;
-    color: #e00000;
-    background: #ffeaea;
-    border-radius: 100rpx;
-    padding: 0 6rpx;
-    font-size: 14rpx;
-    text-align: center;
-    line-height: 22rpx;
-    height: 22rpx;
 }
 
 .new-box .navi-url .goods-info .price-container .retail-price {

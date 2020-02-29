@@ -1,6 +1,6 @@
 <view class="container">
     <view class='has-info' wx:if="{{addresses.length > 0}}">
-        <view bindtap="{{type == 0?'goAddressDetail':'selectAddress'}}" class='info-item' data-addressid="{{item.id}}" wx:for="{{addresses}}" wx:key="{{item.id}}">
+        <view bindtap="{{type == 0?'goAddressDetail':'selectAddress'}}" class='info-item' data-addressid="{{item.id}}" wx:for="{{addresses}}" wx:key="id">
             <view class="selected" wx:if="{{type == 1}}">
                 <image wx:if="{{item.id == nowAddress}}" class="img" src="http://lucky-icon.meiweiyuxian.com/hio/gou-red.png"></image>
                 <image wx:else class="img" src="http://lucky-icon.meiweiyuxian.com/hio/gou-gray.png"></image>

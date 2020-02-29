@@ -86,7 +86,8 @@ Page({
     onShow: function() {
         let showType = wx.getStorageSync('showType');
         let nowShowType = this.data.showType;
-        if (nowShowType != showType) {
+        let doRefresh = wx.getStorageSync('doRefresh');
+        if (nowShowType != showType || doRefresh == 1) {
             this.setData({
                 showType: showType,
                 orderList: [],
@@ -96,6 +97,7 @@ Page({
                 size: 8
             });
             this.getOrderList();
+            wx.removeStorageSync('doRefresh');
         }
         this.getOrderInfo();
     },

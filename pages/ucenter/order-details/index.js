@@ -20,12 +20,12 @@ Page({
         success: 0,
         imageUrl: '',
         wxTimerList: {},
-        express:{},
-        onPosting:0,
+        express: {},
+        onPosting: 0,
     },
     reOrderAgain: function () {
         let orderId = this.data.orderId
-        wx.navigateTo({
+        wx.redirectTo({
             url: '/pages/order-check/index?addtype=2&orderFrom=' + orderId
         })
     },
@@ -35,29 +35,29 @@ Page({
             data: data,
             success(res) {
                 wx.getClipboardData({
-                    success(res) { }
+                    success(res) {}
                 })
             }
         })
     },
-    toGoodsList: function(e) {
+    toGoodsList: function (e) {
         let orderId = this.data.orderId;
         wx.navigateTo({
             url: '/pages/ucenter/goods-list/index?id=' + orderId,
         });
     },
-    toExpressInfo: function(e) {
+    toExpressInfo: function (e) {
         let orderId = this.data.orderId;
         wx.navigateTo({
             url: '/pages/ucenter/express-info/index?id=' + orderId,
         });
     },
-    toRefundSelect: function(e) {
+    toRefundSelect: function (e) {
         wx.navigateTo({
             url: '/pages/refund-select/index',
         });
     },
-    payOrder: function(e) {
+    payOrder: function (e) {
         let that = this;
         pay.payOrder(parseInt(that.data.orderId)).then(res => {
             that.getOrderDetail();
@@ -65,17 +65,17 @@ Page({
             util.showErrorToast(res.errmsg);
         });
     },
-    toSelectAddress: function() {
+    toSelectAddress: function () {
         let orderId = this.data.orderId;
 
         wx.navigateTo({
             url: '/pages/ucenter/address-select/index?id=' + orderId,
         });
     },
-    onLoad: function() {
+    onLoad: function () {
 
     },
-    onShow: function() {
+    onShow: function () {
         var orderId = wx.getStorageSync('orderId');
         try {
             this.setData({
@@ -90,21 +90,28 @@ Page({
         this.getOrderDetail();
         this.getExpressInfo();
     },
-    onUnload: function() {
+    onUnload: function () {
         let oCancel = this.data.handleOption.cancel;
         if (oCancel == true) {
             let orderTimerID = this.data.wxTimerList.orderTimer.wxIntId;
             clearInterval(orderTimerID);
         }
     },
-    orderTimer: function(endTime) {
+    onHide: function () {
+        let oCancel = this.data.handleOption.cancel;
+        if (oCancel == true) {
+            let orderTimerID = this.data.wxTimerList.orderTimer.wxIntId;
+            clearInterval(orderTimerID);
+        }
+    },
+    orderTimer: function (endTime) {
         let that = this;
         var orderTimerID = '';
         let wxTimer2 = new timer({
             endTime: endTime,
             name: 'orderTimer',
             id: orderTimerID,
-            complete: function() {
+            complete: function () {
                 that.letOrderCancel();
             },
         })
@@ -116,35 +123,14 @@ Page({
             postscript: postscript
         });
     },
-    cancelRefund: function() {
-        let that = this;
-        wx.showModal({
-            title: '',
-            content: '确定要取消退款？',
-            success: function(res) {
-                if (res.confirm) {
-                    util.request(api.CancelRefund, {
-                        orderId: that.data.orderId
-                    }, 'POST').then(function(res) {
-                        if (res.errno === 0) {
-                            wx.showToast({
-                                title: '取消退款成功！'
-                            });
-                            that.getOrderDetail();
-                        } else {
-                            util.showErrorToast(res.errmsg);
-                        }
-                    });
-                }
-            }
-        });
-    },
-    getExpressInfo:function() {
+    getExpressInfo: function () {
         this.setData({
-            onPosting:0
+            onPosting: 0
         })
         let that = this;
-        util.request(api.OrderExpressInfo, { orderId: that.data.orderId }).then(function (res) {
+        util.request(api.OrderExpressInfo, {
+            orderId: that.data.orderId
+        }).then(function (res) {
             if (res.errno === 0) {
                 let express = res.data;
                 express.traces = JSON.parse(res.data.traces);
@@ -155,11 +141,11 @@ Page({
             }
         });
     },
-    getOrderDetail: function() {
+    getOrderDetail: function () {
         let that = this;
         util.request(api.OrderDetail, {
             orderId: that.data.orderId
-        }).then(function(res) {
+        }).then(function (res) {
             if (res.errno === 0) {
                 that.setData({
                     orderInfo: res.data.orderInfo,
@@ -168,30 +154,26 @@ Page({
                     textCode: res.data.textCode,
                     goodsCount: res.data.goodsCount
                 });
-                let orderType = res.data.orderInfo.order_type;
-                if (orderType == 2) {
-                    that.getImageUrl();
+                let receive = res.data.textCode.receive;
+                if (receive == true) {
+                    let confirm_remainTime = res.data.orderInfo.confirm_remainTime;
+                    remaintimer.reTime(confirm_remainTime, 'c_remainTime', that);
                 }
-            }
-            let receive = res.data.textCode.receive;
-            if(receive == true){
-                let confirm_remainTime = res.data.orderInfo.confirm_remainTime;
-                remaintimer.reTime(confirm_remainTime,'c_remainTime',that);
-            }
-            let oCancel = res.data.handleOption.cancel;
-            let payTime = 0;
-            if (oCancel == true) {
-                payTime = res.data.orderInfo.final_pay_time
-                that.orderTimer(payTime);
+                let oCancel = res.data.handleOption.cancel;
+                let payTime = 0;
+                if (oCancel == true) {
+                    payTime = res.data.orderInfo.final_pay_time
+                    that.orderTimer(payTime);
+                }
             }
         });
         wx.hideLoading();
     },
-    letOrderCancel: function() {
+    letOrderCancel: function () {
         let that = this;
         util.request(api.OrderCancel, {
             orderId: that.data.orderId
-        }, 'POST').then(function(res) {
+        }, 'POST').then(function (res) {
             if (res.errno === 0) {
                 that.getOrderDetail();
             } else {
@@ -200,21 +182,22 @@ Page({
         });
     },
     // “删除”点击效果
-    deleteOrder: function() {
+    deleteOrder: function () {
         let that = this;
         wx.showModal({
             title: '',
             content: '确定要删除此订单？',
-            success: function(res) {
+            success: function (res) {
                 if (res.confirm) {
                     util.request(api.OrderDelete, {
                         orderId: that.data.orderId
-                    }, 'POST').then(function(res) {
+                    }, 'POST').then(function (res) {
                         if (res.errno === 0) {
                             wx.showToast({
                                 title: '删除订单成功'
                             });
                             wx.removeStorageSync('orderId');
+                            wx.setStorageSync('doRefresh', 1);
                             wx.navigateBack();
                         } else {
                             util.showErrorToast(res.errmsg);
@@ -224,22 +207,22 @@ Page({
             }
         });
     },
-
     // “确认收货”点击效果
-    confirmOrder: function() {
+    confirmOrder: function () {
         let that = this;
         wx.showModal({
             title: '',
             content: '收到货了？确认收货？',
-            success: function(res) {
+            success: function (res) {
                 if (res.confirm) {
                     util.request(api.OrderConfirm, {
                         orderId: that.data.orderId
-                    }, 'POST').then(function(res) {
+                    }, 'POST').then(function (res) {
                         if (res.errno === 0) {
                             wx.showToast({
                                 title: '确认收货成功！'
                             });
+                            wx.setStorageSync('doRefresh', 1);
                             that.getOrderDetail();
                         } else {
                             util.showErrorToast(res.errmsg);
@@ -250,19 +233,17 @@ Page({
         });
     },
     // “取消订单”点击效果
-    cancelOrder: function(e) {
+    cancelOrder: function (e) {
         let that = this;
         wx.showModal({
             title: '',
             content: '确定要取消此订单？',
-            success: function(res) {
+            success: function (res) {
                 if (res.confirm) {
                     util.request(api.OrderCancel, {
                         orderId: that.data.orderId
-                    }, 'POST').then(function(res) {
+                    }, 'POST').then(function (res) {
                         if (res.errno === 0) {
-                            let orderTimerID = that.data.wxTimerList.orderTimer.wxIntId;
-                            clearInterval(orderTimerID);
                             wx.showToast({
                                 title: '取消订单成功'
                             });
@@ -273,6 +254,9 @@ Page({
                                 allCount: 0,
                                 size: 8
                             });
+                            wx.setStorageSync('doRefresh', 1);
+                            let orderTimerID = that.data.wxTimerList.orderTimer.wxIntId;
+                            clearInterval(orderTimerID);
                             that.getOrderDetail();
                         } else {
                             util.showErrorToast(res.errmsg);

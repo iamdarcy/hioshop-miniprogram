@@ -50,13 +50,13 @@
     <view class="region-select" wx:if="{{openSelectRegion}}">
         <view class="hd">
             <view class="region-selected">
-                <view class="item {{item.id == 0 ? 'disabled' : ''}} {{(regionType -1) === index ? 'selected' : ''}}" bindtap="selectRegionType" data-region-type-index="{{index}}" wx:for="{{selectRegionList}}" wx:key="{{item.id}}">{{item.name}}</view>
+                <view class="item {{item.id == 0 ? 'disabled' : ''}} {{(regionType -1) === index ? 'selected' : ''}}" bindtap="selectRegionType" data-region-type-index="{{index}}" wx:for="{{selectRegionList}}" wx:key="id">{{item.name}}</view>
             </view>
             <view class="done {{selectRegionDone ? '' : 'disabled'}}" bindtap="doneSelectRegion">确定</view>
         </view>
         <view class="bd">
             <scroll-view scroll-y class="region-list">
-                <view class="item {{item.selected ? 'selected' : ''}}" bindtap="selectRegion" data-region-index="{{index}}" wx:for="{{regionList}}" wx:key="{{item.id}}">{{item.name}}</view>
+                <view class="item {{item.selected ? 'selected' : ''}}" bindtap="selectRegion" data-region-index="{{index}}" wx:for="{{regionList}}" wx:key="id">{{item.name}}</view>
             </scroll-view>
         </view>
     </view>
