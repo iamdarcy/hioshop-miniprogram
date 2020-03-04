@@ -18,7 +18,8 @@
         "pages/ucenter/order-details/index",
         "pages/ucenter/express-info/index",
         "pages/ucenter/footprint/index",
-        "pages/payResult/payResult"
+        "pages/payResult/payResult",
+        "pages/payOffline/index"
     ],
     "window": {
         "backgroundTextStyle": "light",

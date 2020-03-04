@@ -28,7 +28,10 @@
         <view bindtap='toOrderDetails' class='order-list-wrap' data-id="{{item.id}}" wx:for="{{orderList}}" wx:key="id">
             <view class='list-top-wrap'>
                 <view class='time'>{{item.add_time}}</view>
-                <view class='status'>{{item.order_status_text}}</view>
+                <view class='status'>
+                    <view class="pay-status" wx:if="{{item.offline_pay}}">线下支付订单</view>
+                    <view class="order-status">{{item.order_status_text}}</view>
+                </view>
             </view>
             <view class="goods-list">
                 <view class="a-goods">

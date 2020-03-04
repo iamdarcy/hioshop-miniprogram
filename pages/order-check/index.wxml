@@ -55,6 +55,10 @@
             <view class="total">实付：</view>
             <view class="pay-money">¥ {{actualPrice}}</view>
         </view>
-        <button class="to-pay-btn" bindtap='submitOrder'>提交订单</button>
+        <!-- 如果不需要线下支付的这个功能，可将下面这个button注释掉即可 -->
+        <button class="offline-pay-btn" data-off="1" bindtap='offlineOrder'>线下支付</button>
+        <!-- 如果注释了上面的按钮，建议将在线支付改成提交订单 -->
+        <button class="to-pay-btn" bindtap='submitOrder'>在线支付</button>
+        <!-- 提交订单 -->
     </view>
 </view>

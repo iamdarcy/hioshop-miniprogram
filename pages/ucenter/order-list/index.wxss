@@ -36,7 +36,8 @@ page {
     position: relative;
     border-bottom: 3px solid #fff;
 }
-.list-num{
+
+.list-num {
     position: absolute;
     top: -2rpx;
     right: -12rpx;
@@ -72,9 +73,11 @@ page {
     text-align: center;
     padding-top: 203rpx;
 }
+
 .show {
     display: block;
 }
+
 .no-order-img {
     width: 100rpx;
     height: 100rpx;
@@ -126,6 +129,23 @@ page {
 }
 
 .list-top-wrap .status {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.list-top-wrap .status .pay-status {
+    color: #fff;
+    border-radius: 8rpx;
+    background: #594d72;
+    height: 30rpx;
+    line-height: 30rpx;
+    padding: 8rpx 20rpx;
+    font-size: 24rpx;
+    margin-right: 20rpx;
+}
+
+.list-top-wrap .status .order-status {
     color: #ff3456;
     font-size: 28rpx;
 }

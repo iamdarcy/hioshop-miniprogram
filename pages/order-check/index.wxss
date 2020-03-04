@@ -289,6 +289,24 @@ page {
     background-color: #fff;
 }
 
+.settle-box .offline-pay-btn {
+    display: block;
+    width: 300rpx;
+    text-align: center;
+    height: 100%;
+    line-height: 100rpx;
+    background: linear-gradient(to right, #111, #000);
+    font-size: 32rpx;
+    color: #fff;
+    border-radius: 0;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.settle-box .offline-pay-btn::after{
+    border: none;
+}
+
 .settle-box .to-pay-btn {
     display: block;
     width: 300rpx;
@@ -301,6 +319,10 @@ page {
     border-radius: 0;
     margin: 0 auto;
     padding: 0;
+}
+
+.settle-box .to-pay-btn::after{
+    border: none;
 }
 
 .settle-box .left-price {

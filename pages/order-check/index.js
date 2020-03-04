@@ -65,8 +65,7 @@ Page({
             this.setData({
                 'addressId': addressId
             });
-        } catch (e) {
-        }
+        } catch (e) {}
         this.getCheckoutInfo();
     },
     onPullDownRefresh: function () {
@@ -117,8 +116,7 @@ Page({
                 wx.setStorageSync('addressId', addressId);
                 if (res.data.outStock == 1) {
                     util.showErrorToast('有部分商品缺货或已下架');
-                }
-                else if (res.data.numberChange == 1){
+                } else if (res.data.numberChange == 1) {
                     util.showErrorToast('部分商品库存有变动');
                 }
             }
@@ -135,13 +133,13 @@ Page({
         let postscript = this.data.postscript;
         let freightPrice = this.data.freightPrice;
         let actualPrice = this.data.actualPrice;
-        let goodsTotalPrice = this.data.goodsTotalPrice;
         util.request(api.OrderSubmit, {
             addressId: addressId,
             postscript: postscript,
             freightPrice: freightPrice,
             formId: formId,
             actualPrice: actualPrice,
+            offlinePay:0
         }, 'POST').then(res => {
             console.log(res);
             if (res.errno === 0) {
@@ -159,6 +157,41 @@ Page({
                 });
             } else {
                 util.showErrorToast(res.errmsg);
+            }
+        });
+    },
+    offlineOrder: function (e) {
+        let formId = e.detail.formId;
+        console.log(e)
+        let offlinePay = e.currentTarget.dataset.off;
+        if (this.data.addressId <= 0) {
+            util.showErrorToast('请选择收货地址');
+            return false;
+        }
+        let addressId = this.data.addressId;
+        let postscript = this.data.postscript;
+        let freightPrice = this.data.freightPrice;
+        let actualPrice = this.data.actualPrice;
+        util.request(api.OrderSubmit, {
+            addressId: addressId,
+            postscript: postscript,
+            freightPrice: freightPrice,
+            formId: formId,
+            actualPrice: actualPrice,
+            offlinePay:offlinePay
+        }, 'POST').then(res => {
+            console.log(res);
+            if (res.errno === 0) {
+                wx.removeStorageSync('orderId');
+                wx.setStorageSync('addressId', 0);
+                wx.redirectTo({
+                    url: '/pages/payOffline/index?status=1',
+                })
+            } else {
+                util.showErrorToast(res.errmsg);
+                wx.redirectTo({
+                    url: '/pages/payOffline/index?status=0',
+                })
             }
         });
     }
