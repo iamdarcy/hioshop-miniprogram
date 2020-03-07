@@ -115,9 +115,6 @@ Page({
     },
     getGoodsInfo: function() {
         let that = this;
-        wx.showLoading({
-            title: '加载中...',
-        });
         util.request(api.GoodsDetail, {
             id: that.data.id
         }).then(function(res) {
@@ -147,10 +144,10 @@ Page({
                     productList: res.data.productList,
                     checkedSpecPrice: res.data.info.retail_price,
                     galleryImages: galleryImages,
+                    loading:1
                 });
                 wx.setStorageSync('goodsImage', res.data.info.https_pic_url);
             }
-            wx.hideLoading();
         });
     },
     clickSkuValue: function(event) {
@@ -328,6 +325,8 @@ Page({
     },
     onShow: function() {
         let userInfo = wx.getStorageSync('userInfo');
+        let info = wx.getSystemInfoSync();
+        let sysHeight = info.windowHeight - 100;
         let userId = userInfo.id;
         if (userId > 0) {
             this.setData({
@@ -335,9 +334,9 @@ Page({
             });
         }
         this.setData({
-            priceChecked: false
+            priceChecked: false,
+            sysHeight: sysHeight
         })
-
         this.getGoodsInfo();
         this.getCartCount();
     },

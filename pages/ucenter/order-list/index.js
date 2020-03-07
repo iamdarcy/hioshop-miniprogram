@@ -38,7 +38,6 @@ Page({
             that.getOrderList();
             that.getOrderInfo();
         }).catch(res => {
-            console.log(res);
             util.showErrorToast(res.errmsg);
         });
     },

@@ -87,11 +87,11 @@ Page({
             });
         };
         let info = wx.getSystemInfoSync();
-        let system = info.system;
         let sysHeight = info.windowHeight - 100;
         this.setData({
             sysHeight: sysHeight
-        })
+        });
+        wx.removeStorageSync('categoryId');
     },
     getCartNum: function() {
         util.request(api.CartGoodsCount).then(function(res) {

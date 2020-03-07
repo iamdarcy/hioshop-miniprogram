@@ -76,6 +76,7 @@ Page({
             userInfo: userInfo,
         });
         this.getOrderInfo();
+        wx.removeStorageSync('categoryId');
     },
 
     onPullDownRefresh: function() {

@@ -141,7 +141,7 @@ Page({
             actualPrice: actualPrice,
             offlinePay:0
         }, 'POST').then(res => {
-            console.log(res);
+            // console.log(res);
             if (res.errno === 0) {
                 wx.removeStorageSync('orderId');
                 wx.setStorageSync('addressId', 0);
@@ -162,7 +162,6 @@ Page({
     },
     offlineOrder: function (e) {
         let formId = e.detail.formId;
-        console.log(e)
         let offlinePay = e.currentTarget.dataset.off;
         if (this.data.addressId <= 0) {
             util.showErrorToast('请选择收货地址');
@@ -180,7 +179,6 @@ Page({
             actualPrice: actualPrice,
             offlinePay:offlinePay
         }, 'POST').then(res => {
-            console.log(res);
             if (res.errno === 0) {
                 wx.removeStorageSync('orderId');
                 wx.setStorageSync('addressId', 0);

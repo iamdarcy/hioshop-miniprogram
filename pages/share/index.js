@@ -60,7 +60,6 @@ Page({
             id: id
         }).then(function(res) {
             if (res.errno === 0) {
-                // console.log(res.data);
                 that.setData({
                     goods: res.data,
                 });

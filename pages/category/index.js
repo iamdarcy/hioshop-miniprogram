@@ -88,27 +88,41 @@ Page({
     },
     onShow: function() {
         this.getChannelShowInfo();
+        let id = this.data.nowId;
         let nowId = wx.getStorageSync('categoryId');
-        this.setData({
-            list: [],
-            allPage: 1,
-            allCount: 0,
-            size: 8,
-            loading: 1
-        })
-        if (nowId == 0 || nowId == undefined) {
+        if(id == 0 && nowId === 0){
+            return false
+        }
+        else if (nowId == 0 && nowId === '') {
+            this.setData({
+                list: [],
+                allPage: 1,
+                allCount: 0,
+                size: 8,
+                loading: 1
+            })
             this.getCurrentList(0);
             this.setData({
                 nowId: 0,
                 currentCategory: {}
             })
-        } else {
+            wx.setStorageSync('categoryId', 0)
+        } else if(id != nowId) {
+            this.setData({
+                list: [],
+                allPage: 1,
+                allCount: 0,
+                size: 8,
+                loading: 1
+            })
             this.getCurrentList(nowId);
             this.getCurrentCategory(nowId);
             this.setData({
                 nowId: nowId
             })
+            wx.setStorageSync('categoryId', nowId)
         }
+        
         this.getCatalog();
     },
     switchCate: function(e) {
@@ -129,11 +143,12 @@ Page({
                 this.setData({
                     currentCategory: {}
                 })
-                wx.removeStorageSync('categoryId');
             } else {
+                wx.setStorageSync('categoryId', id)
                 this.getCurrentList(id);
                 this.getCurrentCategory(id);
             }
+            wx.setStorageSync('categoryId', id)
             this.setData({
                 nowId: id
             })

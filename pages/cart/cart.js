@@ -29,6 +29,7 @@ Page({
         // 页面显示
         this.getCartList();
         this.getCartNum();
+        wx.removeStorageSync('categoryId');
     },
     onPullDownRefresh: function() {
         wx.showNavigationBarLoading()

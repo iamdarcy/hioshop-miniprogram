@@ -1,5 +1,5 @@
 <wxs module="filters" src="../../utils/fixed.wxs"></wxs>
-<view class="container">
+<view class="container" wx:if="{{loading == 1}}">
     <view class='banner-wrap'>
         <view class='current-item' wx:if="{{gallery.length > 0}}">
             <view class='in-item'>
@@ -167,4 +167,8 @@
             <view class="cancel" bindtap="hideDialog">取消</view>
         </view>
     </view>
+</view>
+<view class="loading" style="height:{{sysHeight}}px" wx:else>
+    <image class="img" src="http://lucky-icon.meiweiyuxian.com/hio/loading2.gif"></image>
+    <view class="text">海风吹啊吹</view>
 </view>

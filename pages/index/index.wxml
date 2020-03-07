@@ -99,5 +99,5 @@
 </view>
 <view class="loading" style="height:{{sysHeight}}px" wx:else>
     <image class="img" src="http://lucky-icon.meiweiyuxian.com/hio/loading2.gif"></image>
-    <view class="text">努力加载中</view>
+    <view class="text">海风吹啊吹</view>
 </view>
