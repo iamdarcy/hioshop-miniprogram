@@ -8,7 +8,7 @@
 <img width="1400" src="http://lucky-other.meiweiyuxian.com/miniapp.jpg"/>
 
 ### 服务器和后台管理本地部署教程
-服务器：https://www.bilibili.com/video/av89567916
+服务器：https://www.bilibili.com/video/av89567916  
 后台管理：https://www.bilibili.com/video/av89568075
 
 #### 本项目需要配合  
