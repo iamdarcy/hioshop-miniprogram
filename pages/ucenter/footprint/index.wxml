@@ -5,13 +5,13 @@
 
             <view class="day-hd" wx:if="{{item.length > 0}}">{{item[0].add_time}}</view>
             <navigator hover-class='none' data-index="{{index}}" data-iindex="{{iindex}}" wx:for="{{item}}" wx:for-index="iindex" wx:for-item="iitem" class="item {{iindex % 2 == 0 ? 'left' : 'right'}}" wx:key="iitemId" url="/pages/goods/goods?id={{iitem.goods_id}}">
-                <view data-val="{{iitem.id}}" class='cancel-print' catchtap='deletePrint'></view>
+                <image src="/images/icon/trash-9.png" data-val="{{iitem.id}}" class='cancel-print' catchtap='deletePrint'></image>
                 <view class="box">
                     <image class="img" src="{{iitem.goods.list_pic_url}}" background-size="cover">
                         <block wx:if="{{iitem.goods.goods_number == 0}}">
                             <!-- <view class='no-goods-mask'></view> -->
                             <view class='sold-img'>
-                                <image class='soldout' src='http://lucky-icon.meiweiyuxian.com/hio/sold-out.png'></image>
+                                <image class='soldout' src='/images/icon/sold-out.png'></image>
                             </view>
                         </block>
                     </image>
@@ -32,7 +32,7 @@
         </view>
     </view>
     <view wx:else class="no-print">
-        <image class="no-print-img"></image>
+        <image src="/images/icon/footprint.png" class="no-print-img"></image>
         <view class="text">一个脚印都没有！</view>
         <view class="to-index-btn" bindtap="toIndexPage">
             马上去踩踩

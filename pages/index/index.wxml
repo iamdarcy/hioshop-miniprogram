@@ -1,16 +1,16 @@
 <view class="container" wx:if="{{loading == 1}}">
     <view class='contact-wrap'>
         <button class="contact-btn" session-from='{"nickName":"{{userInfo.nickname}}","avatarUrl":"{{userInfo.avatar}}"}' open-type="contact">
-            <image class='icon' src='http://lucky-icon.meiweiyuxian.com/hio/contact.png'></image>
+            <image class='icon' src='/images/icon/contact.png'></image>
             <view class='text'>客服</view>
         </button>
     </view>
     <view class="search" bindtap="goSearch">
-        <image class="icon"></image>
+        <image class="icon" src="/images/icon/search.png"></image>
         <text class="txt">搜索, 共{{goodsCount}}款好物</text>
     </view>
     <view class='banner-wrap' wx:if="{{show_banner && banner.length > 0}}">
-        <swiper class="banner" indicator-dots="true" autoplay="{{false}}" interval="3000" duration="1000"   >
+        <swiper class="banner" indicator-dots="true" autoplay="{{autoplay}}" interval="3000" duration="1000"   >
             <swiper-item wx:for="{{banner}}" wx:key="id">
                 <navigator wx:if="{{item.link_type == 0}}" url="/pages/goods/goods?id={{item.goods_id}}">
                     <image src="{{item.image_url}}" background-size="cover"></image>
@@ -22,11 +22,11 @@
         </swiper>
     </view>
     <view class='marquee_box' wx:if="{{notice.length>0 && show_notice == 1}}">
-        <swiper vertical="{{true}}" class="notice-swiper" indicator-dots="{{false}}" autoplay="{{true}}" interval="2000" duration="1000">
+        <swiper vertical="{{true}}" class="notice-swiper" indicator-dots="{{false}}" autoplay="{{autoplay}}" interval="2000" duration="1000">
             <swiper-item wx:for="{{notice}}" wx:key="id" class='notice-wrap'>
 
                     <view class="icon">
-                        <image src="http://lucky-icon.meiweiyuxian.com/hio/notice-icon.png" class='img'>
+                        <image src="/images/icon/notice-icon.png" class='img'>
                         </image>
                     </view>
                     <view class='notice-text'>{{item.content}}</view>
@@ -77,7 +77,7 @@
                             </image>
                             <block wx:if="{{iitem.goods_number <= 0}}">
                                 <view class='sold-img'>
-                                    <image class='soldout' src='http://lucky-icon.meiweiyuxian.com/hio/sold-out.png'></image>
+                                    <image class='soldout' src='/images/icon/sold-out.png'></image>
                                 </view>
                             </block>
                         </view>
@@ -98,6 +98,6 @@
     <view class="no-more-goods ">没有更多商品啦</view>
 </view>
 <view class="loading" style="height:{{sysHeight}}px" wx:else>
-    <image class="img" src="http://lucky-icon.meiweiyuxian.com/hio/loading2.gif"></image>
+    <image class="img" src="/images/icon/loading.gif"></image>
     <view class="text">海风吹啊吹</view>
 </view>

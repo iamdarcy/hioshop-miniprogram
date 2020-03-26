@@ -18,6 +18,15 @@ function payOrder(orderId) {
                     'signType': payParam.signType,
                     'paySign': payParam.paySign,
                     'success': function(res) {
+                        wx.requestSubscribeMessage({
+                            tmplIds: ['w6AMCJ0FI2LqjCjWPIrpnVWTsFgnlNlmCf9TTDmG6_U'],
+                            success(res) {
+                                console.log(res);
+                            },
+                            fail(err) {
+                                console.log(err);
+                            }
+                        })
                         resolve(res);
                     },
                     'fail': function(res) {

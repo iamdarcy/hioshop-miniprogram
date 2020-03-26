@@ -152,17 +152,14 @@ page {
 }
 
 .order-container .header {
-    width: 100%;
-    background: url(http://lucky-icon.meiweiyuxian.com/hio/arrow-right.png) no-repeat 690rpx center;
-    background-size: 14rpx auto, 750rpx auto;
     height: 90rpx;
-    margin: 0 0 0 24rpx;
+    margin: 0 30rpx;
     font-size: 30rpx;
-    line-height: 90rpx;
     color: #333;
     border-bottom: 1px solid #eee;
-    justify-content: space-between;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .top-title {
@@ -181,13 +178,25 @@ page {
 }
 
 .see-more {
-    width: 200rpx;
+    /* width: 200rpx; */
     height: 90rpx;
-    margin-right: 50rpx;
     font-size: 28rpx;
     color: #999;
-    text-align: right;
-    padding-right: 30rpx;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.see-more .text{
+    margin-right: 20rpx;
+}
+
+.see-more .arrow{
+    width: 10rpx;
+    height: 10rpx;
+    border-top: 4rpx solid #ccc;
+    border-right: 4rpx solid #ccc;
+    transform: rotate(45deg);
 }
 
 .btn-container {

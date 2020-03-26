@@ -154,8 +154,6 @@ page {
     width: 100rpx;
     height: 100rpx;
     margin-bottom: 30rpx;
-    background: url('http://lucky-icon.meiweiyuxian.com/hio/footprint.png') no-repeat;
-    background-size: 100rpx auto;
 }
 
 .no-print .text {
@@ -193,8 +191,6 @@ page {
     right: 20rpx;
     width: 46rpx;
     height: 46rpx;
-    background: url('http://lucky-icon.meiweiyuxian.com/hio/trash-9.png') no-repeat;
-    background-size: 46rpx auto;
     z-index: 999;
 }
 

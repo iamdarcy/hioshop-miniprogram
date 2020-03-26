@@ -42,8 +42,6 @@ page {
     left: 20rpx;
     width: 30rpx;
     height: 30rpx;
-    background: url('http://lucky-icon.meiweiyuxian.com/hio/search.png') no-repeat;
-    background-size: 30rpx auto;
 }
 
 .search-header .del {
@@ -53,8 +51,6 @@ page {
     width: 34rpx;
     height: 34rpx;
     z-index: 10;
-    background: url('http://lucky-icon.meiweiyuxian.com/hio/search-dele.png') no-repeat;
-    background-size: 34rpx auto;
 }
 
 .search-header .keywrod {
@@ -113,8 +109,6 @@ page {
     margin-left: 511rpx;
     height: 38rpx;
     width: 38rpx;
-    background: url('http://lucky-icon.meiweiyuxian.com/hio/trash-9.png') no-repeat;
-    background-size: 38rpx auto;
 }
 
 .serach-keywords .b {
@@ -182,16 +176,18 @@ page {
 .sort-box .item {
     height: 78rpx;
     line-height: 78rpx;
-    text-align: center;
     flex: 1;
     color: #333;
     font-size: 30rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .sort-box .item .txt {
     display: block;
-    width: 100%;
     height: 100%;
+    margin-right: 8rpx;
     color: #333;
 }
 
@@ -199,34 +195,9 @@ page {
     color: #ff3456;
 }
 
-.sort-box .item.by-price {
-    background: url(http://lucky-icon.meiweiyuxian.com/hio/order-by.png) 155rpx center no-repeat;
-    background-size: 15rpx 21rpx;
-}
-
-.sort-box .item.by-price.active.asc {
-    background: url(http://lucky-icon.meiweiyuxian.com/hio/asc.png) 155rpx center no-repeat;
-    background-size: 15rpx 21rpx;
-}
-
-.sort-box .item.by-price.active.desc {
-    background: url(http://lucky-icon.meiweiyuxian.com/hio/desc.png) 155rpx center no-repeat;
-    background-size: 15rpx 21rpx;
-}
-
-.sort-box .item.by-sales {
-    background: url(http://lucky-icon.meiweiyuxian.com/hio/order-by.png) 155rpx center no-repeat;
-    background-size: 15rpx 21rpx;
-}
-
-.sort-box .item.by-sales.active.asc {
-    background: url(http://lucky-icon.meiweiyuxian.com/hio/asc.png) 155rpx center no-repeat;
-    background-size: 15rpx 21rpx;
-}
-
-.sort-box .item.by-sales.active.desc {
-    background: url(http://lucky-icon.meiweiyuxian.com/hio/desc.png) 155rpx center no-repeat;
-    background-size: 15rpx 21rpx;
+.sort-box .item .icon{
+    width: 15rpx;
+    height: 21rpx;
 }
 
 .sort-box-category {
@@ -291,8 +262,6 @@ page {
     display: block;
     width: 128rpx;
     height: 128rpx;
-    background: url('http://lucky-icon.meiweiyuxian.com/hio/no-search.png') no-repeat;
-    background-size: 128rpx auto;
 }
 
 .search-result-empty .text {

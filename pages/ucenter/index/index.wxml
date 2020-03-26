@@ -3,7 +3,7 @@
         <view class='head-wrap' wx:if="{{hasUserInfo == 0}}" bindtap='goAuth'>
             <view class="no-login-avatar">
                 <view class='no-avatar'>
-                    <image class='avatar' src="{{avatar}}"></image>
+                    <image class='avatar' src="/images/icon/default_avatar_big.png"></image>
                 </view>
                 <view class='btn-login'>点我登录</view>
             </view>
@@ -30,12 +30,15 @@
                 <view class='left-line'></view>
                 <view class='text'>我的订单</view>
             </view>
-            <view class='see-more'>查看全部订单</view>
+            <view class='see-more'>
+                <view class="text">查看全部订单</view>
+                <view class="arrow"></view>
+            </view>
         </view>
         <view class='btn-container'>
             <view class='icon-wrap' data-index='1' bindtap='toOrderListTap'>
                 <view class='order-icon-wrap'>
-                    <image class='order-icon' src='http://lucky-icon.meiweiyuxian.com/hio/icon-pay-r.png'>
+                    <image class='order-icon' src='/images/icon/icon-pay-r.png'>
                     </image>
                     <view wx:if="{{status.toPay > 0 }}" class='red-point'>{{status.toPay}}</view>
                 </view>
@@ -43,7 +46,7 @@
             </view>
             <view class='icon-wrap' data-index='2' bindtap='toOrderListTap'>
                 <view class='order-icon-wrap'>
-                    <image class='order-icon' src='http://lucky-icon.meiweiyuxian.com/hio/icon-delivery-r.png'>
+                    <image class='order-icon' src='/images/icon/icon-delivery-r.png'>
                     </image>
                     <view wx:if="{{status.toDelivery > 0 }}" class='red-point'>{{status.toDelivery}}</view>
                 </view>
@@ -51,7 +54,7 @@
             </view>
             <view class='icon-wrap' data-index='3' bindtap='toOrderListTap'>
                 <view class='order-icon-wrap'>
-                    <image class='order-icon' src='http://lucky-icon.meiweiyuxian.com/hio/icon-onroad-r.png'>
+                    <image class='order-icon' src='/images/icon/icon-onroad-r.png'>
                     </image>
                     <view wx:if="{{status.toReceive > 0 }}" class='red-point'>{{status.toReceive}}</view>
                 </view>
@@ -63,7 +66,7 @@
         <view class="list" bindtap="toAddressList">
             <view class="list-l">
                 <view class="icon">
-                    <image class="img" src="http://lucky-icon.meiweiyuxian.com/hio/icon-address-r.png"></image>
+                    <image class="img" src="/images/icon/icon-address-r.png"></image>
                 </view>
                 <view class="text">地址管理</view>
             </view>
@@ -74,7 +77,7 @@
         <view class="list" bindtap="toFootprint">
             <view class="list-l">
                 <view class="icon">
-                    <image class="img" src="http://lucky-icon.meiweiyuxian.com/hio/icon-footprint-r.png"></image>
+                    <image class="img" src="/images/icon/icon-footprint-r.png"></image>
                 </view>
                 <view class="text">我的足迹</view>
             </view>
@@ -83,7 +86,7 @@
         <button class="contact-btn" session-from='{"nickName":"{{userInfo.nickname}}","avatarUrl":"{{userInfo.avatar}}"}' open-type="contact">
             <view class="list-l">
                 <view class="icon">
-                    <image class="img" src="http://lucky-icon.meiweiyuxian.com/hio/icon-service-r.png"></image>
+                    <image class="img" src="/images/icon/icon-service-r.png"></image>
                 </view>
                 <view class="text">联系客服</view>
             </view>
@@ -92,7 +95,7 @@
         <view class="list" bindtap="toAbout">
             <view class="list-l">
                 <view class="icon">
-                    <image class="img" src="http://lucky-icon.meiweiyuxian.com/hio/icon-about-r.png"></image>
+                    <image class="img" src="/images/icon/icon-about-r.png"></image>
                 </view>
                 <view class="text">关于我们</view>
             </view>

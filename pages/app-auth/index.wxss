@@ -64,8 +64,6 @@
 .img-w{
     height: 40rpx;
     width: 40rpx;
-    background: url('http://lucky-icon.meiweiyuxian.com/hio/weixin-w.png') no-repeat;
-    background-size: 40rpx;
 }
 
 .text{

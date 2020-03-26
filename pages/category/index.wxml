@@ -1,7 +1,7 @@
 <view class="container">
     <view class="search">
         <navigator url="/pages/search/search" class="input">
-            <image class="icon"></image>
+            <image class="icon" src="/images/icon/search.png"></image>
             <text class="txt">搜索, 共{{goodsCount}}款好味</text>
         </navigator>
     </view>
@@ -28,7 +28,7 @@
                                 <block wx:if="{{item.goods_number <= 0}}">
                                     <!-- <view class='no-goods-mask'></view> -->
                                     <view class='sold-img'>
-                                        <image class='soldout' src='http://lucky-icon.meiweiyuxian.com/hio/sold-out.png'></image>
+                                        <image class='soldout' src='/images/icon/sold-out.png'></image>
                                     </view>
                                 </block>
                             </view>
@@ -49,7 +49,7 @@
             </block>
             <block wx:else>
                 <view class="loading-wrap">
-                    <image class="img" src="http://lucky-icon.meiweiyuxian.com/hio/loading2.gif"></image>
+                    <image class="img" src="/images/icon/loading.gif"></image>
                     <view class="text">正在加载...</view>
                 </view>
             </block>

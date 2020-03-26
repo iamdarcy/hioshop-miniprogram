@@ -72,31 +72,6 @@ button::after {
     height: 60rpx;
 }
 
-.status-wrap .to-pay {
-    background: url('http://lucky-icon.meiweiyuxian.com/hio/to-pay-w.png') no-repeat;
-    background-size: 48rpx auto;
-}
-
-.status-wrap .to-close {
-    background: url('http://lucky-icon.meiweiyuxian.com/hio/to-close-w.png') no-repeat;
-    background-size: 48rpx auto;
-}
-
-.status-wrap .to-delivery {
-    background: url('http://lucky-icon.meiweiyuxian.com/hio/to-delivery-w.png') no-repeat;
-    background-size: 48rpx auto;
-}
-
-.status-wrap .to-receive {
-    background: url('http://lucky-icon.meiweiyuxian.com/hio/to-receive-w.png') no-repeat;
-    background-size: 48rpx auto;
-}
-
-.status-wrap .to-success {
-    background: url('http://lucky-icon.meiweiyuxian.com/hio/success-w.png') no-repeat;
-    background-size: 48rpx auto;
-}
-
 .status-wrap .count-wrap {
     height: 60rpx;
     line-height: 60rpx;
@@ -128,48 +103,35 @@ button::after {
 
 .address-box {
     width: 100%;
-    background: url(http://lucky-icon.meiweiyuxian.com/hio/arrow-right.png) no-repeat 710rpx center;
     background-color: #fff;
-    background-size: 16rpx auto;
-    /* height: 140rpx; */
     margin-bottom: 18rpx;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 24rpx;
+    box-sizing: border-box;
 }
 
-.address-box.no-arrow {
-    background: none;
-    background-color: #fff;
-}
-
-.address-box .top-line {
-    width: 100%;
-    background: url(http://lucky-icon.meiweiyuxian.com/hio/addr-line.png) repeat-x top;
-    background-color: #fff;
-    background-size: 48rpx;
-    height: 10rpx;
+.address-box .addr-icon{
+    width: 50rpx;
+    height: 50rpx;
+    margin-right: 24rpx;
 }
 
 .address-box .show-address {
-    width: 100%;
-    /* height: 120rpx; */
-    padding-left: 70rpx;
-    /* box-sizing: border-box; */
-    background: url(http://lucky-icon.meiweiyuxian.com/hio/location.png) no-repeat left center;
-    background-size: 50rpx auto;
-    margin-left: 24rpx;
-    padding-bottom: 22rpx;
+    display: flex;
+    flex-direction: column;
 }
 
 .address-box .show-address .name-tel {
     font-size: 30rpx;
     color: #233445;
-    padding: 22rpx 70rpx 6rpx 0;
+    padding: 0 0 6rpx 0;
 }
 
 .address-box .show-address .addr-text {
     font-size: 26rpx;
     color: #666;
-    padding-right: 70rpx;
-    width: 600rpx;
 }
 
 form {
@@ -201,11 +163,11 @@ form {
 
 .a-goods {
     display: flex;
-    padding: 24rpx 54rpx 24rpx 24rpx;
-    background: url(http://lucky-icon.meiweiyuxian.com/hio/arrow-right.png) no-repeat 710rpx center;
+    padding: 24rpx;
     background-color: #fff;
     background-size: 16rpx auto;
     justify-content: space-between;
+    align-items: center;
 }
 
 .img-box {
@@ -222,10 +184,25 @@ form {
 }
 
 .goods-sum {
-    line-height: 120rpx;
-    height: 120rpx;
+    line-height: 100rpx;
+    height: 100rpx;
     font-size: 26rpx;
     color: #666;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.goods-sum .text{
+    margin-right: 20rpx;
+}
+
+.goods-sum .arrow{
+    width: 10rpx;
+    height: 10rpx;
+    border-top: 4rpx solid #ccc;
+    border-right: 4rpx solid #ccc;
+    transform: rotate(45deg);
 }
 
 .express {
@@ -262,10 +239,23 @@ form {
 }
 
 .express-info-wrap {
-    padding: 30rpx 60rpx 30rpx 24rpx;
-    background: url(http://lucky-icon.meiweiyuxian.com/hio/arrow-right.png) no-repeat 710rpx center;
+    padding: 30rpx 24rpx;
     background-color: #fff;
-    background-size: 16rpx auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.express-info-wrap .l{
+    display: flex;
+    flex-direction: column;
+}
+
+.express-info-wrap .arrow{
+    width: 10rpx;
+    height: 10rpx;
+    border-top: 4rpx solid #ccc;
+    border-right: 4rpx solid #ccc;
+    transform: rotate(45deg);
 }
 
 .express-info {
@@ -353,16 +343,6 @@ form {
     font-size: 28rpx;
     color: #666;
     /* padding-right: 30rpx; */
-}
-
-.right-arrow {
-    background: url(http://lucky-icon.meiweiyuxian.com/hio/arrow-right.png) no-repeat 686rpx center;
-    background-size: 16rpx auto;
-}
-
-.right-arrow .right-text {
-    margin-right: 30rpx;
-    color: #ff3456;
 }
 
 .bottom-box {
@@ -500,12 +480,23 @@ form {
 .bottom-fixed-box .call-service {
     height: 36rpx;
     line-height: 36rpx;
-    padding-left: 46rpx;
     font-size: 26rpx;
-    background: url('http://lucky-icon.meiweiyuxian.com/hio/contact.png') no-repeat;
-    background-size: 36rpx auto;
-    color: #0093de;
     margin-left: 24rpx;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0;
+    background: none;
+}
+
+.bottom-fixed-box .call-service .text{
+    color: #0093de;
+}
+
+.bottom-fixed-box .call-service .icon{
+    width: 48rpx;
+    height: 36rpx;
+    margin-right: 10rpx;
 }
 
 .bottom-fixed-box .btn-red {

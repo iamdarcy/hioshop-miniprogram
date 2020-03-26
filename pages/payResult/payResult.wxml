@@ -1,7 +1,7 @@
 <view class="container">
     <view wx:if="{{status == 1}}" class="result-wrap">
         <view class='image-wrap'>
-            <image src="http://lucky-icon.meiweiyuxian.com/hio/pay-success.png" class="success-img"></image>
+            <image src="/images/icon/pay-success.png" class="success-img"></image>
         </view>
         <view class='text-wrap'>
             <view class="success-text">付款成功</view>
@@ -14,12 +14,12 @@
     </view>
     <view wx:else class="result-wrap">
         <view class='image-wrap'>
-            <image src="http://lucky-icon.meiweiyuxian.com/hio/pay-error.png" class="success-img"></image>
+            <image src="/images/icon/pay-error.png" class="success-img"></image>
         </view>
         <view class='text-wrap'>
             <view class="text">支付失败</view>
             <button class='contact-wrap' session-from='{"nickName":"{{userInfo.nickname}}","avatarUrl":"{{userInfo.avatar}}"}'  open-type="contact" session-from="weapp">
-                <view class='contact-icon'></view>
+                <image src="/images/icon/contact.png" class='contact-icon'></image>
                 <view class='contact'>联系客服</view>
             </button>
         </view>

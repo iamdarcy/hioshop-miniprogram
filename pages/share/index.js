@@ -54,8 +54,8 @@ Page({
     onShow: function() {
     },
     getGoodsInfo: function (qrcodeUrl) {
-        let id = this.data.goodsid;
         let that = this;
+        let id = that.data.goodsid;
         util.request(api.GoodsShare, {
             id: id
         }).then(function(res) {
@@ -187,7 +187,6 @@ Page({
             tempFilePath,
             errMsg
         } = event.detail
-        // console.log(errMsg);
         if (errMsg === 'canvasdrawer:ok') {
             this.setData({
                 shareImage: tempFilePath

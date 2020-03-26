@@ -100,8 +100,6 @@ page {
     width: 40rpx;
     height: 40rpx;
     margin-right: 10rpx;
-    background: url('http://lucky-icon.meiweiyuxian.com/hio/contact.png') no-repeat;
-    background-size: 40rpx auto;
 }
 .contact-wrap .contact{
     font-size: 28rpx;

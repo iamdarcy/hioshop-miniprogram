@@ -14,7 +14,31 @@ Page({
         addressId: 0,
         goodsCount: 0,
         postscript: '',
-        outStock: 0
+        outStock: 0,
+        payMethodItems: [{
+                name: 'offline',
+                value: '线下支付'
+            },
+            {
+                name: 'online',
+                value: '在线支付',
+                checked: 'true'
+            },
+        ],
+        payMethod:1,
+    },
+    payChange(e){
+        let val = e.detail.value;
+        if(val == 'offline'){
+            this.setData({
+                payMethod:0
+            })
+        }
+        else{
+            this.setData({
+                payMethod:1
+            })
+        }
     },
     toGoodsList: function (e) {
         wx.navigateTo({
@@ -91,7 +115,7 @@ Page({
         let orderFrom = that.data.orderFrom;
         let addType = that.data.addType;
         util.request(api.CartCheckout, {
-            addressId: that.data.addressId,
+            addressId: addressId,
             addType: addType,
             orderFrom: orderFrom,
             type: 0
@@ -139,9 +163,8 @@ Page({
             freightPrice: freightPrice,
             formId: formId,
             actualPrice: actualPrice,
-            offlinePay:0
+            offlinePay: 0
         }, 'POST').then(res => {
-            // console.log(res);
             if (res.errno === 0) {
                 wx.removeStorageSync('orderId');
                 wx.setStorageSync('addressId', 0);
@@ -162,7 +185,6 @@ Page({
     },
     offlineOrder: function (e) {
         let formId = e.detail.formId;
-        let offlinePay = e.currentTarget.dataset.off;
         if (this.data.addressId <= 0) {
             util.showErrorToast('请选择收货地址');
             return false;
@@ -177,7 +199,7 @@ Page({
             freightPrice: freightPrice,
             formId: formId,
             actualPrice: actualPrice,
-            offlinePay:offlinePay
+            offlinePay: 1
         }, 'POST').then(res => {
             if (res.errno === 0) {
                 wx.removeStorageSync('orderId');

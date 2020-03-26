@@ -164,11 +164,10 @@ page {
 
 .goods-list .a-goods {
     display: flex;
-    padding: 24rpx 54rpx 24rpx 24rpx;
-    background: url(http://lucky-icon.meiweiyuxian.com/hio/arrow-right.png) no-repeat 710rpx center;
+    padding: 24rpx;
     background-color: #fcfcfc;
-    background-size: 16rpx auto;
     justify-content: space-between;
+    align-items: center;
 }
 
 .a-goods .img-box {
@@ -187,10 +186,25 @@ page {
 }
 
 .goods-sum {
-    line-height: 120rpx;
-    height: 120rpx;
+    line-height: 100rpx;
+    height: 100rpx;
     font-size: 26rpx;
     color: #666;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.goods-sum .text{
+    margin-right: 20rpx;
+}
+
+.goods-sum .arrow{
+    width: 10rpx;
+    height: 10rpx;
+    border-top: 4rpx solid #ccc;
+    border-right: 4rpx solid #ccc;
+    transform: rotate(45deg);
 }
 
 .order-price-wrap {

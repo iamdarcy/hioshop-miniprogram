@@ -6,14 +6,14 @@
                 <view class='current-mask'></view>
                 <view class='current-content'>
                     <view class='icon'>
-                        <image class='img' src='http://lucky-icon.meiweiyuxian.com/hio/img-icon.png'></image>
+                        <image class='img' src='/images/icon/img-icon.png'></image>
                     </view>
                     <view class='num'>{{current + 1}}/{{gallery.length}}</view>
                 </view>
             </view>
         </view>
         <block wx:if="{{gallery.length > 0}}">
-            <swiper bindchange="bindchange" class="banner banner-style1" indicator-dots="{{false}}" autoplay="{{false}}" current="{{current}}" circular="{{true}}" interval="4000" duration="1000" display-multiple-items="1">
+            <swiper bindchange="bindchange" class="banner banner-style1" indicator-dots="{{false}}" autoplay="{{autoplay}}" current="{{current}}" circular="{{true}}" interval="3000" duration="1000" display-multiple-items="1">
                 <swiper-item class="item" wx:for="{{gallery}}" wx:key="id">
                     <image bindtap="previewImage" data-src="{{item.img_url}}" src="{{item.img_url}}" class="slide-image" mode="aspectFill" />
                 </swiper-item>
@@ -21,7 +21,7 @@
         </block>
         <block wx:else>
             <view class='no-image'>
-                <image class='img' src='http://lucky-icon.meiweiyuxian.com/hio/no-img.png'></image>
+                <image class='img' src='/images/icon/no-img.png'></image>
             </view>
         </block>
     </view>
@@ -32,7 +32,7 @@
         </view>
         <view class='r'>
             <view bindtap="shareTo" class='share'>
-                <image class='icon' src='http://lucky-icon.meiweiyuxian.com/hio/share.png'></image>
+                <image class='icon' src='/images/icon/share.png'></image>
                 <view class='text'>分享</view>
             </view>
         </view>
@@ -49,8 +49,9 @@
             <view class='sales'>已售{{goods.sell_volume}}份</view>
         </view>
     </view>
-    <view class='section-nav arrow-right' bindtap="switchAttrPop">
+    <view class='section-nav' bindtap="switchAttrPop">
         <view class="t">{{checkedSpecText}}</view>
+        <view class="arrow"></view>
     </view>
     <view class='details-wrap'>
         <view class="title">商品详情</view>
@@ -65,7 +66,7 @@
     <view class="attr-pop-box" hidden="{{!openAttr}}" bindtap='closeAttr'>
         <view class="attr-pop" catchtap="handleTap">
             <view class="close" catchtap="closeAttr">
-                <image class="icon" src="http://lucky-icon.meiweiyuxian.com/hio/icon-close.png"></image>
+                <image class="icon" src="/images/icon/icon-close.png"></image>
             </view>
             <view class="img-info">
                 <view class="img-wrap">
@@ -121,7 +122,7 @@
                 </form>
             </view>
             <button class='left-icon contact-button' session-from='{"nickName":"{{userInfo.nickname}}","avatarUrl":"{{userInfo.avatar}}"}' open-type="contact" show-message-card="true" hover-class="none">
-                <image class='icon' src='http://lucky-icon.meiweiyuxian.com/hio/chat.png'></image>
+                <image class='icon' src='/images/icon/chat.png'></image>
                 <view class='icon-text'>客服</view>
             </button>
             <view class="left-icon" bindtap='openCartPage'>
@@ -154,11 +155,11 @@
                 <view class='content'>
                     <view class="share-block">
                         <button class='block share-btn' hover-class="none" open-type='share'>
-                            <image class="img" src="http://lucky-icon.meiweiyuxian.com/hio/weixin.png"></image>
+                            <image class="img" src="/images/icon/weixin.png"></image>
                             <view class="text">发给好友/发到微信群</view>
                         </button>
                         <view class="block" catchtap="createShareImage">
-                            <image class="img" src="http://lucky-icon.meiweiyuxian.com/hio/pyq.png"></image>
+                            <image class="img" src="/images/icon/pyq.png"></image>
                             <view class="text">保存分享图发朋友圈</view>
                         </view>
                     </view>
@@ -169,6 +170,6 @@
     </view>
 </view>
 <view class="loading" style="height:{{sysHeight}}px" wx:else>
-    <image class="img" src="http://lucky-icon.meiweiyuxian.com/hio/loading2.gif"></image>
+    <image class="img" src="/images/icon/loading.gif"></image>
     <view class="text">海风吹啊吹</view>
 </view>

@@ -110,8 +110,6 @@
 }
 
 .search .icon {
-    background: url(http://lucky-icon.meiweiyuxian.com/hio/search.png) center no-repeat;
-    background-size: 100%;
     width: 30rpx;
     height: 30rpx;
 }

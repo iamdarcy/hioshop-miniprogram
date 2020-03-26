@@ -29,6 +29,8 @@ Page({
         loading: 0,
         current: 0,
         showShareDialog:0,
+        userInfo:{},
+        autoplay:true
     },
     hideDialog: function (e) {
         let that = this;
@@ -47,7 +49,6 @@ Page({
             });
         }
     },
-    
     createShareImage: function () {
         let id = this.data.id;
         wx.navigateTo({
@@ -147,6 +148,9 @@ Page({
                     loading:1
                 });
                 wx.setStorageSync('goodsImage', res.data.info.https_pic_url);
+            }
+            else{
+                util.showErrorToast(res.errmsg)
             }
         });
     },
@@ -330,7 +334,8 @@ Page({
         let userId = userInfo.id;
         if (userId > 0) {
             this.setData({
-                userId: userId
+                userId: userId,
+                userInfo: userInfo,
             });
         }
         this.setData({
@@ -339,6 +344,11 @@ Page({
         })
         this.getGoodsInfo();
         this.getCartCount();
+    },
+    onHide:function(){
+        this.setData({
+            autoplay:false
+        })
     },
     getCartCount: function() {
         let that = this;

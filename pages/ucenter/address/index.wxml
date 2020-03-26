@@ -2,8 +2,8 @@
     <view class='has-info' wx:if="{{addresses.length > 0}}">
         <view bindtap="{{type == 0?'goAddressDetail':'selectAddress'}}" class='info-item' data-addressid="{{item.id}}" wx:for="{{addresses}}" wx:key="id">
             <view class="selected" wx:if="{{type == 1}}">
-                <image wx:if="{{item.id == nowAddress}}" class="img" src="http://lucky-icon.meiweiyuxian.com/hio/gou-red.png"></image>
-                <image wx:else class="img" src="http://lucky-icon.meiweiyuxian.com/hio/gou-gray.png"></image>
+                <image wx:if="{{item.id == nowAddress}}" class="img" src="/images/icon/gou-red.png"></image>
+                <image wx:else class="img" src="/images/icon/gou-gray.png"></image>
             </view>
             <view class="info-wrap">
                 <view class="addr">
@@ -16,12 +16,12 @@
                 </view>
             </view>
             <view class="edit-wrap" data-addressid="{{item.id}}" catchtap='goAddressDetail'>
-                <image class="img" src="http://lucky-icon.meiweiyuxian.com/hio/edit.png"></image>
+                <image class="img" src="/images/icon/edit.png"></image>
             </view>
         </view>
     </view>
     <view class="no-info" wx:else>
-        <image src="http://lucky-icon.meiweiyuxian.com/hio/position-deny.png" class="img"></image>
+        <image src="/images/icon/position-deny.png" class="img"></image>
         <view class="text">没有地址信息</view>
     </view>
     <view class="btn-wrap" bindtap="addAddress">

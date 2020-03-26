@@ -22,6 +22,7 @@ Page({
         wxTimerList: {},
         express: {},
         onPosting: 0,
+        userInfo:{}
     },
     reOrderAgain: function () {
         let orderId = this.data.orderId
@@ -67,7 +68,6 @@ Page({
     },
     toSelectAddress: function () {
         let orderId = this.data.orderId;
-
         wx.navigateTo({
             url: '/pages/ucenter/address-select/index?id=' + orderId,
         });
@@ -77,13 +77,11 @@ Page({
     },
     onShow: function () {
         var orderId = wx.getStorageSync('orderId');
-        try {
-            this.setData({
-                orderId: orderId
-            });
-        } catch (e) {
-            // Do something when catch error
-        }
+        let userInfo = wx.getStorageSync('userInfo');
+        this.setData({
+            orderId: orderId,
+            userInfo:userInfo
+        });
         wx.showLoading({
             title: '加载中...',
         })

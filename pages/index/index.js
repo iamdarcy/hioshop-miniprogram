@@ -14,18 +14,24 @@ Page({
         showBannerImg: 0,
         goodsCount: 0,
         banner: [],
-        index_banner_img:0,
+        index_banner_img: 0,
         userInfo: {},
         imgurl: '',
-        sysHeight:0,
+        sysHeight: 0,
         loading: 0,
+        autoplay:true
     },
-    goSearch:function(){
+    onHide:function(){
+        this.setData({
+            autoplay:false
+        })
+    },
+    goSearch: function () {
         wx.navigateTo({
             url: '/pages/search/search',
         })
     },
-    goCategory: function(e) {
+    goCategory: function (e) {
         let id = e.currentTarget.dataset.cateid;
         wx.setStorageSync('categoryId', id);
         wx.switchTab({
@@ -40,10 +46,10 @@ Page({
             });
         });
     },
-    handleTap: function(event) {
+    handleTap: function (event) {
         //阻止冒泡 
     },
-    onShareAppMessage: function() {
+    onShareAppMessage: function () {
         let info = wx.getStorageSync('userInfo');
         return {
             title: '海风小店',
@@ -51,14 +57,14 @@ Page({
             path: '/pages/index/index?id=' + info.id
         }
     },
-    toDetailsTap: function() {
+    toDetailsTap: function () {
         wx.navigateTo({
             url: '/pages/goods-details/index',
         });
     },
-    getIndexData: function() {
+    getIndexData: function () {
         let that = this;
-        util.request(api.IndexUrl).then(function(res) {
+        util.request(api.IndexUrl).then(function (res) {
             if (res.errno === 0) {
                 that.setData({
                     floorGoods: res.data.categoryList,
@@ -70,12 +76,12 @@ Page({
             }
         });
     },
-    onLoad: function(options) {
+    onLoad: function (options) {
         let systemInfo = wx.getStorageSync('systemInfo');
         var scene = decodeURIComponent(options.scene);
         this.getCatalog();
     },
-    onShow: function() {
+    onShow: function () {
         this.getCartNum();
         this.getChannelShowInfo();
         this.getIndexData();
@@ -89,12 +95,13 @@ Page({
         let info = wx.getSystemInfoSync();
         let sysHeight = info.windowHeight - 100;
         this.setData({
-            sysHeight: sysHeight
+            sysHeight: sysHeight,
+            autoplay:true
         });
         wx.removeStorageSync('categoryId');
     },
-    getCartNum: function() {
-        util.request(api.CartGoodsCount).then(function(res) {
+    getCartNum: function () {
+        util.request(api.CartGoodsCount).then(function (res) {
             if (res.errno === 0) {
                 let cartGoodsCount = '';
                 if (res.data.cartTotal.goodsCount == 0) {
@@ -111,9 +118,9 @@ Page({
             }
         });
     },
-    getChannelShowInfo: function(e) {
+    getChannelShowInfo: function (e) {
         let that = this;
-        util.request(api.ShowSettings).then(function(res) {
+        util.request(api.ShowSettings).then(function (res) {
             if (res.errno === 0) {
                 let show_channel = res.data.channel;
                 let show_banner = res.data.banner;
@@ -128,7 +135,7 @@ Page({
             }
         });
     },
-    onPullDownRefresh: function() {
+    onPullDownRefresh: function () {
         wx.showNavigationBarLoading()
         this.getIndexData();
         this.getChannelShowInfo();

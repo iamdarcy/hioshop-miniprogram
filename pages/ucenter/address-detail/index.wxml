@@ -2,7 +2,7 @@
     <view class='edit-container'>
         <view class="a-item">
             <view class="icon">
-                <image class="img" src="http://lucky-icon.meiweiyuxian.com/hio/receiver.png"></image>
+                <image class="img" src="/images/icon/receiver.png"></image>
             </view>
             <view class="input-wrap">
                 <input cursor-spacing='100' class='a-input' bindinput="bindinputName" placeholder='姓名' value="{{address.name}}"></input>
@@ -10,7 +10,7 @@
         </view>
         <view class="a-item">
             <view class="icon">
-                <image class="img" src="http://lucky-icon.meiweiyuxian.com/hio/mobile.png"></image>
+                <image class="img" src="/images/icon/mobile.png"></image>
             </view>
             <view class="input-wrap">
                 <input cursor-spacing='100' class='a-input' type='number' bindblur="mobilechange" value="{{address.mobile}}" placeholder='手机号码'></input>
@@ -18,7 +18,7 @@
         </view>
         <view class="a-item">
             <view class="icon">
-                <image class="img" src="http://lucky-icon.meiweiyuxian.com/hio/position.png"></image>
+                <image class="img" src="/images/icon/position.png"></image>
             </view>
             <view class="input-wrap" bindtap="chooseRegion">
                 <input cursor-spacing='100' class="a-input" value="{{address.full_region}}" disabled="true" placeholder="选择省份、城市、区县" />
@@ -27,7 +27,7 @@
         </view>
         <view class="a-item">
             <view class="icon">
-                <image class="img" src="http://lucky-icon.meiweiyuxian.com/hio/address.png"></image>
+                <image class="img" src="/images/icon/address.png"></image>
             </view>
             <view class="input-wrap">
                 <input cursor-spacing='100' class="a-input" bindinput="bindinputAddress" value="{{address.address}}" placeholder="详细地址, 如街道、小区或写字楼等" />

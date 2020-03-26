@@ -18,24 +18,21 @@ page {
 .a-item {
     padding: 24rpx;
     border-top: 1rpx solid #eee;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
+
+.a-item .icon{
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 20rpx;
+}
+
 .a-input {
     font-size: 28rpx;
     width: 100%;
 }
-
-.name {
-    padding-left: 74rpx;
-    background: url(http://lucky-icon.meiweiyuxian.com/hio/receiver.png) no-repeat left 20rpx center;
-    background-size: 36rpx auto;
-}
-
-.mobile {
-    padding-left: 74rpx;
-    background: url(http://lucky-icon.meiweiyuxian.com/hio/mobile.png) no-repeat left 20rpx center;
-    background-size: 36rpx auto;
-}
-
 
 .wrap-btn{
     width: 100%;

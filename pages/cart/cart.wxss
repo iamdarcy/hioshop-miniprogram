@@ -78,15 +78,13 @@ page {
 .a-goods .checkbox {
     display: block;
     height: 40rpx;
-    width: 40rpx;
+    min-width: 40rpx;
     padding: 100rpx 40rpx;
-    background: url(http://lucky-icon.meiweiyuxian.com/hio/gou-gray.png) no-repeat center;
-    background-size: 40rpx auto;
 }
 
-.a-goods .checked {
-    background: url(http://lucky-icon.meiweiyuxian.com/hio/gou-red.png) no-repeat center;
-    background-size: 40rpx auto;
+.a-goods .checkbox .checkbox-img{
+    height: 40rpx;
+    width: 40rpx;
 }
 
 .goods-info {
@@ -353,15 +351,17 @@ button::after {
 }
 
 .settle-box .all-selected {
-    padding-left: 90rpx;
+    padding-left: 40rpx;
     color: #000;
-    background: url(http://lucky-icon.meiweiyuxian.com/hio/gou-gray.png) no-repeat 24rpx center;
-    background-size: 40rpx auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 
-.settle-box .all-selected.checked {
-    background: url(http://lucky-icon.meiweiyuxian.com/hio/gou-red.png) no-repeat 24rpx center;
-    background-size: 40rpx auto;
+.settle-box .all-selected .checkbox{
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 20rpx;
 }
 
 .settle-box .total {

@@ -11,7 +11,6 @@ Page({
         userInfo: {},
         hasUserInfo: false,
         canIUse: wx.canIUse('button.open-type.getUserInfo'),
-        avatar: 'http://lucky-icon.meiweiyuxian.com/hio/default_avatar_big.png',
         status: {},
     },
     goProfile: function (e) {
