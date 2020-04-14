@@ -15,7 +15,7 @@
 服务端： https://github.com/iamdarcy/hioshop-server  
 管理后台：https://github.com/iamdarcy/hioshop-admin  
 
-线上demo：http://148.70.132.188/demo/#/login
+线上demo：http://148.70.132.188/demo/#/login  
 用户名：hiolabs  
 密码：hiolabs  
 
