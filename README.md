@@ -19,8 +19,8 @@
 用户名：hiolabs  
 密码：hiolabs  
 
-<a target="_blank" href="https://www.aliyun.com/acts/limit-buy?userCode=zm04niet"><img width="1400" src="http://lucky-other.meiweiyuxian.com/github/aliyun.jpg"/></a>
-阿里云主机：低至2折<a target="_blank" href="https://www.aliyun.com/acts/limit-buy?userCode=zm04niet">立即去看看</a>
+<a target="_blank" href="https://www.aliyun.com/minisite/goods?userCode=zm04niet"><img width="1400" src="http://lucky-other.meiweiyuxian.com/github/aliyun.jpg"/></a>
+阿里云主机优惠<a target="_blank" href="https://www.aliyun.com/acts/limit-buy?userCode=zm04niet">立即去看看</a>
 
 ### 项目截图
 
