@@ -5,7 +5,7 @@
 + 服务端api基于Ｎode.js+ThinkJS+MySQL
 
 ### 目前基于海风小店已经上线的几款微信小程序商城
-<img width="1400" src="http://lucky-other.meiweiyuxian.com/miniapp.jpg"/>
+<img width="1400" src="http://git.hiolabs.com/miniapp.jpg"/>
 
 ### 服务器和后台管理本地部署教程
 服务器：https://www.bilibili.com/video/av89567916  
@@ -19,12 +19,12 @@
 用户名：hiolabs  
 密码：hiolabs  
 
-<a target="_blank" href="https://www.aliyun.com/minisite/goods?userCode=zm04niet"><img width="1400" src="http://lucky-other.meiweiyuxian.com/github/aliyun.jpg"/></a>
-阿里云主机优惠<a target="_blank" href="https://www.aliyun.com/acts/limit-buy?userCode=zm04niet">立即去看看</a>
+<a target="_blank" href="https://www.aliyun.com/minisite/goods?userCode=zm04niet"><img width="1400" src="http://git.hiolabs.com/aliyun.jpg"/></a>
+阿里云主机优惠<a target="_blank" href="https://www.aliyun.com/minisite/goods?userCode=zm04niet">立即去看看</a>
 
 ### 项目截图
 
-<img width="1400" src="http://lucky-other.meiweiyuxian.com/github/all1.jpg"/>
+<img width="1400" src="http://git.hiolabs.com/github/all1.jpg"/>
 
 ### 功能列表
 + 首页：搜索、Banner、公告、分类Icons、分类商品列表
@@ -43,7 +43,7 @@ F 修复share.js的一个bug
 A 增加发货时的订阅消息  
 
 - 12.14 新增生成分享图的功能  
-<img width="1000" src="http://lucky-other.meiweiyuxian.com/github/save-local.jpg"/>
+<img width="1000" src="http://git.hiolabs.com/github/save-local.jpg"/>
 
 #### 完整的购物流程，商品加入购物车 --> 收货地址的选择 --> 下单支付 --> 确认收货
 
@@ -89,6 +89,6 @@ A 增加发货时的订阅消息
 服务端： https://github.com/iamdarcy/hioshop-server  
 
 - 本项目会持续更新和维护，喜欢别忘了 Star，有问题可通过微信、QQ群联系我，谢谢您的关注。
-<img width="1200" src="http://lucky-other.meiweiyuxian.com/github/contact.jpg"/>
+<img width="1200" src="http://git.hiolabs.com/github/contact.jpg"/>
 
 
