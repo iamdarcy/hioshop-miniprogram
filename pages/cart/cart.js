@@ -136,6 +136,10 @@ Page({
     },
     updateCart: function(itemIndex, productId, number, id) {
         let that = this;
+        wx.showLoading({
+            title: '',
+            mask:true
+          })
         util.request(api.CartUpdate, {
             productId: productId,
             number: number,
@@ -155,6 +159,8 @@ Page({
             that.setData({
                 checkedAllStatus: that.isCheckedAll()
             });
+            wx.hideLoading({
+            })
         });
 
     },

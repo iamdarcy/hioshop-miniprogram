@@ -28,7 +28,7 @@
 			<view class="a-goods">
 				<view class="img-box">
 					<view class='image-wrap' wx:for="{{checkedGoodsList}}" wx:if="{{index<5}}" wx:key="id">
-						<image src="{{item.list_pic_url}}" class="goods-image"></image>
+						<image wx:if="{{item.number > 0 && item.is_on_sale == 1}}" src="{{item.list_pic_url}}" class="goods-image"></image>
 					</view>
 				</view>
 				<view class='goods-sum'>

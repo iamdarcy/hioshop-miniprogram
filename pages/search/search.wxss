@@ -320,6 +320,7 @@ page {
     width: 338rpx;
     height: 338rpx;
     border-radius: 4rpx;
+    background-color: #f9f9f9;
 }
 
 .goods-box .navi-url .box {

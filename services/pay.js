@@ -10,7 +10,8 @@ function payOrder(orderId) {
         }).then((res) => {
             if (res.errno === 0) {
                 const payParam = res.data;
-                console.log(res.data);
+                // 如果没有支付想直接支付成功，下面注释。
+                // -----------------------------------
                 wx.requestPayment({
                     'timeStamp': payParam.timeStamp,
                     'nonceStr': payParam.nonceStr,
@@ -36,6 +37,12 @@ function payOrder(orderId) {
                         reject(res);
                     }
                 });
+                // -----------------------------------
+
+                // =================================
+                // 直接支付成功，下面打开，上面注释
+                // resolve(res);
+                // =================================
             } else {
                 reject(res);
             }

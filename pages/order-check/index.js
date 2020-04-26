@@ -157,6 +157,10 @@ Page({
         let postscript = this.data.postscript;
         let freightPrice = this.data.freightPrice;
         let actualPrice = this.data.actualPrice;
+        wx.showLoading({
+            title: '',
+            mask:true
+        })
         util.request(api.OrderSubmit, {
             addressId: addressId,
             postscript: postscript,
@@ -181,6 +185,7 @@ Page({
             } else {
                 util.showErrorToast(res.errmsg);
             }
+            wx.hideLoading()
         });
     },
     offlineOrder: function (e) {
