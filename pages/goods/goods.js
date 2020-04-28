@@ -63,15 +63,6 @@ Page({
             urls: that.data.galleryImages // 需要预览的图片http链接列表  
         })
     },
-    saveUserId: function(e) {
-        let formId = e.detail.formId;
-        let that = this;
-        util.request(api.SaveUserId, {
-            formId: formId
-        }, 'POST').then(function(res) {
-            if (res.errno === 0) {}
-        });
-    },
     bindchange: function(e) {
         let current = e.detail.current;
         this.setData({

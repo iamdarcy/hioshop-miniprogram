@@ -148,7 +148,6 @@ Page({
     },
     // TODO 有个bug，用户没选择地址，支付无法继续进行，在切换过token的情况下
     submitOrder: function (e) {
-        let formId = e.detail.formId;
         if (this.data.addressId <= 0) {
             util.showErrorToast('请选择收货地址');
             return false;
@@ -165,7 +164,6 @@ Page({
             addressId: addressId,
             postscript: postscript,
             freightPrice: freightPrice,
-            formId: formId,
             actualPrice: actualPrice,
             offlinePay: 0
         }, 'POST').then(res => {
@@ -189,7 +187,6 @@ Page({
         });
     },
     offlineOrder: function (e) {
-        let formId = e.detail.formId;
         if (this.data.addressId <= 0) {
             util.showErrorToast('请选择收货地址');
             return false;
@@ -202,7 +199,6 @@ Page({
             addressId: addressId,
             postscript: postscript,
             freightPrice: freightPrice,
-            formId: formId,
             actualPrice: actualPrice,
             offlinePay: 1
         }, 'POST').then(res => {
