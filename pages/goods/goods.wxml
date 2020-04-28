@@ -55,6 +55,7 @@
     </view>
     <view class='details-wrap'>
         <view class="title">商品详情</view>
+        <!-- <ad unit-id="adunit-abf12db5663f60e0" ad-type="video" ad-theme="white"></ad> -->
         <view class="show">
             <view class='details-image-wrap'>
                 <view class='show-detail' bindtap='getDetailInfo' wx:if="{{is_show == 0}}">点击显示详情</view>
@@ -114,7 +115,7 @@
     <view class="cart-add-box">
         <view class='l'>
             <view class='left-icon form-button' bindtap='goIndexPage'>
-                <form bindsubmit="saveUserId" report-submit="true">
+                <form report-submit="true">
                     <button bindtap='goIndexPage' formType="submit" class='index-btn' hover-class="none">
                         <image class='icon' src='/images/nav/icon-index-b.png'></image>
                         <view class='icon-text'>主页</view>
