@@ -137,6 +137,9 @@ view {
 .wxParse-video-video {
     width: 100%;
 }
+.wxParse-iframe-video {
+    width: 100%;
+}
 
 .ql-align-center {
     text-align: center;

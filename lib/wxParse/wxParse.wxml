@@ -14,7 +14,15 @@
 <template name="wxParseVideo">
     <!--增加video标签支持，并循环添加-->
     <view class="{{item.classStr}} wxParse-{{item.tag}}" style="{{item.styleStr}}">
-        <video class="{{item.classStr}} wxParse-{{item.tag}}-video" src="{{item.attr.src}}"></video>
+        <video show-mute-btn="{{true}}" muted="{{true}}" class="{{item.classStr}} wxParse-{{item.tag}}-video" src="{{item.attr.src}}"></video>
+    </view>
+</template>
+
+ <!--基础元素-->
+<template name="wxPraseIframe">
+    <!--增加Iframe标签支持，并循环添加-->
+    <view class="{{item.classStr}} wxParse-{{item.tag}}" style="{{item.styleStr}}">
+        <video show-mute-btn="{{true}}" muted="{{true}}" class="{{item.classStr}} wxParse-{{item.tag}}-video" src="{{item.attr.src}}"></video>
     </view>
 </template>
 
@@ -69,6 +77,11 @@
                 </view>
             </view>
         </block>
+        <!--iframe插件（这个是我们添加的）-->
+        <block wx:elif="{{item.tag == 'iframe'}}">
+        <template is="wxPraseIframe" data="{{item}}" />
+        </block>
+
 
         <!--video类型-->
         <block wx:elif="{{item.tag == 'video'}}">
@@ -151,7 +164,10 @@
                 </view>
             </view>
         </block>
-
+        <!--iframe插件（这个是我们添加的）-->
+        <block wx:elif="{{item.tag == 'iframe'}}">
+        <template is="wxPraseIframe" data="{{item}}" />
+        </block>
         <!--video类型-->
         <block wx:elif="{{item.tag == 'video'}}">
             <template is="wxParseVideo" data="{{item}}"/>  
@@ -225,7 +241,10 @@
                 </view>
             </view>
         </block>
-
+        <!--iframe插件（这个是我们添加的）-->
+        <block wx:elif="{{item.tag == 'iframe'}}">
+        <template is="wxPraseIframe" data="{{item}}" />
+        </block>
         <!--video类型-->
         <block wx:elif="{{item.tag == 'video'}}">
             <template is="wxParseVideo" data="{{item}}"/>  
@@ -298,7 +317,10 @@
                 </view>
             </view>
         </block>
-
+        <!--iframe插件（这个是我们添加的）-->
+        <block wx:elif="{{item.tag == 'iframe'}}">
+        <template is="wxPraseIframe" data="{{item}}" />
+        </block>
         <!--video类型-->
         <block wx:elif="{{item.tag == 'video'}}">
             <template is="wxParseVideo" data="{{item}}"/>  
@@ -370,6 +392,10 @@
                     </view>
                 </view>
             </view>
+        </block>
+        <!--iframe插件（这个是我们添加的）-->
+        <block wx:elif="{{item.tag == 'iframe'}}">
+        <template is="wxPraseIframe" data="{{item}}" />
         </block>
 
         <!--video类型-->
@@ -445,6 +471,11 @@
             </view>
         </block>
 
+        <!--iframe插件（这个是我们添加的）-->
+        <block wx:elif="{{item.tag == 'iframe'}}">
+        <template is="wxPraseIframe" data="{{item}}" />
+        </block>
+
         <!--video类型-->
         <block wx:elif="{{item.tag == 'video'}}">
             <template is="wxParseVideo" data="{{item}}"/>  
@@ -517,7 +548,10 @@
                 </view>
             </view>
         </block>
-
+        <!--iframe插件（这个是我们添加的）-->
+        <block wx:elif="{{item.tag == 'iframe'}}">
+        <template is="wxPraseIframe" data="{{item}}" />
+        </block>
         <!--video类型-->
         <block wx:elif="{{item.tag == 'video'}}">
             <template is="wxParseVideo" data="{{item}}"/>  
@@ -589,7 +623,10 @@
                 </view>
             </view>
         </block>
-
+        <!--iframe插件（这个是我们添加的）-->
+        <block wx:elif="{{item.tag == 'iframe'}}">
+        <template is="wxPraseIframe" data="{{item}}" />
+        </block>
         <!--video类型-->
         <block wx:elif="{{item.tag == 'video'}}">
             <template is="wxParseVideo" data="{{item}}"/>  
@@ -662,7 +699,10 @@
                 </view>
             </view>
         </block>
-
+        <!--iframe插件（这个是我们添加的）-->
+        <block wx:elif="{{item.tag == 'iframe'}}">
+        <template is="wxPraseIframe" data="{{item}}" />
+        </block>
         <!--video类型-->
         <block wx:elif="{{item.tag == 'video'}}">
             <template is="wxParseVideo" data="{{item}}"/>  
@@ -735,7 +775,10 @@
                 </view>
             </view>
         </block>
-
+        <!--iframe插件（这个是我们添加的）-->
+        <block wx:elif="{{item.tag == 'iframe'}}">
+        <template is="wxPraseIframe" data="{{item}}" />
+        </block>
         <!--video类型-->
         <block wx:elif="{{item.tag == 'video'}}">
             <template is="wxParseVideo" data="{{item}}"/>  
@@ -808,7 +851,10 @@
                 </view>
             </view>
         </block>
-
+        <!--iframe插件（这个是我们添加的）-->
+        <block wx:elif="{{item.tag == 'iframe'}}">
+        <template is="wxPraseIframe" data="{{item}}" />
+        </block>
         <!--video类型-->
         <block wx:elif="{{item.tag == 'video'}}">
             <template is="wxParseVideo" data="{{item}}"/>  
@@ -881,7 +927,10 @@
                 </view>
             </view>
         </block>
-
+        <!--iframe插件（这个是我们添加的）-->
+        <block wx:elif="{{item.tag == 'iframe'}}">
+        <template is="wxPraseIframe" data="{{item}}" />
+        </block>
         <!--video类型-->
         <block wx:elif="{{item.tag == 'video'}}">
             <template is="wxParseVideo" data="{{item}}"/>  
