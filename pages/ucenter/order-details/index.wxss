@@ -266,7 +266,7 @@ form {
     /* font-weight: bold; */
     margin-bottom: 10rpx;
     text-overflow: ellipsis;
-    white-space: nowrap;
+    /* white-space: nowrap;  群友ef发现的问题*/
     overflow: hidden;
 }
 

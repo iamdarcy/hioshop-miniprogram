@@ -20,8 +20,6 @@ Page({
         openAttr: false,
         soldout: false,
         disabled: '',
-        is_show: 0,
-        endLoad: true,
         alone_text: '单独购买',
         userId: 0,
         priceChecked: false,
@@ -68,17 +66,6 @@ Page({
         this.setData({
             current: current
         })
-    },
-    getDetailInfo: function() {
-        let that = this;
-        let goods = that.data.goods;
-        WxParse.wxParse('goodsDetail', 'html', goods.goods_desc, that);
-        that.setData({
-            is_show: 1
-        });
-        that.setData({
-            endLoad: false
-        });
     },
     inputNumber(event) {
         let number = event.detail.value;
@@ -138,6 +125,7 @@ Page({
                     galleryImages: galleryImages,
                     loading:1
                 });
+                WxParse.wxParse('goodsDetail', 'html', res.data.info.goods_desc, that);
                 wx.setStorageSync('goodsImage', res.data.info.https_pic_url);
             }
             else{
@@ -552,20 +540,6 @@ Page({
         if (checkedProduct.goods_number < check_number) {
             this.setData({
                 disabled: true
-            });
-        }
-    },
-    onReachBottom: function() {
-        let that = this;
-        let endLoad = that.data.endLoad;
-        if (endLoad == true) {
-            let goods = that.data.goods;
-            WxParse.wxParse('goodsDetail', 'html', goods.goods_desc, that);
-            that.setData({
-                is_show: 1
-            });
-            that.setData({
-                endLoad: false
             });
         }
     }
