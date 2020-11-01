@@ -1,7 +1,10 @@
-// const ApiRootUrl = 'http://localhost:8360/api/';
-const ApiRootUrl = 'https://www.hiolabs.com/api/';
+const RootUrl = 'http://192.168.1.101:8360'
+const ApiRootUrl = `${RootUrl}/api/`;
+// const ApiRootUrl = 'https://www.hiolabs.com/api/';
 
 module.exports = {
+    // 图片服务器
+    ResourceURL: RootUrl,
     // 登录
     AuthLoginByWeixin: ApiRootUrl + 'auth/loginByWeixin', //微信登录
     // 首页
