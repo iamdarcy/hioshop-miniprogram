@@ -1,4 +1,4 @@
-const RootUrl = 'http://192.168.1.101:8360'
+const RootUrl = 'http://58.87.124.121:10001'
 const ApiRootUrl = `${RootUrl}/api/`;
 // const ApiRootUrl = 'https://www.hiolabs.com/api/';
 
