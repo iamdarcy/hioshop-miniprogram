@@ -1,4 +1,4 @@
-const RootUrl = 'http://58.87.124.121:10001'
+const RootUrl = 'https://www.yangzheng.ink:8080'
 const ApiRootUrl = `${RootUrl}/api/`;
 // const ApiRootUrl = 'https://www.hiolabs.com/api/';
 
