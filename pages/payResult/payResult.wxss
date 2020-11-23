@@ -1,0 +1,107 @@
+page {
+    height: 100%;
+    background: #fafafa;
+}
+
+.container {
+    background-color: #fafafa;
+    align-items: flex-start;
+    overflow-x: hidden;
+}
+
+.result-wrap {
+    width: 100%;
+    height: 40%;
+    background: #fff;
+    padding: 40rpx 0 60rpx 0;
+}
+
+.image-wrap {
+    width: 100%;
+    height: 100rpx;
+    margin: 40rpx 0;
+    display: flex;
+    justify-content: center;
+}
+
+.success-img {
+    width: 100rpx;
+    height: 100rpx;
+    margin: 0 auto;
+}
+
+.text-wrap {
+    width: 100%;
+    margin-bottom: 40rpx;
+}
+.success-text {
+    font-size: 30rpx;
+    color: #233445;
+    text-align: center;
+    line-height: 60rpx;
+    margin-bottom: 20rpx;
+}
+.text {
+    font-size: 30rpx;
+    color: #999;
+    text-align: center;
+    line-height: 60rpx;
+    margin-bottom: 20rpx;
+}
+.btn-go-order{
+    color: #999;
+    width: 300rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    text-align: center;
+    font-size: 28rpx;
+    margin: 0 auto;
+}
+.to-order-btn {
+    color: #fff;
+    background: linear-gradient(to right, #ff3456, #ff347d);
+    border-radius: 0px;
+    width: 300rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+    font-size: 28rpx;
+    margin: 0 auto;
+}
+.tips{
+    display: flex;
+    flex-direction: column;
+}
+.tips .p{
+    width: 100%;
+    text-align: center;
+    line-height: 40rpx;
+    height: 40rpx;
+    font-size: 28rpx;
+    color: #233445;
+}
+.p .time{
+    color: #ff3456;
+}
+
+.contact-wrap{
+    height: 100rpx;
+    line-height: 100rpx;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+}
+.contact-wrap::after{
+    border: none;
+}
+.contact-wrap .contact-icon{
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 10rpx;
+}
+.contact-wrap .contact{
+    font-size: 28rpx;
+    color: #1296db;
+}

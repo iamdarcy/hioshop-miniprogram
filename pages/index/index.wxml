@@ -1,0 +1,103 @@
+<view class="container" wx:if="{{loading == 1}}">
+    <view class='contact-wrap'>
+        <button class="contact-btn" session-from='{"nickName":"{{userInfo.nickname}}","avatarUrl":"{{userInfo.avatar}}"}' open-type="contact">
+            <image class='icon' src='/images/icon/contact.png'></image>
+            <view class='text'>客服</view>
+        </button>
+    </view>
+    <view class="search" bindtap="goSearch">
+        <image class="icon" src="/images/icon/search.png"></image>
+        <text class="txt">搜索, 共{{goodsCount}}款好物</text>
+    </view>
+    <view class='banner-wrap' wx:if="{{show_banner && banner.length > 0}}">
+        <swiper class="banner" indicator-dots="true" autoplay="{{autoplay}}" interval="3000" duration="1000"   >
+            <swiper-item wx:for="{{banner}}" wx:key="id">
+                <navigator wx:if="{{item.link_type == 0}}" url="/pages/goods/goods?id={{item.goods_id}}">
+                    <image src="{{item.image_url}}" background-size="cover"></image>
+                </navigator>
+                <navigator wx:elif="{{item.link_type == 1}}" url="{{item.link}}">
+                    <image src="{{item.image_url}}" background-size="cover"></image>
+                </navigator>
+            </swiper-item>
+        </swiper>
+    </view>
+    <view class='marquee_box' wx:if="{{notice.length>0 && show_notice == 1}}">
+        <swiper vertical="{{true}}" class="notice-swiper" indicator-dots="{{false}}" autoplay="{{autoplay}}" interval="2000" duration="1000">
+            <swiper-item wx:for="{{notice}}" wx:key="id" class='notice-wrap'>
+
+                    <view class="icon">
+                        <image src="/images/icon/notice-icon.png" class='img'>
+                        </image>
+                    </view>
+                    <view class='notice-text'>{{item.content}}</view>
+
+            </swiper-item>
+        </swiper>
+    </view>
+    <swiper class="catalog-wrap" indicator-dots="{{false}}" indicator-color="#dedede" indicator-active-color="#e00000" wx:if="{{show_channel}}">
+        <swiper-item class="first">
+            <view wx:for="{{channel}}" wx:if="{{item.sort_order < 7}}" wx:key="id" class='icon-navi' data-cateid="{{item.id}}" bindtap="goCategory">
+                <image class='icon-img' src="{{item.icon_url}}"></image>
+                <view class='icon-text'>{{item.name}}</view>
+            </view>
+        </swiper-item>
+        <swiper-item class="first" wx:if="{{channel.length > 6}}">
+            <navigator wx:for="{{channel}}" wx:key="id" hover-class="none" class='icon-navi' url="/pages/category/index?id={{item.id}}" wx:if="{{item.sort_order > 6 && item.sort_order < 12}}">
+                <image class='icon-img' src="{{item.icon_url}}"></image>
+                <view class='icon-text'>{{item.name}}</view>
+            </navigator>
+        </swiper-item>
+        <swiper-item class="first" wx:if="{{channel.length > 11}}">
+            <navigator wx:for="{{channel}}" hover-class="none" class='icon-navi' url="/pages/category/index?id={{item.id}}" wx:if="{{item.sort_order > 10}}">
+                <image class='icon-img' src="{{item.icon_url}}"></image>
+                <view class='icon-text'>{{item.name}}</view>
+            </navigator>
+        </swiper-item>
+    </swiper>
+    <view class="goods-container">
+        <view class='topic-container' wx:for="{{floorGoods}}" wx:key="id">
+            <view class='banner-container' bindtap="goCategory" data-cateid="{{item.id}}" wx:if="{{index_banner_img == 1}}">
+                <image mode='aspectFill' style="width:100%;height:{{item.height}}rpx" src='{{item.banner}}'>
+                </image>
+                <view class="bg" style="height:{{item.height}}rpx;line-height:{{item.height}}rpx;"></view>
+                <view class="text" style="height:{{item.height}}rpx;line-height:{{item.height}}rpx;">{{item.name}}</view>
+            </view>
+            <view wx:else class="category-title" data-cateid="{{item.id}}" bindtap="goCategory">
+                <view class="title">
+                    <view class="text">{{item.name}}</view>
+                    <view class="line"></view>
+                </view>
+            </view>
+            <view class='list-wrap clearfix'>
+                <view class="new-box {{(iindex+1)%3 == 0?'no-margin':''}}" wx:for="{{item.goodsList}}" wx:for-index="iindex" wx:for-item="iitem" wx:key="id">
+                    <navigator hover-class='none' class='navi-url' url="/pages/goods/goods?id={{iitem.id}}">
+                        <view class="box">
+                            <image src="{{iitem.list_pic_url}}" class="image">
+                                <view wx:if="{{iitem.is_new == 1}}" class='new-tag'>新品</view>
+                            </image>
+                            <block wx:if="{{iitem.goods_number <= 0}}">
+                                <view class='sold-img'>
+                                    <image class='soldout' src='/images/icon/sold-out.png'></image>
+                                </view>
+                            </block>
+                        </view>
+                        <view class="goods-info {{iitem.goods_number <= 0?'fast-out-status':''}}">
+                            <view class="goods-title">{{iitem.name}}</view>
+                            <view class='price-container'>
+                                <view class='l'>
+                                    <view class='h'>￥{{iitem.min_retail_price}}</view>
+                                </view>
+                            </view>
+                        </view>
+                    </navigator>
+                </view>
+            </view>
+            <view class="more-category" data-cateid="{{item.id}}" bindtap="goCategory">点击查看更多{{item.name}}</view>
+        </view>
+    </view>
+    <view class="no-more-goods ">没有更多商品啦</view>
+</view>
+<view class="loading" style="height:{{sysHeight}}px" wx:else>
+    <image class="img" src="/images/icon/loading.gif"></image>
+    <view class="text">海风吹啊吹</view>
+</view>

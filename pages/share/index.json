@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "生成分享图",
+  "usingComponents": {
+    "canvasdrawer": "/components/canvasdrawer/canvasdrawer"
+  }
+}

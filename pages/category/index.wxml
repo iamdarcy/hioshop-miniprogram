@@ -1,0 +1,58 @@
+<view class="container">
+    <view class="search">
+        <navigator url="/pages/search/search" class="input">
+            <image class="icon" src="/images/icon/search.png"></image>
+            <text class="txt">搜索, 共{{goodsCount}}款好味</text>
+        </navigator>
+    </view>
+    <view class="catalog">
+        <scroll-view class="nav" scroll-y="true">
+            <view class="item {{ nowId == 0 ?'active' : ''}}" bindtap="switchCate" data-id="0">全部</view>
+            <view class="item {{ nowId == item.id?'active' : ''}}" wx:for="{{navList}}" wx:key="id" data-id="{{item.id}}" bindtap="switchCate">{{item.name}}</view>
+        </scroll-view>
+        <scroll-view class="cate" scroll-y="true" bindscrolltolower="onBottom">
+            <block wx:if="{{loading == 0}}">
+                <view class='banner-container' wx:if="{{nowId!= 0 && index_banner_img == 1}}">
+                    <image mode='aspectFill' style="width:100%;height:{{currentCategory.p_height}}rpx" src='{{currentCategory.img_url}}'>
+                    </image>
+                    <view class="bg" style="height:{{currentCategory.p_height}}rpx;line-height:{{currentCategory.p_height}}rpx;"></view>
+                    <view class="text" style="height:{{currentCategory.p_height}}rpx;line-height:{{currentCategory.p_height}}rpx;">{{currentCategory.name}}</view>
+                </view>
+                <view class='list-wrap clearfix'>
+                    <view class="goods-box {{(index+1)%2 == 0?'no-margin':''}}" wx:for="{{list}}" wx:for-index="index" wx:for-item="item" wx:key="id">
+                        <navigator hover-class='none' class='navi-url' url="/pages/goods/goods?id={{item.id}}">
+                            <view class="box">
+                                <image src="{{item.list_pic_url}}" class="image">
+                                    <view wx:if="{{item.is_new == 1}}" class='new-tag'>新品</view>
+                                </image>
+                                <block wx:if="{{item.goods_number <= 0}}">
+                                    <!-- <view class='no-goods-mask'></view> -->
+                                    <view class='sold-img'>
+                                        <image class='soldout' src='/images/icon/sold-out.png'></image>
+                                    </view>
+                                </block>
+                            </view>
+                            <view class="goods-info {{item.goods_number <= 0?'fast-out-status':''}}">
+                                <view class="goods-title">{{item.name}}</view>
+                                <view class="goods-intro">{{item.goods_brief}}</view>
+                                <view class='price-container'>
+                                    <view class='l'>
+                                        <view class='h'>￥{{item.min_retail_price}}</view>
+                                    </view>
+                                </view>
+                            </view>
+                        </navigator>
+                    </view>
+                </view>
+                <view class="show-more" bindtap="onBottom" wx:if="{{showNoMore == 1}}">加载更多</view>
+                <view class="no-more" wx:else>没有更多商品了</view>
+            </block>
+            <block wx:else>
+                <view class="loading-wrap">
+                    <image class="img" src="/images/icon/loading.gif"></image>
+                    <view class="text">正在加载...</view>
+                </view>
+            </block>
+        </scroll-view>
+    </view>
+</view>

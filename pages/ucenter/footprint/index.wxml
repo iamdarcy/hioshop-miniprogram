@@ -1,0 +1,42 @@
+<view class="container">
+    <view wx:if="{{hasPrint == 1}}" class="print-goods">
+
+        <view class="day-item" wx:for="{{footprintList}}" wx:key="id" wx:for-index="index">
+
+            <view class="day-hd" wx:if="{{item.length > 0}}">{{item[0].add_time}}</view>
+            <navigator hover-class='none' data-index="{{index}}" data-iindex="{{iindex}}" wx:for="{{item}}" wx:for-index="iindex" wx:for-item="iitem" class="item {{iindex % 2 == 0 ? 'left' : 'right'}}" wx:key="iitemId" url="/pages/goods/goods?id={{iitem.goods_id}}">
+                <image src="/images/icon/trash-9.png" data-val="{{iitem.id}}" class='cancel-print' catchtap='deletePrint'></image>
+                <view class="box">
+                    <image class="img" src="{{iitem.goods.list_pic_url}}" background-size="cover">
+                        <block wx:if="{{iitem.goods.goods_number == 0}}">
+                            <!-- <view class='no-goods-mask'></view> -->
+                            <view class='sold-img'>
+                                <image class='soldout' src='/images/icon/sold-out.png'></image>
+                            </view>
+                        </block>
+                    </image>
+
+                </view>
+                <view class="goods-info {{iitem.goods.goods_number == 0?'fast-out-status':''}}">
+                    <view class="goods-title">{{iitem.goods.name}}</view>
+                    <view class="goods-intro">{{iitem.goods.goods_brief}}</view>
+                    <view class='price-container'>
+                        <view class='l'>
+                            <view class='no-level'>
+                                ￥{{iitem.goods.min_retail_price}}
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </navigator>
+        </view>
+    </view>
+    <view wx:else class="no-print">
+        <image src="/images/icon/footprint.png" class="no-print-img"></image>
+        <view class="text">一个脚印都没有！</view>
+        <view class="to-index-btn" bindtap="toIndexPage">
+            马上去踩踩
+        </view>
+    </view>
+    <view class="no-more-goods {{showNoMore? 'hidden':'show'}}">没有更多足迹了</view>
+</view>

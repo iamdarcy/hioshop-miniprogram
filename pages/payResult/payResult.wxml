@@ -1,0 +1,31 @@
+<view class="container">
+    <view wx:if="{{status == 1}}" class="result-wrap">
+        <view class='image-wrap'>
+            <image src="/images/icon/pay-success.png" class="success-img"></image>
+        </view>
+        <view class='text-wrap'>
+            <view class="success-text">付款成功</view>
+            <view class="success-text">马上开始打包</view>
+        </view>
+        <view class="to-order-btn" bindtap="toIndex">
+            继续逛逛
+        </view>
+        <view class='btn-go-order' bindtap="toOrderListPage">返回我的页面</view>
+    </view>
+    <view wx:else class="result-wrap">
+        <view class='image-wrap'>
+            <image src="/images/icon/pay-error.png" class="success-img"></image>
+        </view>
+        <view class='text-wrap'>
+            <view class="text">支付失败</view>
+            <button class='contact-wrap' session-from='{"nickName":"{{userInfo.nickname}}","avatarUrl":"{{userInfo.avatar}}"}'  open-type="contact" session-from="weapp">
+                <image src="/images/icon/contact.png" class='contact-icon'></image>
+                <view class='contact'>联系客服</view>
+            </button>
+        </view>
+        <view class="to-order-btn" bindtap="payOrder">
+            重新付款
+        </view>
+        <view class='btn-go-order' bindtap="toOrderListPage">返回我的页面</view>
+    </view>
+</view>

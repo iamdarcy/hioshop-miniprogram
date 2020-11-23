@@ -1,0 +1,369 @@
+page {
+    min-height: 100%;
+    background-color: #f2f2f2;
+}
+
+.container {
+    background-color: #f2f2f2;
+    min-height: 100%;
+    overflow-x: hidden;
+    position: relative;
+    width: 100%;
+    align-items: stretch;
+    padding-bottom: 200rpx;
+}
+
+.wrap {
+    width: 100%;
+}
+
+.address-box {
+    width: 100%;
+    /* height: 140rpx; */
+    padding-bottom: 22rpx;
+}
+
+.address-box .sender-title {
+    font-size: 26rpx;
+    color: #666;
+    padding: 24rpx;
+    border-bottom: 1rpx solid #eee;
+    background: #fff;
+}
+
+.address-box .receive-title {
+    font-size: 26rpx;
+    color: #666;
+    padding: 24rpx;
+    border-bottom: 1rpx solid #eee;
+    border-top: 1rpx solid #eee;
+    background: #fff;
+}
+
+.add-address {
+    width: 100%;
+    background-color: #fff;
+    padding: 24rpx;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.addr-title {
+    line-height: 80rpx;
+    font-size: 28rpx;
+    color: #666;
+    margin-left: 24rpx;
+}
+
+.addr-wrap {
+    background-color: #fff;
+    padding-bottom: 20rpx;
+    margin-top: 20rpx;
+}
+
+.addr-wrap .list-title {
+    font-size: 26rpx;
+    color: #666;
+    padding: 24rpx;
+    border-bottom: 1rpx solid #eee;
+    background: #fff;
+}
+
+.show-address {
+    width: 100%;
+    margin-left: 24rpx;
+}
+
+.add-address .addr-icon{
+    max-width: 50rpx;
+    height: 50rpx;
+}
+
+.address-box .addr-r{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+
+.address-box .addr-r .arrow{
+    width: 10rpx;
+    height: 10rpx;
+    border-top: 4rpx solid #ccc;
+    border-right: 4rpx solid #ccc;
+    transform: rotate(45deg);
+}
+.show-address .name-tel {
+    font-size: 30rpx;
+    color: #233445;
+    padding: 6rpx 0rpx 6rpx 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.show-address .name-tel .default-address {
+    font-size: 22rpx;
+    color: #ff3456;
+    background: #faedef;
+    text-align: center;
+    padding: 2rpx 10rpx;
+    border-radius: 4rpx;
+    margin-right: 10rpx;
+}
+
+.show-address .addr-text {
+    font-size: 26rpx;
+    color: #666;
+    /* text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden; */
+    width: 600rpx;
+}
+
+/* form {
+    width: 100%;
+} */
+
+.goods-list {
+    width: 100%;
+    background-color: #fff;
+    margin-bottom: 24rpx;
+}
+
+.goods-list .list-title {
+    font-size: 26rpx;
+    color: #666;
+    padding: 24rpx;
+    border-bottom: 1rpx solid #eee;
+}
+
+.a-goods {
+    display: flex;
+    padding: 24rpx;
+    background-color: #fff;
+    justify-content: space-between;
+}
+
+.img-box {
+    height: 100rpx;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.goods-image {
+    width: 100rpx;
+    height: 100rpx;
+    margin-right: 12rpx;
+    background-color: #fafafa;
+}
+
+.goods-sum {
+    line-height: 100rpx;
+    height: 100rpx;
+    font-size: 26rpx;
+    color: #666;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.goods-sum .text{
+    margin-right: 20rpx;
+}
+
+.goods-sum .arrow{
+    width: 10rpx;
+    height: 10rpx;
+    border-top: 4rpx solid #ccc;
+    border-right: 4rpx solid #ccc;
+    transform: rotate(45deg);
+}
+
+.price-check-wrap {
+    background-color: #fff;
+    padding: 0 0 0 24rpx;
+    /* margin-left: 24rpx; */
+    margin-bottom: 24rpx;
+}
+
+.row-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    border-bottom: 1rpx solid #eee;
+    padding: 0 24rpx 0 0;
+    height: 90rpx;
+}
+
+.row-label {
+    width: 140rpx;
+    font-size: 28rpx;
+    color: #000;
+}
+
+.right-text {
+    font-size: 28rpx;
+    color: #666;
+    /* padding-right: 30rpx; */
+}
+
+.color-red {
+    color: #b42519;
+}
+
+.right-arrow .right-tag {
+    margin-right: 30rpx;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.right-tag .tag {
+    display: inline-block;
+    padding: 4rpx 6rpx;
+    background: #fff;
+    color: #b42519;
+    border: 1rpx solid #b42519;
+    border-radius: 8rpx;
+    height: 30rpx;
+    line-height: 30rpx;
+    text-align: center;
+    font-size: 24rpx;
+    margin: 0 12rpx 0 0;
+}
+
+.right-tag .text {
+    font-size: 26rpx;
+    color: #333;
+}
+
+.pay-list {
+    background-color: #fff;
+    padding: 30rpx 24rpx;
+    margin-bottom: 24rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pay-list .list-title{
+    font-size: 28rpx;
+}
+
+.pay-list .radio{
+    font-size: 26rpx;
+    margin-left: 20rpx;
+}
+
+
+.bottom-box {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    box-sizing: border-box;
+    /* border-bottom: 1rpx solid #eee; */
+    padding: 0 24rpx 0 0;
+    height: 90rpx;
+}
+
+.price-to-pay {
+    font-size: 30rpx;
+    color: #ff3456;
+    font-weight: bold;
+    margin-left: 6rpx;
+}
+
+.memo-box {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    border-bottom: 1rpx solid #eee;
+    padding: 0 24rpx 0 0;
+    height: 90rpx;
+}
+
+.memo-input {
+    margin-left: 8rpx;
+    width: 100%;
+}
+
+.memo {
+    height: 20rpx;
+    text-align: right;
+}
+
+.settle-box {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100rpx;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    border-top: 1px solid #eee;
+    background-color: #fff;
+}
+
+.settle-box .offline-pay-btn {
+    display: block;
+    width: 300rpx;
+    text-align: center;
+    height: 100%;
+    line-height: 100rpx;
+    background: linear-gradient(to right, #111, #000);
+    font-size: 32rpx;
+    color: #fff;
+    border-radius: 0;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.settle-box .offline-pay-btn::after{
+    border: none;
+}
+
+.settle-box .to-pay-btn {
+    display: block;
+    width: 300rpx;
+    text-align: center;
+    height: 100%;
+    line-height: 100rpx;
+    background: linear-gradient(to right, #ff3456, #ff347d);
+    font-size: 32rpx;
+    color: #fff;
+    border-radius: 0;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.settle-box .to-pay-btn::after{
+    border: none;
+}
+
+.settle-box .left-price {
+    display: flex;
+    width: 500rpx;
+    justify-content: flex-start;
+    line-height: 100rpx;
+    font-size: 28rpx;
+    box-sizing: border-box;
+    background-color: #fff;
+    padding: 0 0 0 24rpx;
+}
+
+.settle-box .total {
+    color: #233445;
+    font-size: 28rpx;
+}
+
+.settle-box .pay-money {
+    color: #ff3456;
+    font-size: 30rpx;
+    font-weight: bold;
+}

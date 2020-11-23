@@ -1,0 +1,30 @@
+<view class="container">
+    <view class='has-info' wx:if="{{addresses.length > 0}}">
+        <view bindtap="{{type == 0?'goAddressDetail':'selectAddress'}}" class='info-item' data-addressid="{{item.id}}" wx:for="{{addresses}}" wx:key="id">
+            <view class="selected" wx:if="{{type == 1}}">
+                <image wx:if="{{item.id == nowAddress}}" class="img" src="/images/icon/gou-red.png"></image>
+                <image wx:else class="img" src="/images/icon/gou-gray.png"></image>
+            </view>
+            <view class="info-wrap">
+                <view class="addr">
+                    <view class="top">{{item.address}}</view>
+                    <view class="text">{{item.full_region}}</view>
+                </view>
+                <view class="name">
+                    <view class="text">{{item.name}} {{item.mobile}}</view>
+                    <view class="default" wx:if="{{item.is_default}}">默认</view>
+                </view>
+            </view>
+            <view class="edit-wrap" data-addressid="{{item.id}}" catchtap='goAddressDetail'>
+                <image class="img" src="/images/icon/edit.png"></image>
+            </view>
+        </view>
+    </view>
+    <view class="no-info" wx:else>
+        <image src="/images/icon/position-deny.png" class="img"></image>
+        <view class="text">没有地址信息</view>
+    </view>
+    <view class="btn-wrap" bindtap="addAddress">
+        <view class="btn">新增收货地址</view>
+    </view>
+</view>

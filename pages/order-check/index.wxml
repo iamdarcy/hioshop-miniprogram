@@ -1,0 +1,81 @@
+<view class="container">
+	<view class='wrap'>
+		<view class="address-box">
+			<view class="receive-title">收件人</view>
+			<view class='add-address' bindtap="toSelectAddress" wx:if="{{checkedAddress.id > 0}}">
+				<image class="addr-icon" src="/images/icon/location.png"></image>
+				<view class="addr-r">
+					<view class="show-address">
+						<view class="name-tel">
+							<view wx:if="{{checkedAddress.is_default}}" class='default-address'>默认</view>
+							{{checkedAddress.name}} {{checkedAddress.mobile}}
+						</view>
+						<view class="addr-text">{{checkedAddress.full_region + checkedAddress.address}}</view>
+					</view>
+					<view class="arrow"></view>
+				</view>
+			</view>
+			<view wx:else class="add-address" hidden="" bindtap='toSelectAddress'>
+				<image class="addr-icon" src="/images/icon/location.png"></image>
+				<view class="addr-r">
+					<view class="addr-title">请选择收货地址</view>
+					<view class="arrow"></view>
+				</view>
+			</view>
+		</view>
+		<view class="goods-list" bindtap='toGoodsList'>
+			<view class="list-title">商品信息</view>
+			<view class="a-goods">
+				<view class="img-box">
+					<view class='image-wrap' wx:for="{{checkedGoodsList}}" wx:if="{{index<5}}" wx:key="id">
+						<image wx:if="{{item.number > 0 && item.is_on_sale == 1}}" src="{{item.list_pic_url}}" class="goods-image"></image>
+					</view>
+				</view>
+				<view class='goods-sum'>
+                    <view class="text">共{{goodsCount}}件</view>
+                    <view class="arrow"></view>
+                </view>
+			</view>
+		</view>
+		<view class="price-check-wrap">
+			<view class="row-box">
+				<view class="row-label">商品总价</view>
+				<view class="right-text">￥{{goodsTotalPrice}}</view>
+			</view>
+			<view class="row-box">
+				<view class="row-label">快递</view>
+				<view class="right-text">¥{{freightPrice}}</view>
+			</view>
+			<view class="memo-box">
+				<view class="row-label">备注：</view>
+				<view class="right-text memo-input">
+					<input type="text" class="memo" bindinput="bindinputMemo" value="{{orderInfo.postscript}}" placeholder="亲爱的买家，这里输入备注" cursor-spacing="100" />
+				</view>
+			</view>
+			<view class="bottom-box">
+				<view class="row-label">合计：</view>
+				<view class="right-text price-to-pay">
+					¥{{orderTotalPrice}}
+				</view>
+			</view>
+		</view>
+		<!-- 如果不需要线下支付的这个功能，可将下面注释掉即可 -->
+		<view class="pay-list">
+            <view class="list-title">支付方式</view>
+			<radio-group class="radio-group" bindchange="payChange">
+                <radio class="radio" wx:for-items="{{payMethodItems}}" wx:key="name" value="{{item.name}}" checked="{{item.checked}}">
+                    {{item.value}}
+                </radio>
+            </radio-group>
+        </view>
+		<!-- -->
+	</view>
+	<view class="settle-box">
+		<view class="left-price">
+			<view class="total">实付：</view>
+			<view class="pay-money">¥ {{actualPrice}}</view>
+		</view>
+		<button wx:if="{{payMethod == 0}}" class="to-pay-btn" bindtap='offlineOrder'>提交订单</button>
+		<button wx:else class="to-pay-btn" bindtap='submitOrder'>提交订单</button>
+	</view>
+</view>

@@ -1,0 +1,155 @@
+<view class="container">
+	<!--   TODO 将状态码都去掉！  -->
+	<view class='status-wrap' bindtap='clearTimer'>
+		<view class='status-text'>
+			<image wx:if="{{textCode.pay == true}}" class='icon to-pay' src="/images/icon/to-pay-w.png"></image>
+			<image wx:elif="{{textCode.close == true}}" class='icon to-close' src="/images/icon/to-close-w.png"></image>
+			<image wx:elif="{{textCode.delivery == true}}" class='icon to-delivery' src="/images/icon/to-delivery-w.png"></image>
+			<image wx:elif="{{textCode.receive == true}}" class='icon to-receive' src="/images/icon/to-receive-w.png"></image>
+			<image wx:elif="{{textCode.success == true}}" class='icon to-success' src="/images/icon/success-w.png"></image>
+			<view class='text'>{{orderInfo.order_status_text}}</view>
+		</view>
+		<view wx:if="{{textCode.receive == true }}" class='count-wrap'>
+			<view class='time-text'></view>
+			<view class='count-down-time'>
+				<view wx:if="{{c_remainTime.day >0}}" class='day'>{{c_remainTime.day}}天</view>
+				<view wx:if="{{c_remainTime.hour >0}}" class='hour'>{{c_remainTime.hour}}小时</view>
+				<view wx:if="{{c_remainTime.minute >0}}" class='minute'>{{c_remainTime.minute}}分</view>
+			</view>
+			<view wx:if="{{c_remainTime.minute != 0}}" class='time-text'>后自动收货</view>
+			<view wx:else class='time-text'>即将自动收货</view>
+		</view>
+		<view wx:if="{{textCode.countdown == true }}" class='count-wrap'>
+			<view class='time-text'></view>
+			<view class='count-down-time'>
+				<view class='hour'>{{wxTimerList.orderTimer.wxHour}}小时</view>
+				<view class='minute'>{{wxTimerList.orderTimer.wxMinute}}分</view>
+				<view class='seconds'>{{wxTimerList.orderTimer.wxSeconds}}秒</view>
+			</view>
+			<view class='time-text'>后自动关闭</view>
+		</view>
+	</view>
+	<view class="address-box">
+		<image class="addr-icon" src="/images/icon/location.png"></image>
+		<view class="show-address">
+			<view class="name-tel">{{orderInfo.consignee}} {{orderInfo.mobile}}</view>
+			<view class="addr-text">{{orderInfo.full_region + orderInfo.address}}</view>
+		</view>
+	</view>
+	<view class="onPosting" wx:if="{{orderInfo.shipping_status && onPosting == 0}}">
+		<image class='loading' src='/images/icon/loading.gif'></image>
+		<view class='t'>快递信息查询中。。。</view>
+	</view>
+	<view wx:elif="{{orderInfo.shipping_status && onPosting == 1}}" class="express">
+		<view class='express-info-header'>
+			<view class="list-title" wx:if="{{express.traces.length == 0}}">物流信息</view>
+			<view class="title-wrap" wx:else>
+				<view class="no">{{express.shipper_name}}：{{express.logistic_code}}</view>
+				<button class='copy-text' data-text="{{express.logistic_code}}" bindtap='copyText'>复制快递单号</button>
+			</view>
+			<view wx:if="{{express.is_finish == 1}}" class='express-status'>已签收</view>
+			<view wx:elif="{{express.is_finish == 0 && express.traces.length == 0}}" class='express-status'>已发货</view>
+			<view wx:elif="{{express.is_finish == 0 && express.traces.length != 0}}" class='express-status'>运输中</view>
+		</view>
+		<view wx:if="{{express.logistic_code==''}}" class="no-express-info-wrap">
+			<view class='express-info'>暂无物流信息</view>
+		</view>
+		<view wx:elif="{{express.logistic_code != '' &&express.traces.length == 0}}" class="no-express-info-wrap">
+			<view class='express-info'>{{express.shipper_name}}：{{express.logistic_code}}</view>
+			<button class='copy-text' data-text="{{express.logistic_code}}" bindtap='copyText'>复制快递单号</button>
+		</view>
+		<view wx:else class="express-info-wrap" bindtap='toExpressInfo'>
+			<view class="l">
+				<view class='express-info'>{{express.traces[0].status}}</view>
+				<view class='express-time'>{{express.traces[0].time}}</view>
+			</view>
+			<view class="arrow"></view>
+		</view>
+	</view>
+	<view class="goods-list" bindtap='toGoodsList'>
+		<view class='list-info-wrap'>
+			<view class="list-title">商品信息</view>
+		</view>
+		<view class="a-goods">
+			<view class="img-box">
+				<view class='image-wrap' wx:for="{{orderGoods}}" wx:key="id" wx:if="{{index<4}}">
+					<image src="{{item.list_pic_url}}" class="goods-image" />
+				</view>
+			</view>
+			<view class='goods-sum'>
+				<view class="text">共{{goodsCount}}件</view>
+				<view class="arrow"></view>
+			</view>
+		</view>
+	</view>
+
+	<view class="price-check-wrap">
+		<view class="row-box">
+			<view class="row-label">商品总价</view>
+			<view class="right-text">¥{{orderInfo.goods_price}}</view>
+		</view>
+		<view class="row-box">
+			<view class="row-label">快递</view>
+			<view class="right-text">¥{{orderInfo.freight_price}}</view>
+		</view>
+		<view class="memo-box">
+			<view class="row-label memo-label">备注</view>
+			<view class="right-text memo-input">
+				<view class="memo-disable" wx:if="{{!handleOption.cancel}}">{{orderInfo.postscript? orderInfo.postscript:'无'}}</view>
+				<input wx:if="{{handleOption.cancel && handleOption.pay}}" type="text" class="memo" bindinput="bindinputMemo" value="{{orderInfo.postscript}}" placeholder="亲爱的买家，这里输入备注" />
+			</view>
+		</view>
+		<view class="bottom-box">
+			<view class="row-label">合计：</view>
+			<view class="right-text price-to-pay">
+				¥{{orderInfo.actual_price}}
+			</view>
+			<view wx:if="{{orderInfo.change_price != orderInfo.actual_price }}" class='change-price'>(改价)</view>
+		</view>
+	</view>
+	<view class="order-info">
+		<view class='row-box-wrap'>
+			<view class="row-box2">
+				<view class="row-label2">订单编号：</view>
+				<view class="right-text2">{{orderInfo.order_sn}}</view>
+			</view>
+			<view class="row-box2">
+				<view class="row-label2">创建时间：</view>
+				<view class="right-text2">{{orderInfo.add_time}}</view>
+			</view>
+			<view wx:if="{{orderInfo.pay_time}}" class="row-box2">
+				<view class="row-label2">支付交易号：</view>
+				<view class="right-text2">{{orderInfo.pay_id}}</view>
+			</view>
+			<view wx:if="{{orderInfo.pay_time}}" class="row-box2">
+				<view class="row-label2">付款时间：</view>
+				<view class="right-text2">{{orderInfo.pay_time}}</view>
+			</view>
+			<view wx:if="{{orderInfo.shipping_time}}" class="row-box2">
+				<view class="row-label2">发货时间：</view>
+				<view class="right-text2">{{orderInfo.shipping_time}}</view>
+			</view>
+			<view wx:if="{{orderInfo.confirm_time}}" class="row-box2">
+				<view class="row-label2">确认时间：</view>
+				<view class="right-text2">{{orderInfo.confirm_time}}</view>
+			</view>
+			<view wx:if="{{orderInfo.dealdone_time}}" class="row-box2">
+				<view class="row-label2">完成时间：</view>
+				<view class="right-text2">{{orderInfo.dealdone_time}}</view>
+			</view>
+		</view>
+	</view>
+	<view class="bottom-fixed-box display-between" wx:if="{{handleOption.cancel && handleOption.pay}}">
+		<view class="to-cancel-btn" data-index="{{orderId}}" bindtap='cancelOrder'>取消订单</view>
+		<button class="to-pay-btn" bindtap='payOrder'>继续支付</button>
+	</view>
+	<view wx:else class="bottom-fixed-box display-between">
+		<button class='call-service' session-from='{"nickName":"{{userInfo.nickname}}","avatarUrl":"{{userInfo.avatar}}"}' open-type="contact" show-message-card="true" hover-class="none">
+            <image class="icon" src="/images/icon/contact.png"></image>
+            <view class="text">联系客服</view>
+        </button>
+		<view bindtap='deleteOrder' class="btn-default" wx:if="{{handleOption.delete}}">删除订单</view>
+		<view bindtap='confirmOrder' class='btn-red' wx:if="{{handleOption.confirm}}">确认收货</view>
+		<view class="btn-red" bindtap="reOrderAgain">再来一单</view>
+	</view>
+</view>

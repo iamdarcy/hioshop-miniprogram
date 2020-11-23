@@ -1,37 +1,54 @@
-海鸥开源商城（微信小程序端）
-基于开源项目NideShop重建，精简了一些功能的同时完善了一些功能，并重新设计了UI
-测试数据来自上述开源项目
-服务端api基于Ｎode.js+ThinkJS+MySQL
+### 海风小店，开源商城（微信小程序端）
 
-本项目需要配合服务端使用，GitHub: https://github.com/iamdarcy/hioshop-server
++ 基于开源项目NideShop重建，精简了一些功能的同时完善了一些功能，并重新设计了UI
++ 测试数据来自上述开源项目
++ 服务端api基于Ｎode.js+ThinkJS+MySQL
 
-云服务器ECS-云主机优惠-2折上云
+### 目前基于海风小店已经上线的几款微信小程序商城
+<img width="1400" src="http://git.hiolabs.com/miniapp.jpg"/>
 
-项目截图
-首页
+### 服务器和后台管理本地部署教程
+服务器：https://www.bilibili.com/video/av89567916  
+后台管理：https://www.bilibili.com/video/av89568075
 
-专题
+#### 本项目需要配合  
+服务端： https://github.com/iamdarcy/hioshop-server  
+管理后台：https://github.com/iamdarcy/hioshop-admin  
 
-分类
+线上demo：http://hiolabs.com/demo/#/login  
+用户名：hiolabs  
+密码：hiolabs  
 
-商品列表
+<a target="_blank" href="https://www.aliyun.com/minisite/goods?userCode=zm04niet"><img width="1400" src="http://git.hiolabs.com/aliyun.jpg"/></a>
+阿里云主机优惠<a target="_blank" href="https://www.aliyun.com/minisite/goods?userCode=zm04niet">立即去看看</a>
 
-商品详情
+### 项目截图
 
-购物车
+<img width="1400" src="http://git.hiolabs.com/github/all1.jpg"/>
 
-订单中心
+### 功能列表
++ 首页：搜索、Banner、公告、分类Icons、分类商品列表
++ 详情页：加入购物车、立即购买、选择规格
++ 搜索页：排序
++ 分类页：分页加载商品
++ 我的页面：订单（待付款，待发货，待收货），足迹，收货地址
 
-##功能列表
-首页：搜索、Banner、公告、分类Icons、分类商品列表
-详情页：加入购物车、立即购买、选择规格
-搜索页：排序
-分类页：分页加载商品
-我的页面：订单（待付款，待发货，待收货），足迹，收货地址
+### 最近更新 
+- 3.26 更新详情  
+U 将网络图标改成本地图标  
+U 更新支付方式的UI  
+F 修复轮播图的bug  
+F 修复没有商品时的错误显示问题  
+F 修复share.js的一个bug  
+A 增加发货时的订阅消息  
 
-##完整的购物流程，商品加入购物车 --> 收货地址的选择 --> 下单支付 --> 确认收货
+- 12.14 新增生成分享图的功能  
+<img width="1000" src="http://git.hiolabs.com/github/save-local.jpg"/>
 
-项目结构
+#### 完整的购物流程，商品加入购物车 --> 收货地址的选择 --> 下单支付 --> 确认收货
+
+### 项目结构
+```
 ├─config     
 │  └─api　
 ├─images    
@@ -60,6 +77,18 @@
 │      └─settings
 ├─services
 └─utils
+```
+### 本地开发
 
-项目地址：https://github.com/iamdarcy/hioshop-mini-program
-喜欢别忘了 Star，有问题可通过微信、QQ群联系我，谢谢您的关注。
+请在https://mp.weixin.qq.com/ 注册你的小程序，得到appid和secret，微信开发者工具中设置appid。  
+在hiolabs-server的config.js中设置好appid和secret。  
+
+- 项目地址  
+微信小程序：https://github.com/iamdarcy/hioshop-miniprogram  
+后台管理：https://github.com/iamdarcy/hioshop-admin  
+服务端： https://github.com/iamdarcy/hioshop-server  
+
+- 本项目会持续更新和维护，喜欢别忘了 Star，有问题可通过微信、QQ群联系我，谢谢您的关注。
+<img width="1200" src="http://git.hiolabs.com/github/contact.jpg"/>
+
+

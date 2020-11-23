@@ -1,0 +1,86 @@
+page {
+    min-height: 100%;
+    background-color: #f8f8f8;
+}
+
+.container {
+    min-height: 100%;
+    /* align-items: stretch; */
+    background: #f8f8f8;
+    overflow-x: hidden;
+}
+
+.edit-container {
+    background: #fff;
+    width: 100%;
+}
+
+.a-item {
+    padding: 24rpx;
+    border-top: 1rpx solid #eee;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.a-item .icon{
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 20rpx;
+}
+
+.a-input {
+    font-size: 28rpx;
+    width: 100%;
+}
+
+.wrap-btn{
+    width: 100%;
+    padding: 0 24rpx;
+    box-sizing: border-box;
+    margin-top: 30rpx;
+}
+
+.btn-wrap{
+    line-height: 100rpx;
+    color: #fff;
+    font-size: 32rpx;
+    text-align: center;
+    width: 100%;
+    height: 100rpx;
+    border-radius: 10rpx;
+    z-index: 10;
+}
+
+.active{
+    background: linear-gradient(to right, #ff3456, #ff347d);
+    box-shadow: 0rpx 10rpx 20rpx #f1f1f1;
+    color: #fff;
+}
+
+.disable{
+    background: #bbb;
+    box-shadow: 0rpx 10rpx 20rpx #ccc;
+}
+
+.tips{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 30rpx;
+    box-sizing: border-box;
+    margin-bottom: 30rpx;
+}
+
+.tips .q{
+    font-size: 26rpx;
+    color: rgb(196, 54, 54);
+    line-height: 50rpx;
+
+}
+
+.tips .title{
+    color: #666;
+    font-size: 28rpx;
+    font-weight: 500;
+}

@@ -1,0 +1,42 @@
+page {
+    height: 100%;
+    background: #f8f8f8;
+}
+
+.container {
+    background-color: #f8f8f8;
+    height: 100%;
+    display: flex;
+    align-items: stretch;
+    overflow-x: hidden;
+    justify-content: unset;
+}
+
+.about-wrap {
+    background: #fff;
+    padding: 50rpx 40rpx;
+}
+
+.title {
+    width: 100%;
+    font-size: 30rpx;
+    font-weight: bold;
+    text-indent: 56rpx;
+    margin: 24rpx 0;
+    box-sizing: border-box;
+}
+
+.content {
+    width: 100%;
+    font-size: 28rpx;
+    text-indent: 56rpx;
+    line-height: 50rpx;
+    box-sizing: border-box;
+}
+
+.line {
+    height: 1rpx;
+    border-top: 1rpx solid #f1f1f1;
+    padding-bottom: 14rpx;
+    margin-top: 14rpx;
+}

@@ -1,0 +1,58 @@
+<view class='container'>
+	<view class="goodsList" wx:if="{{cartGoods.length > 0}}">
+		<view class="a-goods {{item.isTouchMove ? 'touch-move-active' : ''}}" wx:for="{{cartGoods}}" wx:key="id" bindtouchstart="touchstart" bindtouchmove="touchmove" data-index="{{index}}">
+			<view class='content'>
+				<view wx:if="{{item.number >0 && item.is_on_sale == 1}}" class="checkbox" bindtap="checkedItem" data-item-index="{{index}}">
+					<image wx:if="{{item.checked == 1}}" class="checkbox-img" src="/images/icon/gou-red.png"></image>
+					<image wx:else class="checkbox-img" src="/images/icon/gou-gray.png"></image>
+				</view>
+				<image src="/images/icon/gou-gray.png" wx:else class="checkbox"></image>
+				<view class="goods-info">
+					<navigator class="goods-url" hover-class="none" url="/pages/goods/goods?id={{item.goods_id}}">
+						<view class="img-box">
+							<image src="{{item.list_pic_url}}" class="img" />
+						</view>
+						<view class="text-box">
+							<view class="{{item.number >0 && item.is_on_sale == 1?'goods-title':'out-stock-title'}}">{{item.goods_name}}</view>
+							<view class="goods-label">{{item.goods_specifition_name_value}}</view>
+							<view class="goods-price">
+								<view class='price-now'>￥{{item.retail_price}}</view>
+							</view>
+							<view class="selnum" wx:if="{{item.number > 0 && item.is_on_sale == 1}}">
+								<view data-item-index="{{index}}" class="cut" catchtap="cutNumber">-</view>
+								<input value="{{item.number}}" class="number" disabled="true" type="number" />
+								<view data-item-index="{{index}}" class="add" catchtap="addNumber" disabled='{{disabled}}'>+</view>
+							</view>
+							<view wx:else class="out-stock">暂时缺货</view>
+						</view>
+					</navigator>
+				</view>
+			</view>
+			<view class="delete-btn" data-item-index="{{index}}" catchtap="deleteGoods">
+				删除
+			</view>
+		</view>
+	</view>
+	<view class="cart-empty-container {{hasCartGoods == 0?'show':''}}">
+		<view class='cart-empty-view'>
+			<image class='cart-empty' src='/images/icon/cart-empty.png'></image>
+		</view>
+		<view class='cart-empty-txt'>车里什么都没有，快去买一点吧</view>
+		<view class="to-index-btn" bindtap="toIndexPage">
+			去逛逛
+		</view>
+	</view>
+	<view class="settle-box" wx:if="{{cartGoods.length > 0}}">
+		<view class="left-price">
+			<view class="all-selected" bindtap="checkedAll">
+				<image class="checkbox" wx:if="{{checkedAllStatus}}" src="/images/icon/gou-red.png"></image>
+				<image class="checkbox" wx:else src="/images/icon/gou-gray.png"></image>
+				<view class="text">全选({{cartTotal.checkedGoodsCount}})
+				</view>
+			</view>
+			<view class="total" hidden="">合计：¥{{cartTotal.checkedGoodsAmount}}</view>
+		</view>
+		<view class="to-pay-btn" hidden="" bindtap="checkoutOrder">去结算</view>
+		<!-- <view class="to-pay-btn" hidden="" bindtap="test">去结算</view>    -->
+	</view>
+</view>

@@ -1,0 +1,174 @@
+<wxs module="filters" src="../../utils/fixed.wxs"></wxs>
+<view class="container" wx:if="{{loading == 1}}">
+    <view class='banner-wrap'>
+        <view class='current-item' wx:if="{{gallery.length > 0}}">
+            <view class='in-item'>
+                <view class='current-mask'></view>
+                <view class='current-content'>
+                    <view class='icon'>
+                        <image class='img' src='/images/icon/img-icon.png'></image>
+                    </view>
+                    <view class='num'>{{current + 1}}/{{gallery.length}}</view>
+                </view>
+            </view>
+        </view>
+        <block wx:if="{{gallery.length > 0}}">
+            <swiper bindchange="bindchange" class="banner banner-style1" indicator-dots="{{false}}" autoplay="{{false}}" current="{{current}}" circular="{{true}}" interval="3000" duration="1000" display-multiple-items="1">
+                <swiper-item class="item" wx:for="{{gallery}}" wx:key="id">
+                    <image bindtap="previewImage" data-src="{{item.img_url}}" src="{{item.img_url}}" class="slide-image" mode="aspectFill" />
+                </swiper-item>
+            </swiper>
+        </block>
+        <block wx:else>
+            <view class='no-image'>
+                <image class='img' src='/images/icon/no-img.png'></image>
+            </view>
+        </block>
+    </view>
+    <view class='info-wrap'>
+        <view class='l'>
+            <view class='goods-title'>{{goods.name}}</view>
+            <view class='goods-intro'>{{goods.goods_brief}}</view>
+        </view>
+        <view class='r'>
+            <view bindtap="shareTo" class='share'>
+                <image class='icon' src='/images/icon/share.png'></image>
+                <view class='text'>分享</view>
+            </view>
+        </view>
+    </view>
+    <view class='price-info'>
+        <view class="l">
+            <view class="now-price">
+                <view class="sym">¥</view>
+                <view class="num">{{goods.retail_price}}</view>
+            </view>
+        </view>
+        <view class="r">
+            <view class='stock'>库存{{goods.goods_number}}</view>
+            <view class='sales'>已售{{goods.sell_volume}}份</view>
+        </view>
+    </view>
+    <view class='section-nav' bindtap="switchAttrPop">
+        <view class="t">{{checkedSpecText}}</view>
+        <view class="arrow"></view>
+    </view>
+    <view class='details-wrap'>
+        <view class="title">商品详情</view>
+        <view class="show">
+            <view class='details-image-wrap'>
+                <import src="../../lib/wxParse/wxParse.wxml" />
+                <template is="wxParse" data="{{wxParseData:goodsDetail.nodes}}" />
+            </view>
+        </view>
+    </view>
+    <view class="attr-pop-box" hidden="{{!openAttr}}" bindtap='closeAttr'>
+        <view class="attr-pop" catchtap="handleTap">
+            <view class="close" catchtap="closeAttr">
+                <image class="icon" src="/images/icon/icon-close.png"></image>
+            </view>
+            <view class="img-info">
+                <view class="img-wrap">
+                    <image class="img" src="{{gallery[0].img_url}}"></image>
+                </view>
+                <view class="info">
+                    <view class='price-range' wx:if="{{priceChecked == false}}">
+                        <!-- todo 原价不等于0的时候要补充 -->
+                        <view class='retail-price'>
+                            <view class='p-title'>零售价：</view>
+                            <view class='g-price'>{{goods.retail_price}}元</view>
+                        </view>
+                    </view>
+                    <view class='price-range' wx:elif="{{priceChecked == true}}">
+                        <view class='retail-price'>
+                            <view class='p-title'>零售价：</view>
+                            <view class='g-price'>{{checkedSpecPrice}}元</view>
+                        </view>
+                    </view>
+                    <view class="a" wx:if="{{productList.length>0}}">{{tmpSpecText}}</view>
+                </view>
+            </view>
+            <view class="spec-con">
+                <view class='spec-item'>
+                    <view class='name'>{{specificationList.name}}</view>
+                    <view class="values">
+                        <view class="value {{item.checked ? 'selected' : ''}} {{item.goods_number <=0?'out-stock':''}}" bindtap="clickSkuValue" wx:for="{{specificationList.valueList}}" wx:key="id" data-value-id="{{item.id}}" data-index="{{index}}" data-name-id="{{item.specification_id}}">{{item.value}}</view>
+                    </view>
+                </view>
+                <view class="number-item">
+                    <view class="name">库存</view>
+                    <view class='stock-num'>{{goodsNumber}}</view>
+                </view>
+                <view class="number-item">
+                    <view class="name">数量 ({{goods.goods_unit}})</view>
+                    <view class="selnum">
+                        <button class="cut" bindtap="cutNumber">-</button>
+                        <input value="{{number}}" class="number" type="number" cursor-spacing="100" bindblur="inputNumber" />
+                        <button class="add" bindtap="addNumber" disabled='{{disabled}}'>+</button>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="cart-add-box">
+        <view class='l'>
+            <view class='left-icon form-button' bindtap='goIndexPage'>
+                <form report-submit="true">
+                    <button bindtap='goIndexPage' formType="submit" class='index-btn' hover-class="none">
+                        <image class='icon' src='/images/nav/icon-index-b.png'></image>
+                        <view class='icon-text'>主页</view>
+                    </button>
+                </form>
+            </view>
+            <button class='left-icon contact-button' session-from='{"nickName":"{{userInfo.nickname}}","avatarUrl":"{{userInfo.avatar}}"}' open-type="contact" show-message-card="true" hover-class="none">
+                <image class='icon' src='/images/icon/chat.png'></image>
+                <view class='icon-text'>客服</view>
+            </button>
+            <view class="left-icon" bindtap='openCartPage'>
+                <text class="cart-count">{{cartGoodsCount}}</text>
+                <image class='icon' src='/images/nav/icon-cart-b.png'></image>
+                <view class='icon-text'>购物车</view>
+            </view>
+        </view>
+        <block wx:if="{{goods.goods_number > 0 && goods.is_on_sale == 1}}">
+            <block wx:if="{{goodsNumber > 0}}">
+                <view class="to-cart-btn" bindtap='addToCart'>加入购物车</view>
+                <view class="to-pay-btn" bindtap='fastToCart'>立即购买</view>
+
+            </block>
+            <block wx:if="{{goodsNumber <= 0 }}">
+                <view class="cart-empty">商品已售罄</view>
+            </block>
+        </block>
+        <block wx:elif="{{goods.goods_number <= 0}}">
+            <view class="cart-empty">商品已售罄</view>
+        </block>
+        <block wx:elif="{{goods.is_on_sale == 0}}">
+            <view class="cart-empty">商品已下架</view>
+        </block>
+    </view>
+    <view class="dialog {{ showShareDialog ? 'dialog_show' : '' }}">
+        <view class="dialog-mask2" bindtap="hideDialog"></view>
+        <view class="dialog-fixed dialog-share">
+            <view class="share-wrap">
+                <view class='content'>
+                    <view class="share-block">
+                        <button class='block share-btn' hover-class="none" open-type='share'>
+                            <image class="img" src="/images/icon/weixin.png"></image>
+                            <view class="text">发给好友/发到微信群</view>
+                        </button>
+                        <view class="block" catchtap="createShareImage">
+                            <image class="img" src="/images/icon/pyq.png"></image>
+                            <view class="text">保存分享图发朋友圈</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="cancel" bindtap="hideDialog">取消</view>
+        </view>
+    </view>
+</view>
+<view class="loading" style="height:{{sysHeight}}px" wx:else>
+    <image class="img" src="/images/icon/loading.gif"></image>
+    <view class="text">海风吹啊吹</view>
+</view>

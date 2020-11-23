@@ -1,0 +1,23 @@
+<view class="container">
+    <view class='goods-list-container'>
+        <view class='goods-list-wrap' hover-class='none' wx:for="{{goodsList}}" wx:key="id" wx:for-item="item">
+            <navigator hover-class='none' class='goods-nav' url='/pages/goods/goods?id={{item.goods_id}}'>
+                <view class='image-wrap'>
+                    <image class='goods-image' src='{{item.list_pic_url}}'></image>
+                </view>
+                <view class='goods-info'>
+                    <view class='info-top'>
+                        <view class='goods-title'>{{item.goods_name}}</view>
+                        <view class='goods-intro'>{{item.goods_specifition_name_value}}</view>
+                    </view>
+                    <view class='info-bottom'>
+                        <view class='left'>
+                            <view class='goods-price'>¥{{item.retail_price}}</view>
+                            <view class='goods-num'>× {{item.number}}</view>
+                        </view>
+                    </view>
+                </view>
+            </navigator>
+        </view>
+    </view>
+</view>

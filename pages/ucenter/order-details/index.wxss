@@ -1,0 +1,519 @@
+page {
+    min-height: 100%;
+    background-color: #f2f2f2;
+}
+
+.container {
+    background-color: #f2f2f2;
+    min-height: 100%;
+    overflow-x: hidden;
+    padding-bottom: 200rpx;
+}
+
+button::after {
+    border-radius: 0;
+    border: none;
+}
+
+.copy-text {
+    display: block;
+    font-size: 24rpx;
+    border: 1rpx solid #f1f2f3;
+    line-height: 50rpx;
+    height: 56rpx;
+    text-align: center;
+    min-width: 120rpx;
+    border-radius: 10rpx;
+}
+
+.status-wrap {
+    width: 100%;
+    height: 160rpx;
+    background: -webkit-linear-gradient(left, #52466b, #594d72); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right, #52466b, #594d72); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right, #52466b, #594d72); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right, #52466b, #594d72); /* 标准的语法（必须放在最后） */
+    display: flex;
+    justify-content: space-between;
+    padding: 0 24rpx;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.status-wrap .status-text {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.status-wrap .icon {
+    width: 48rpx;
+    height: 48rpx;
+    margin-right: 18rpx;
+}
+
+.onPosting {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 18rpx;
+    background: #fff;
+    color: #666;
+    font-size: 28rpx;
+    line-height: 100rpx;
+    width: 100%;
+    height: 100rpx;
+    padding: 20rpx 24rpx;
+    box-sizing: border-box;
+}
+
+.onPosting .loading {
+    width: 60rpx;
+    height: 60rpx;
+}
+
+.status-wrap .count-wrap {
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 26rpx;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+}
+
+.count-wrap .count-down-time {
+    font-size: 26rpx;
+    text-align: center;
+    line-height: 60rpx;
+    height: 60rpx;
+    color: #e4e4e4;
+    display: flex;
+    justify-content: center;
+}
+
+.count-wrap .time-text {
+    color: #e4e4e4;
+}
+
+.status-wrap .text {
+    font-size: 30rpx;
+    color: #fff;
+    line-height: 160rpx;
+}
+
+.address-box {
+    width: 100%;
+    background-color: #fff;
+    margin-bottom: 18rpx;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 24rpx;
+    box-sizing: border-box;
+}
+
+.address-box .addr-icon{
+    width: 50rpx;
+    height: 50rpx;
+    margin-right: 24rpx;
+}
+
+.address-box .show-address {
+    display: flex;
+    flex-direction: column;
+}
+
+.address-box .show-address .name-tel {
+    font-size: 30rpx;
+    color: #233445;
+    padding: 0 0 6rpx 0;
+}
+
+.address-box .show-address .addr-text {
+    font-size: 26rpx;
+    color: #666;
+}
+
+form {
+    width: 100%;
+}
+
+.goods-list {
+    width: 100%;
+    background-color: #fff;
+    margin-bottom: 18rpx;
+}
+
+.list-info-wrap {
+    padding: 24rpx;
+    border-bottom: 1rpx solid #eee;
+    display: flex;
+    justify-content: space-between;
+}
+
+.list-title {
+    font-size: 26rpx;
+    color: #666;
+}
+
+.status {
+    color: #ff3456;
+    font-size: 28rpx;
+}
+
+.a-goods {
+    display: flex;
+    padding: 24rpx;
+    background-color: #fff;
+    background-size: 16rpx auto;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.img-box {
+    height: 120rpx;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.goods-image {
+    width: 120rpx;
+    height: 120rpx;
+    margin-right: 18rpx;
+    background-color: #fafafa;
+}
+
+.goods-sum {
+    line-height: 100rpx;
+    height: 100rpx;
+    font-size: 26rpx;
+    color: #666;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.goods-sum .text{
+    margin-right: 20rpx;
+}
+
+.goods-sum .arrow{
+    width: 10rpx;
+    height: 10rpx;
+    border-top: 4rpx solid #ccc;
+    border-right: 4rpx solid #ccc;
+    transform: rotate(45deg);
+}
+
+.express {
+    width: 100%;
+    background-color: #fff;
+    margin-bottom: 18rpx;
+}
+
+.express-info-header {
+    padding: 24rpx;
+    border-bottom: 1rpx solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.express-info-header .title-wrap {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.express-info-header .title-wrap .no {
+    font-size: 26rpx;
+    margin-right: 20rpx;
+}
+
+.no-express-info-wrap {
+    padding: 30rpx 60rpx 30rpx 24rpx;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.express-info-wrap {
+    padding: 30rpx 24rpx;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.express-info-wrap .l{
+    display: flex;
+    flex-direction: column;
+}
+
+.express-info-wrap .arrow{
+    width: 10rpx;
+    height: 10rpx;
+    border-top: 4rpx solid #ccc;
+    border-right: 4rpx solid #ccc;
+    transform: rotate(45deg);
+}
+
+.express-info {
+    font-size: 28rpx;
+    color: #233445;
+    height: 40rpx;
+    line-height: 40rpx;
+    /* font-weight: bold; */
+    margin-bottom: 10rpx;
+    text-overflow: ellipsis;
+    /* white-space: nowrap;  群友ef发现的问题*/
+    overflow: hidden;
+}
+
+.express-time {
+    font-size: 24rpx;
+    color: #666;
+    height: 30rpx;
+    line-height: 30rpx;
+}
+
+.express-status {
+    color: #666;
+    font-size: 26rpx;
+}
+
+.order-info {
+    width: 100%;
+    background-color: #fff;
+    margin-bottom: 18rpx;
+}
+
+.price-check-wrap {
+    background-color: #fff;
+    padding: 0 0 0 24rpx;
+    width: 100%;
+    box-sizing: border-box;
+    /* margin-left: 24rpx; */
+    margin-bottom: 18rpx;
+}
+
+.row-box-wrap {
+    padding: 24rpx;
+}
+
+.row-box2 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    /* border-bottom: 1rpx solid #eee; */
+    padding: 0 24rpx 0 0;
+    height: 50rpx;
+}
+
+.row-label2 {
+    font-size: 26rpx;
+    color: #999;
+    margin-right: 10rpx;
+    width: 160rpx;
+}
+
+.right-text2 {
+    font-size: 26rpx;
+    color: #233445;
+    /* padding-right: 30rpx; */
+}
+
+.row-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    border-bottom: 1rpx solid #eee;
+    padding: 0 24rpx 0 0;
+    height: 90rpx;
+}
+
+.row-label {
+    font-size: 28rpx;
+    color: #000;
+}
+
+.right-text {
+    font-size: 28rpx;
+    color: #666;
+    /* padding-right: 30rpx; */
+}
+
+.bottom-box {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    box-sizing: border-box;
+    /* border-bottom: 1rpx solid #eee; */
+    padding: 0 24rpx 0 0;
+    height: 80rpx;
+}
+
+.price-to-pay {
+    font-size: 30rpx;
+    color: #ff3456;
+    font-weight: bold;
+    margin-left: 6rpx;
+}
+
+.change-price {
+    color: #666;
+    font-size: 28rpx;
+}
+
+.memo-box {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    border-bottom: 1rpx solid #eee;
+    padding: 0 24rpx 0 0;
+    height: 90rpx;
+}
+
+.memo-input {
+    margin-left: 8rpx;
+    width: 100%;
+}
+
+.memo-label {
+    width: 100rpx;
+}
+
+.memo {
+    height: 90rpx;
+    line-height: 90rpx;
+}
+
+.memo-disable {
+    height: 90rpx;
+    line-height: 90rpx;
+    color: #233445;
+}
+
+.settle-box {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 110rpx;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    border-top: 1px solid #eee;
+    background-color: #fff;
+}
+
+.to-cancel-btn {
+    width: 30%;
+    height: 110rpx;
+    line-height: 100rpx;
+    text-align: center;
+    color: #666;
+    font-size: 30rpx;
+    background: #fafafa;
+}
+
+.to-pay-btn {
+    height: 110rpx;
+    width: 70%;
+    line-height: 100rpx;
+    color: #fff;
+    background: linear-gradient(to right, #ff3456, #ff347d);
+    font-size: 30rpx;
+    text-align: center;
+    border-radius: 0;
+}
+
+/* 底部按钮是小按钮  */
+
+.bottom-fixed-box {
+    width: 100%;
+    height: 110rpx;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    border-top: 1px solid #eee;
+    background-color: #fff;
+    box-sizing: border-box;
+    z-index: 99;
+}
+
+.display-end {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.display-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bottom-fixed-box .text {
+    width: 100%;
+    text-align: center;
+    font-size: 26rpx;
+    line-height: 100rpx;
+    color: #233445;
+}
+
+.bottom-fixed-box .btn-default {
+    font-size: 26rpx;
+    color: #666;
+    border: 1rpx solid #ccc;
+    text-align: center;
+    border-radius: 6rpx;
+    padding: 8rpx 20rpx;
+    background: #fff;
+    height: 40rpx;
+    line-height: 40rpx;
+    margin-right: 24rpx;
+}
+
+.bottom-fixed-box .call-service {
+    height: 36rpx;
+    line-height: 36rpx;
+    font-size: 26rpx;
+    margin-left: 24rpx;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0;
+    background: none;
+}
+
+.bottom-fixed-box .call-service .text{
+    color: #0093de;
+}
+
+.bottom-fixed-box .call-service .icon{
+    width: 48rpx;
+    height: 36rpx;
+    margin-right: 10rpx;
+}
+
+.bottom-fixed-box .btn-red {
+    font-size: 26rpx;
+    color: #fff;
+    border: 1rpx solid #ff3456;
+    text-align: center;
+    border-radius: 6rpx;
+    padding: 8rpx 20rpx;
+    background: linear-gradient(to right, #ff3456, #ff347d);
+    height: 40rpx;
+    line-height: 40rpx;
+    margin-right: 24rpx;
+}
+
+.margin-left-20 {
+    height: 40rpx;
+    line-height: 40rpx;
+    margin-left: 20rpx;
+}

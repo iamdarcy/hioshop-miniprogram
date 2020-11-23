@@ -1,0 +1,83 @@
+/* pages/app-authorization/index.wxss */
+
+.container {
+    background-color: #fff;
+    min-height: 100%;
+    align-items: stretch;
+    overflow-x: hidden;
+    position: relative;
+    width: 100%;
+    padding-top: 100rpx;
+}
+
+.logo{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 60rpx;
+}
+
+.logo .logo-img{
+    width: 120rpx;
+    height: 120rpx;
+}
+
+
+.logo-name{
+    width: 100%;
+    text-align: center;
+    height: 50rpx;
+    line-height: 50rpx;
+    font-size: 32rpx;
+    margin-top: 40rpx;
+}
+
+.intro{
+    width: 100%;
+    text-align: center;
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 26rpx;
+    color: #555;
+    margin-bottom: 30rpx;
+}
+
+.login{
+    width: 100%;
+    height: 80rpx;
+    margin-top: 80rpx;
+    font-size: 28rpx;
+    color: #999;
+    text-align: center;
+}
+
+.btn-login{
+    display: flex;
+    justify-content: center;
+    height: 100rpx;
+    width: 600rpx;
+    background: #54b635;
+    align-items: center;
+}
+
+.img-w{
+    height: 40rpx;
+    width: 40rpx;
+}
+
+.text{
+    font-size: 30rpx;
+    color: #fff;
+    margin-left: 10rpx;
+}
+
+.cancel{
+    width: 100%;
+    height: 100rpx;
+    line-height: 100rpx;
+    text-align: center;
+    font-size: 28rpx;
+    color: #555;
+    margin-top: 30rpx;
+}

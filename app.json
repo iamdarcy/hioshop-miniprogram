@@ -1,0 +1,64 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/app-auth/index",
+        "pages/category/index",
+        "pages/cart/cart",
+        "pages/share/index",
+        "pages/search/search",
+        "pages/order-check/index",
+        "pages/goods/goods",
+        "pages/ucenter/about/index",
+        "pages/ucenter/address/index",
+        "pages/ucenter/address-detail/index",
+        "pages/ucenter/index/index",
+        "pages/ucenter/settings/index",
+        "pages/ucenter/order-list/index",
+        "pages/ucenter/goods-list/index",
+        "pages/ucenter/order-details/index",
+        "pages/ucenter/express-info/index",
+        "pages/ucenter/footprint/index",
+        "pages/payResult/payResult",
+        "pages/payOffline/index"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "WeChat",
+        "navigationBarTextStyle": "black",
+        "enablePullDownRefresh": true
+    },
+    "tabBar": {
+        "color": "#6e6d6b",
+        "selectedColor": "#ff3456",
+        "borderStyle": "white",
+        "backgroundColor": "#fff",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "iconPath": "images/nav/icon-index-b.png",
+                "selectedIconPath": "images/nav/icon-index-r.png",
+                "text": "首页"
+            },
+            {
+                "pagePath": "pages/category/index",
+                "iconPath": "images/nav/icon-cate-off.png",
+                "selectedIconPath": "images/nav/icon-cate-on.png",
+                "text": "分类"
+            },
+            {
+                "pagePath": "pages/cart/cart",
+                "iconPath": "images/nav/icon-cart-b.png",
+                "selectedIconPath": "images/nav/icon-cart-r.png",
+                "text": "购物车"
+            },
+            {
+                "pagePath": "pages/ucenter/index/index",
+                "iconPath": "images/nav/icon-center-b.png",
+                "selectedIconPath": "images/nav/icon-center-r.png",
+                "text": "我的"
+            }
+        ]
+    },
+    "sitemapLocation": "sitemap.json"
+}
