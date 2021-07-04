@@ -31,6 +31,15 @@ Page({
         this.getCartNum();
         wx.removeStorageSync('categoryId');
     },
+    goGoodsDetail(e){
+        let goodsId = e.currentTarget.dataset.goodsid;
+        wx.navigateTo({
+          url: '/pages/goods/goods?id='+goodsId,
+        })
+    },
+    nothing:function(){
+
+    },
     onPullDownRefresh: function() {
         wx.showNavigationBarLoading()
         this.getCartList();

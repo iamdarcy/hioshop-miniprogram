@@ -1,5 +1,6 @@
 // const ApiRootUrl = 'http://localhost:8360/api/';
-const ApiRootUrl = 'https://www.hiolabs.com/api/';
+// const ApiRootUrl = 'http://192.168.0.108:8360/api/';
+const ApiRootUrl = 'https://www.guxiaoling.com:8466/api/';
 
 module.exports = {
     // 登录

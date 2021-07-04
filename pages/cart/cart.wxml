@@ -8,8 +8,8 @@
 				</view>
 				<image src="/images/icon/gou-gray.png" wx:else class="checkbox"></image>
 				<view class="goods-info">
-					<navigator class="goods-url" hover-class="none" url="/pages/goods/goods?id={{item.goods_id}}">
-						<view class="img-box">
+					<view class="goods-url">
+						<view class="img-box" bindtap="goGoodsDetail" data-goodsid="{{item.goods_id}}">
 							<image src="{{item.list_pic_url}}" class="img" />
 						</view>
 						<view class="text-box">
@@ -18,14 +18,14 @@
 							<view class="goods-price">
 								<view class='price-now'>￥{{item.retail_price}}</view>
 							</view>
-							<view class="selnum" wx:if="{{item.number > 0 && item.is_on_sale == 1}}">
+							<view class="selnum" catchtap="nothing" wx:if="{{item.number > 0 && item.is_on_sale == 1}}">
 								<view data-item-index="{{index}}" class="cut" catchtap="cutNumber">-</view>
 								<input value="{{item.number}}" class="number" disabled="true" type="number" />
 								<view data-item-index="{{index}}" class="add" catchtap="addNumber" disabled='{{disabled}}'>+</view>
 							</view>
 							<view wx:else class="out-stock">暂时缺货</view>
 						</view>
-					</navigator>
+					</view>
 				</view>
 			</view>
 			<view class="delete-btn" data-item-index="{{index}}" catchtap="deleteGoods">

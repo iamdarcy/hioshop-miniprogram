@@ -55,6 +55,7 @@
     </view>
     <view class='details-wrap'>
         <view class="title">商品详情</view>
+        <!-- <ad unit-id="adunit-2d961509e15e91d7" ad-type="grid" grid-opacity="0.8" grid-count="5" ad-theme="white"></ad> -->
         <view class="show">
             <view class='details-image-wrap'>
                 <import src="../../lib/wxParse/wxParse.wxml" />

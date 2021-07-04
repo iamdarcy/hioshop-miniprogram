@@ -24,6 +24,7 @@
             </view>
         </view>
     </view>
+    <!-- <ad unit-id="adunit-89ae0a0b6860dc9f" ad-type="grid" grid-opacity="0.8" grid-count="5" ad-theme="white"></ad> -->
     <view class="order-container">
         <view class='header' data-index='0' bindtap='toOrderListTap'>
             <view class='top-title'>
@@ -103,7 +104,7 @@
         </view>
     </view>
     <view class="company">
-        <view class="c-wrap">
+        <view class="c-wrap" bindtap="getOrderInfo">
             <view class="text">海风小店</view>
             <view class="line"></view>
         </view>

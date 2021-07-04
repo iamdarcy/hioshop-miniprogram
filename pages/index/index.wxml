@@ -1,5 +1,5 @@
 <view class="container" wx:if="{{loading == 1}}">
-    <view class='contact-wrap'>
+    <view class='contact-wrap' wx:if="{{showContact == 1}}">
         <button class="contact-btn" session-from='{"nickName":"{{userInfo.nickname}}","avatarUrl":"{{userInfo.avatar}}"}' open-type="contact">
             <image class='icon' src='/images/icon/contact.png'></image>
             <view class='text'>客服</view>
@@ -7,7 +7,7 @@
     </view>
     <view class="search" bindtap="goSearch">
         <image class="icon" src="/images/icon/search.png"></image>
-        <text class="txt">搜索, 共{{goodsCount}}款好物</text>
+        <text class="txt">搜索,发现更多好物</text>
     </view>
     <view class='banner-wrap' wx:if="{{show_banner && banner.length > 0}}">
         <swiper class="banner" indicator-dots="true" autoplay="{{autoplay}}" interval="3000" duration="1000"   >
@@ -34,6 +34,7 @@
             </swiper-item>
         </swiper>
     </view>
+    <!-- <ad unit-id="adunit-c755904541658aa1" ad-type="grid" grid-opacity="0.8" grid-count="5" ad-theme="white"></ad> -->
     <swiper class="catalog-wrap" indicator-dots="{{false}}" indicator-color="#dedede" indicator-active-color="#e00000" wx:if="{{show_channel}}">
         <swiper-item class="first">
             <view wx:for="{{channel}}" wx:if="{{item.sort_order < 7}}" wx:key="id" class='icon-navi' data-cateid="{{item.id}}" bindtap="goCategory">
@@ -95,6 +96,7 @@
             <view class="more-category" data-cateid="{{item.id}}" bindtap="goCategory">点击查看更多{{item.name}}</view>
         </view>
     </view>
+    <!-- <ad unit-id="adunit-b6fcdb43b7913591"></ad> -->
     <view class="no-more-goods ">没有更多商品啦</view>
 </view>
 <view class="loading" style="height:{{sysHeight}}px" wx:else>

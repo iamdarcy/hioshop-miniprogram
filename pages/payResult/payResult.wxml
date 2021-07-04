@@ -28,4 +28,5 @@
         </view>
         <view class='btn-go-order' bindtap="toOrderListPage">返回我的页面</view>
     </view>
+    <!-- <ad class="ad-video" unit-id="adunit-f572025851df64b3" ad-type="video" ad-theme="white"></ad> -->
 </view>

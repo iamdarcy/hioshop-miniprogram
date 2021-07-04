@@ -12,14 +12,27 @@ Page({
         showChannel: 0,
         showBanner: 0,
         showBannerImg: 0,
-        goodsCount: 0,
         banner: [],
         index_banner_img: 0,
         userInfo: {},
         imgurl: '',
         sysHeight: 0,
         loading: 0,
-        autoplay:true
+        autoplay:true,
+        showContact:1,
+    },
+    onPageScroll: function (e) {
+        let scrollTop = e.scrollTop;
+        let that = this;
+        if (scrollTop >= 2000) {
+            that.setData({
+                showContact: 0
+            })
+        } else {
+            that.setData({
+                showContact: 1
+            })
+        }
     },
     onHide:function(){
         this.setData({
@@ -37,14 +50,6 @@ Page({
         wx.switchTab({
             url: '/pages/category/index',
         })
-    },
-    getCatalog: function () {
-        let that = this;
-        util.request(api.GoodsCount).then(function (res) {
-            that.setData({
-                goodsCount: res.data.goodsCount
-            });
-        });
     },
     handleTap: function (event) {
         //阻止冒泡 
@@ -73,17 +78,25 @@ Page({
                     notice: res.data.notice,
                     loading: 1,
                 });
+                let cartGoodsCount = '';
+                if (res.data.cartCount == 0) {
+                    wx.removeTabBarBadge({
+                        index: 2,
+                    })
+                } else {
+                    cartGoodsCount = res.data.cartCount + '';
+                    wx.setTabBarBadge({
+                        index: 2,
+                        text: cartGoodsCount
+                    })
+                }
             }
         });
     },
     onLoad: function (options) {
-        let systemInfo = wx.getStorageSync('systemInfo');
-        var scene = decodeURIComponent(options.scene);
-        this.getCatalog();
+        this.getChannelShowInfo();
     },
     onShow: function () {
-        this.getCartNum();
-        this.getChannelShowInfo();
         this.getIndexData();
         var that = this;
         let userInfo = wx.getStorageSync('userInfo');
@@ -99,24 +112,6 @@ Page({
             autoplay:true
         });
         wx.removeStorageSync('categoryId');
-    },
-    getCartNum: function () {
-        util.request(api.CartGoodsCount).then(function (res) {
-            if (res.errno === 0) {
-                let cartGoodsCount = '';
-                if (res.data.cartTotal.goodsCount == 0) {
-                    wx.removeTabBarBadge({
-                        index: 2,
-                    })
-                } else {
-                    cartGoodsCount = res.data.cartTotal.goodsCount + '';
-                    wx.setTabBarBadge({
-                        index: 2,
-                        text: cartGoodsCount
-                    })
-                }
-            }
-        });
     },
     getChannelShowInfo: function (e) {
         let that = this;

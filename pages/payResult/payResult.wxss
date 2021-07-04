@@ -8,7 +8,9 @@ page {
     align-items: flex-start;
     overflow-x: hidden;
 }
-
+.ad-video{
+    width: 100%;
+}
 .result-wrap {
     width: 100%;
     height: 40%;

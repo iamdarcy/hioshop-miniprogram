@@ -231,7 +231,7 @@ button::after {
     border: none;
 }
 
-.goods-info .text-box .selnum {
+/* .goods-info .text-box .selnum {
     width: 146rpx;
     height: 52rpx;
     display: flex;
@@ -240,7 +240,20 @@ button::after {
     position: absolute;
     right: 30rpx;
     bottom: 0;
+} */
+
+.goods-info .text-box .selnum {
+    width: 146rpx;
+    height: 52rpx;
+    padding: 50rpx 0 0 100rpx;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    right: 30rpx;
+    bottom: 0;
 }
+
 
 .selnum .cut {
     width: 46rpx;
@@ -345,7 +358,6 @@ button::after {
     width: 510rpx;
     /* justify-content: space-between; */
     line-height: 100rpx;
-    padding: 0 30rpx 0 0;
     font-size: 28rpx;
     box-sizing: border-box;
 }
@@ -367,5 +379,5 @@ button::after {
 .settle-box .total {
     color: #ff3456;
     float: left;
-    margin-left: 30rpx;
+    margin-left: 20rpx;
 }

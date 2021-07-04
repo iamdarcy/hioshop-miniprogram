@@ -125,7 +125,9 @@ Page({
                     galleryImages: galleryImages,
                     loading:1
                 });
-                WxParse.wxParse('goodsDetail', 'html', res.data.info.goods_desc, that);
+                setTimeout(() => {
+                    WxParse.wxParse('goodsDetail', 'html', res.data.info.goods_desc, that);
+                }, 1000);
                 wx.setStorageSync('goodsImage', res.data.info.https_pic_url);
             }
             else{
@@ -392,7 +394,6 @@ Page({
                 alone_text: '加入购物车'
             })
         } else {
-
             //提示选择完整规格
             if (!this.isCheckedAllSpec()) {
                 wx.showToast({
@@ -401,7 +402,6 @@ Page({
                 });
                 return false;
             }
-
             //根据选中的规格，判断是否有对应的sku信息
             let checkedProductArray = this.getCheckedProductItem(this.getCheckedSpecKey());
             if (!checkedProductArray || checkedProductArray.length <= 0) {
@@ -422,6 +422,10 @@ Page({
                 });
                 return false;
             }
+            wx.showLoading({
+              title: '',
+              mask:true
+            })
             util.request(api.CartAdd, {
                     addType: 0,
                     goodsId: this.data.id,
@@ -450,7 +454,7 @@ Page({
                             title: _res.errmsg,
                         });
                     }
-
+                    wx.hideLoading()
                 });
         }
     },
@@ -500,6 +504,10 @@ Page({
                 return false;
             }
             //添加到购物车
+            wx.showLoading({
+                title: '',
+                mask:true
+              })
             util.request(api.CartAdd, {
                     addType: 1, // 0：正常加入购物车，1:立即购买，2:再来一单
                     goodsId: this.data.id,
@@ -508,6 +516,7 @@ Page({
                 }, "POST")
                 .then(function(res) {
                     let _res = res;
+                    wx.hideLoading()
                     if (_res.errno == 0) {
                         let id = that.data.id;
                         wx.navigateTo({
