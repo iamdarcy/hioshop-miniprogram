@@ -14,7 +14,7 @@ page {
 
 .about-wrap {
     background: #fff;
-    padding: 50rpx 40rpx;
+    padding: 0 40rpx;
 }
 
 .title {
@@ -32,8 +32,19 @@ page {
     text-indent: 56rpx;
     line-height: 50rpx;
     box-sizing: border-box;
+    margin-bottom: 20rpx;
 }
 
+.img-wrap{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.code-img{
+  width: 550rpx;
+  height: 750rpx;
+}
 .line {
     height: 1rpx;
     border-top: 1rpx solid #f1f1f1;

@@ -1,18 +1,38 @@
 page {
     min-height: 100%;
-    background-color: #f8f8f8;
+    background-color: #fff;
 }
 
+.avatar-wrapper {
+  padding: 0;
+  width: 56px !important;
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+.avatar-tip{
+  text-align: center;
+  font-size: 24rpx;
+  line-height: 30rpx;
+  color: #aaa;
+  margin-bottom: 20rpx;
+}
+.avatar {
+  display: block;
+  width: 56px;
+  height: 56px;
+}
 .container {
     min-height: 100%;
     /* align-items: stretch; */
-    background: #f8f8f8;
+    background: #fff;
     overflow-x: hidden;
 }
 
 .edit-container {
     background: #fff;
     width: 100%;
+    margin-top: 40rpx;
 }
 
 .a-item {

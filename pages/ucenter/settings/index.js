@@ -1,75 +1,116 @@
 var util = require('../../../utils/util.js');
 var api = require('../../../config/api.js');
-var app = getApp();
+
 Page({
-    data: {
-        name: '',
-        mobile: '',
-        status: 0,
-    },
-    mobilechange(e) {
-        let mobile = e.detail.value;
-        this.setData({
-            mobile: mobile,
-            status: 0
-        });
-        if (util.testMobile(mobile)) {
-            this.setData({
-                mobile: mobile,
-                status: 1
-            });
+  data: {
+    name: '',
+    nickName: '',
+    mobile: '',
+    avatarUrl: '/static/images/default_avatar.png',
+    hasAvatar: 0,
+    root: api.ApiRoot
+  },
+  onChooseAvatar(e) {
+    const {
+      avatarUrl
+    } = e.detail
+    this.setData({
+      avatarUrl,
+    })
+    let that = this;
+    wx.uploadFile({
+      url: api.UploadAvatar,
+      filePath: avatarUrl,
+      name: 'upload_file',
+      formData: {
+        // 'userId': 'test'
+      },
+      success(res) {
+        if (res.statusCode == 200) {
+          let re = res.data
+          let echo = JSON.parse(re);
+          console.log(echo);
+          let data = echo.data;
+          let avatarUrl = data.fileUrl
+          console.log(avatarUrl)
+          that.setData({
+            avatarUrl: avatarUrl,
+            hasAvatar: 1
+          })
         }
-    },
-    bindinputName(event) {
-        let name = event.detail.value;
-        let mobile = this.data.mobile;
-        this.setData({
-            name: name,
+      }
+    })
+  },
+  mobilechange(e) {
+    let mobile = e.detail.value;
+    this.setData({
+      mobile: mobile,
+    });
+  },
+  bindinputNickName(event) {
+    let nickName = event.detail.value;
+    this.setData({
+      nickName: nickName,
+    });
+  },
+  bindinputName(event) {
+    let name = event.detail.value;
+    this.setData({
+      name: name,
+    });
+  },
+  getSettingsDetail() {
+    let that = this;
+    util.request(api.SettingsDetail).then(function (res) {
+      if (res.errno === 0) {
+        that.setData({
+          name: res.data.name,
+          mobile: res.data.mobile,
+          nickName: res.data.nickname,
+          hasAvatar: 0
         });
-        if (util.testMobile(mobile)) {
-            this.setData({
-                status: 1
-            });
+        if (res.data.avatar != '') {
+          that.setData({
+            avatarUrl: res.data.avatar,
+            hasAvatar: 1
+          })
         }
-    },
-    getSettingsDetail() {
-        let that = this;
-        util.request(api.SettingsDetail).then(function(res) {
-            if (res.errno === 0) {
-                that.setData({
-                    name: res.data.name,
-                    mobile: res.data.mobile,
-                });
-                if (res.data.name == '' || res.data.mobile == ''){
-                    util.showErrorToast('请填写姓名和手机');
-                }
-            }
-        });
-    },
-    onLoad: function(options) {
-        this.getSettingsDetail();
-    },
-    saveInfo() {
-        let name = this.data.name;
-        let mobile = this.data.mobile;
-        let status = this.data.status;
-        if (name == '') {
-            util.showErrorToast('请输入姓名');
-            return false;
-        }
-        if (mobile == '') {
-            util.showErrorToast('请输入手机号码');
-            return false;
-        }
-        let that = this;
-        util.request(api.SaveSettings, {
-            name: name,
-            mobile: mobile,
-        }, 'POST').then(function(res) {
-            if (res.errno === 0) {
-                util.showErrorToast('保存成功');
-                wx.navigateBack()
-            }
-        });
-    },
+      }
+    });
+  },
+  onLoad: function (options) {
+    this.getSettingsDetail();
+  },
+  saveInfo() {
+    let name = this.data.name;
+    let mobile = this.data.mobile;
+    mobile = mobile.replace(/(^\s*)|(\s*$)/g, "");
+    if (mobile != '') {
+      var myreg = /^(((13[0-9]{1})|(14[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1})|(16[0-9]{1})|(19[0-9]{1}))+\d{8})$/;
+      if (mobile.length < 11) {
+        return util.showErrorToast('手机号码长度不对');
+      } else if (!myreg.test(mobile)) {
+        return util.showErrorToast('手机号码有问题');
+      }
+    }
+    let avatar = this.data.avatarUrl;
+    let nickName = this.data.nickName;
+    nickName = nickName.replace(/(^\s*)|(\s*$)/g, "");
+    if (nickName == '') {
+      util.showErrorToast('请输入昵称');
+      return false;
+    }
+    console.log(avatar)
+    util.request(api.SaveSettings, {
+      name: name,
+      mobile: mobile,
+      nickName: nickName,
+      avatar: avatar,
+    }, 'POST').then(function (res) {
+      if (res.errno === 0) {
+        util.showErrorToast('保存成功');
+        wx.navigateBack()
+      }
+    });
+  },
 })

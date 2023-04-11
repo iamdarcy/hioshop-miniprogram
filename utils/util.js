@@ -238,10 +238,19 @@ function sentRes(url, data, method, fn) {
 function loginNow() {
     let userInfo = wx.getStorageSync('userInfo');
     if (userInfo == '') {
-        wx.navigateTo({
-            url: '/pages/app-auth/index',
-        });
-        return false;
+      wx.login({
+        success: (res) => {
+          request(api.AuthLoginByWeixin, {
+            code: res.code
+          }, 'POST').then(function (res) {
+            if (res.errno === 0) {
+              let userInfo = res.data.userInfo;
+              wx.setStorageSync('token', res.data.token);
+              wx.setStorageSync('userInfo', userInfo);
+            }
+          });
+        },
+      });
     } else {
         return true;
     }

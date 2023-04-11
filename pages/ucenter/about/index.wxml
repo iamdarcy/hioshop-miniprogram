@@ -1,16 +1,15 @@
 <view class="container">
-    <view class='about-wrap'>
-        <view class='title'>海风小店</view>
-        <view class='content'>
-            开源微信小程序商城
-        </view>
-        <view class="line"></view>
-        <view class="content">开发者：盛良</view>
-        <view class="content">微信：lookgxl</view>
-        <view class="line"></view>
-        <view class='content'>
-            更多信息访问：hiolabs.com
-        </view>
+  <view class='about-wrap'>
+    <view class='title'>海风小店</view>
+    <view class='content'>
+      开源微信小程序商城
     </view>
-    <!-- <ad unit-id="adunit-1776b4f8f2217197" ad-type="video" ad-theme="white"></ad> -->
+    <view class="img-wrap">
+      <image mode="aspectFill" class="code-img" src="https://www.qile.club/qrcode.jpg" show-menu-by-longpress="{{true}}"></image>
+    </view>
+    <view class='content'>
+      更多信息访问：qile.club
+    </view>
+  </view>
+  <ad unit-id="adunit-1776b4f8f2217197" ad-type="video" ad-theme="white"></ad>
 </view>
