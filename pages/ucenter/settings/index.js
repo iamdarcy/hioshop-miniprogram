@@ -29,10 +29,8 @@ Page({
         if (res.statusCode == 200) {
           let re = res.data
           let echo = JSON.parse(re);
-          console.log(echo);
           let data = echo.data;
           let avatarUrl = data.fileUrl
-          console.log(avatarUrl)
           that.setData({
             avatarUrl: avatarUrl,
             hasAvatar: 1
@@ -100,7 +98,6 @@ Page({
       util.showErrorToast('请输入昵称');
       return false;
     }
-    console.log(avatar)
     util.request(api.SaveSettings, {
       name: name,
       mobile: mobile,

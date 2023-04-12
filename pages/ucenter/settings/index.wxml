@@ -5,15 +5,15 @@
   <view class='edit-container'>
     <view class="a-item">
       <image class="icon" src="/images/icon/nick.png"></image>
-      <input type="nickname" class="a-input" bindblur="bindinputNickName" value="{{nickName}}" placeholder="请输入昵称" />
+      <input type="nickname" class="a-input" bindinput="bindinputNickName" bindblur="bindinputNickName" value="{{nickName}}" placeholder="请输入昵称" />
     </view>
     <view class="a-item">
       <image class="icon" src="/images/icon/receiver.png"></image>
-      <input class='a-input' bindblur="bindinputName" placeholder='请输入姓名' value="{{name}}"></input>
+      <input class='a-input' bindinput="bindinputName" bindblur="bindinputName" placeholder='请输入姓名' value="{{name}}"></input>
     </view>
     <view class="a-item">
       <image class="icon" src="/images/icon/mobile.png"></image>
-      <input class='a-input' bindblur="mobilechange" value="{{mobile}}" placeholder='请输入手机'></input>
+      <input class='a-input' bindinput="mobilechange" bindblur="mobilechange" value="{{mobile}}" placeholder='请输入手机'></input>
     </view>
   </view>
   <view class='wrap-btn'>

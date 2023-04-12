@@ -98,11 +98,8 @@ Page({
   getSettingsDetail() {
     let that = this;
     util.request(api.SettingsDetail).then(function (res) {
-      console.log(res)
       if (res.errno === 0) {
         let userInfo = res.data;
-        console.log('userInfo')
-        console.log(userInfo)
         // wx.setStorageSync('userInfo', userInfo);
         that.setData({
           userInfo: userInfo,

@@ -18,8 +18,11 @@ Page({
         imgurl: '',
         sysHeight: 0,
         loading: 0,
-        autoplay:true,
-        showContact:1,
+        autoplay: true,
+        showContact: 1,
+    },
+    onLoad: function (options) {
+        this.getChannelShowInfo();
     },
     onPageScroll: function (e) {
         let scrollTop = e.scrollTop;
@@ -34,9 +37,9 @@ Page({
             })
         }
     },
-    onHide:function(){
+    onHide: function () {
         this.setData({
-            autoplay:false
+            autoplay: false
         })
     },
     goSearch: function () {
@@ -93,9 +96,7 @@ Page({
             }
         });
     },
-    onLoad: function (options) {
-        this.getChannelShowInfo();
-    },
+
     onShow: function () {
         this.getIndexData();
         var that = this;
@@ -109,7 +110,7 @@ Page({
         let sysHeight = info.windowHeight - 100;
         this.setData({
             sysHeight: sysHeight,
-            autoplay:true
+            autoplay: true
         });
         wx.removeStorageSync('categoryId');
     },

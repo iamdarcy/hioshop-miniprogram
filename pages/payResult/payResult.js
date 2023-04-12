@@ -27,13 +27,11 @@ Page({
         wx.requestSubscribeMessage({
             tmplIds: ['w6AMCJ0FI2LqjCjWPIrpnVWTsFgnlNlmCf9TTDmG6_U'],
             success(res) {
-                console.log(res);
                 wx.switchTab({
                     url: '/pages/index/index'
                 });
             },
             fail(err) {
-                console.log(err);
                 wx.switchTab({
                     url: '/pages/index/index'
                 });

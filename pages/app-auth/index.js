@@ -42,7 +42,6 @@ Page({
     let code = '';
     wx.login({
       success: (res) => {
-        console.log(res)
         code = res.code;
       },
     });
@@ -59,7 +58,6 @@ Page({
           rawData: res.rawData,
           signature: res.signature
         };
-        console.log(loginParams);
         that.postLogin(loginParams);
       },
       // 失败回调
@@ -73,14 +71,12 @@ Page({
     util.request(api.AuthLoginByWeixin, {
       info: info
     }, 'POST').then(function (res) {
-      console.log(res);
       if (res.errno === 0) {
         wx.setStorageSync('userInfo', res.data.userInfo);
         wx.setStorageSync('token', res.data.token);
         app.globalData.userInfo = res.data.userInfo;
         app.globalData.token = res.data.token;
         let is_new = res.data.is_new; //服务器返回的数据；
-        console.log(is_new);
         if (is_new == 0) {
           util.showErrorToast('您已经是老用户啦！');
           wx.navigateBack();
