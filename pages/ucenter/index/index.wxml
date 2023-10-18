@@ -105,9 +105,9 @@
     </view>
     <view class="company">
         <view class="c-wrap" bindtap="getOrderInfo">
-            <view class="text">海风小店</view>
+            <view class="text">五金手中宝</view>
             <view class="line"></view>
         </view>
-        <view class="tip">开源微信小程序商城</view>
+        <view class="tip">五金商城</view>
     </view>
 </view>
