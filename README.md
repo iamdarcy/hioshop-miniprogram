@@ -12,9 +12,9 @@
 后台管理：https://www.bilibili.com/video/av89568075
 
 #### 本项目需要配合  
-服务端： https://github.com/iamdarcy/hioshop-server    
-管理后台：https://github.com/iamdarcy/hioshop-admin(electron版)   
-管理后台：https://github.com/iamdarcy/hioshop-admin-web(非electron版)   
+服务端： https://github.com/iamdarcy/hioshop-server   
+electron版管理后台：https://github.com/iamdarcy/hioshop-admin  
+web版管理后台：https://github.com/iamdarcy/hioshop-admin-web  
 线上demo：[https://www.debao.vip/hiolabs  ](https://demo.qilelab.com/hioshop/)  
 用户名：qilelab.com    
 密码：qilelab.com    
