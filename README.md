@@ -13,11 +13,11 @@
 
 #### 本项目需要配合  
 服务端： https://github.com/iamdarcy/hioshop-server  
-管理后台：https://github.com/iamdarcy/hioshop-admin  
-
-线上demo：https://www.debao.vip/hiolabs  
-用户名：hiolabs  
-密码：hiolabs  
+管理后台：https://github.com/iamdarcy/hioshop-admin(electron版) 
+管理后台：https://github.com/iamdarcy/hioshop-admin-web(非electron版) 
+线上demo：[https://www.debao.vip/hiolabs  ](https://demo.qilelab.com/hioshop/)
+用户名：qilelab.com  
+密码：qilelab.com  
 
 <a target="_blank" href="https://www.aliyun.com/?source=5176.11533457&userCode=zm04niet"><img width="1400" src="https://raw.githubusercontent.com/iamdarcy/hiolabs/master/git-images/aliyun.jpg"></a>
 阿里云主机：低至2折 <a target="_blank" href="https://www.aliyun.com/?source=5176.11533457&userCode=zm04niet">立即去看看</a>
