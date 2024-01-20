@@ -42,7 +42,7 @@
         <switch class="switch" checked="{{address.is_default}}" bindchange="switchChange"></switch>
     </view>
     <view class='btn-wrap' bindtap="saveAddress">
-        <view class="btn active}}">保存</view>
+        <view class="btn active">保存</view>
     </view>
     <view class='delete-wrap' wx:if="{{addressId > 0}}" bindtap='deleteAddress'>
         <view class='btn'>删除</view>
